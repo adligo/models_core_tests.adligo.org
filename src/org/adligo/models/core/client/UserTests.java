@@ -51,25 +51,48 @@ public class UserTests extends ATest {
 		assertEquals("uid=scott,dc=adligo,dc=com", result);
 	}
 	
-	public void copyExceptions() throws Exception {
+	public void testMutators() throws Exception {
 		UserMutant mutant = new UserMutant();
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setName");
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setDomain");
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setPassword");
-		ParamterExceptionAsserter.assertInvalidParamterExceptionIntegerMutator(mutant, "setId");
+		ParamterExceptionAsserter.assertInvalidParamterExceptionStorageIdentifierMutator(mutant, "setId");
+		
+		mutant.setDomain("adligo.com");
+		assertEquals("adligo.com", mutant.getDomain());
+		
+		mutant.setPassword("pswd");
+		assertEquals("pswd", mutant.getPassword());
+		
+		mutant.setName("george");
+		assertEquals("george", mutant.getName());
+		
+		StorageIdentifierMutant id = new StorageIdentifierMutant();
+		id.setId(12);
+		mutant.setId(id);
+		assertEquals(id, mutant.getId());
+		
 	}
 	
-	public void copyTest() throws Exception {
+	public void testCopy() throws Exception {
 		UserMutant mutant = new UserMutant();
 		mutant.setDomain("domain");
 		mutant.setName("name");
-		mutant.setId(1);
 		mutant.setPassword("password");
 		
 		User user = new User(mutant);
 		assertEquals("domain", user.getDomain());
 		assertEquals("name", user.getName());
-		assertEquals(new Integer(1), user.getId());
+		assertNull(user.getId());
 		assertEquals("password", user.getPassword());
+		
+		StorageIdentifier id = new StorageIdentifier(1);
+		mutant.setId(id);
+		
+		user = new User(mutant);
+		assertEquals("domain", user.getDomain());
+		assertEquals("name", user.getName());
+		assertEquals("password", user.getPassword());
+		assertEquals(id, user.getId());
 	}
 }
