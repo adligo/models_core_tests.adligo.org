@@ -1,5 +1,11 @@
-package org.adligo.models.core.client;
+package org.adligo.models.core;
 
+import org.adligo.models.core.client.InvalidParameterException;
+import org.adligo.models.core.client.ModelsCoreRegistry;
+import org.adligo.models.core.client.StorageIdentifier;
+import org.adligo.models.core.client.StorageIdentifierMutant;
+import org.adligo.models.core.client.User;
+import org.adligo.models.core.client.UserMutant;
 import org.adligo.tests.ATest;
 
 public class UserTests extends ATest {
