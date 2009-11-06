@@ -4,6 +4,11 @@ import org.adligo.tests.ATest;
 
 public class UserTests extends ATest {
 
+	@Override
+	protected void setUp() throws Exception {
+		super.setUp();
+		ModelsCoreRegistry.init();
+	}
 	
 	public void testUserDomainToDC() {
 		String result = User.toDn("adligo.com");
@@ -56,6 +61,7 @@ public class UserTests extends ATest {
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setName");
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setDomain");
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setPassword");
+		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setEmail");
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStorageIdentifierMutator(mutant, "setId");
 		
 		mutant.setDomain("adligo.com");
@@ -71,7 +77,6 @@ public class UserTests extends ATest {
 		id.setId(12);
 		mutant.setId(id);
 		assertEquals(id, mutant.getId());
-		
 	}
 	
 	public void testCopy() throws Exception {
@@ -79,12 +84,14 @@ public class UserTests extends ATest {
 		mutant.setDomain("domain");
 		mutant.setName("name");
 		mutant.setPassword("password");
+		mutant.setEmail("support@adligo.com");
 		
 		User user = new User(mutant);
 		assertEquals("domain", user.getDomain());
 		assertEquals("name", user.getName());
 		assertNull(user.getId());
 		assertEquals("password", user.getPassword());
+		assertEquals("support@adligo.com", user.getEmail());
 		
 		StorageIdentifier id = new StorageIdentifier(1);
 		mutant.setId(id);
@@ -93,6 +100,9 @@ public class UserTests extends ATest {
 		assertEquals("domain", user.getDomain());
 		assertEquals("name", user.getName());
 		assertEquals("password", user.getPassword());
+		assertEquals("support@adligo.com", user.getEmail());
 		assertEquals(id, user.getId());
 	}
+
+	
 }
