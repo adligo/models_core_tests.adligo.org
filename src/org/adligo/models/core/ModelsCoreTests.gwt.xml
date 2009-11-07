@@ -9,5 +9,9 @@
 	<inherits name="org.adligo.i.adi.Adi"/>
 	<inherits name="org.adligo.tests.Tests" />
 	
+	<public path="public" >
+		<include name="**/*.properties" />
+	</public>
+	
 	<entry-point class="org.adligo.models.core.client.MockModelsEntryPoint"/>
 </module>
