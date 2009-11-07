@@ -1,6 +1,8 @@
 <module>
 	<inherits name="com.google.gwt.user.User"/>
 	<inherits name="com.google.gwt.i18n.I18N"/>
+	<inherits name="com.google.gwt.core.Core"/> 
+	
 	<inherits name="org.adligo.i.util.I_Util"/>
 	<inherits name="org.adligo.gwt.util.GwtUtil"/>
 	<inherits name="org.adligo.i.log.I_Log"/>
@@ -9,8 +11,16 @@
 	<inherits name="org.adligo.tests.Tests" />
 	
 	<public path="public" >
-		<include name="**/*.properties" />
+		<include name="*.properties" />
 	</public>
+	<generate-with class="org.adligo.tests.PropertyMapGenerator" >
+        <when-type-assignable class="org.adligo.tests.client.PropertyMap"/>
+    </generate-with> 
+    
+	<!-- French language, independent of country -->
+    <extend-property name="locale" values="fr"/>
 	
+	
+	<set-property name="locale" value="fr" /> 
 	<entry-point class="org.adligo.models.core.client.MockModelsEntryPoint"/>
 </module>

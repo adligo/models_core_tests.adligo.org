@@ -16,19 +16,7 @@ public class UserTests extends ATest {
 		ModelsCoreRegistry.init();
 	}
 	
-	public void testUserDomainToDC() {
-		String result = User.toDn("adligo.com");
-		assertEquals("dc=adligo,dc=com", result);
-		
-		result = User.toDn(null);
-		assertNull(result);
-		
-		result = User.toDn("");
-		assertEquals("dc=", result);
-		
-		result = User.toDn("foo");
-		assertEquals("dc=foo",result);
-	}
+
 	
 	public void testgetDC() throws Exception {
 		UserMutant mutant = new UserMutant();
@@ -80,7 +68,7 @@ public class UserTests extends ATest {
 		assertEquals("george", mutant.getName());
 		
 		StorageIdentifierMutant id = new StorageIdentifierMutant();
-		id.setId(12);
+		id.setId((long) 12);
 		mutant.setId(id);
 		assertEquals(id, mutant.getId());
 	}
@@ -99,7 +87,7 @@ public class UserTests extends ATest {
 		assertEquals("password", user.getPassword());
 		assertEquals("support@adligo.com", user.getEmail());
 		
-		StorageIdentifier id = new StorageIdentifier(1);
+		StorageIdentifier id = new StorageIdentifier((long) 1);
 		mutant.setId(id);
 		
 		user = new User(mutant);

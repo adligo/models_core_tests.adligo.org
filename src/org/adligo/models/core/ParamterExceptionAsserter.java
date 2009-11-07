@@ -10,6 +10,8 @@ import org.adligo.tests.ATest;
 
 public class ParamterExceptionAsserter {
 
+
+	
 	@SuppressWarnings("unchecked")
 	public static void assertInvalidParamterExceptionStringMutator(Object obj, String methodName) throws Exception {
 		InvalidParameterException x = null;
@@ -34,7 +36,7 @@ public class ParamterExceptionAsserter {
 		ATest.assertEquals(methodName, x.getMethodName());
 	}
 
-	private static InvalidParameterException isIPE(Exception g) {
+	public static InvalidParameterException isIPE(Exception g) {
 		if (g instanceof InvalidParameterException) {
 			return (InvalidParameterException) g;
 		} else if (g instanceof InvocationTargetException ) {
@@ -62,6 +64,21 @@ public class ParamterExceptionAsserter {
 		ATest.assertEquals(methodName, x.getMethodName());
 	}
 
+	@SuppressWarnings("unchecked")
+	public static void assertInvalidParamterExceptionLongMutator(Object obj, String methodName) throws Exception {
+		InvalidParameterException x = null;
+		Class clazz = obj.getClass();
+		Method method = clazz.getDeclaredMethod(methodName,new Class[] {Long.class});
+		
+		try {
+			method.invoke(obj, new Object[] {null});
+		} catch (Exception g) {
+			x = isIPE(g);
+		}
+		ATest.assertNotNull(x);
+		ATest.assertEquals(methodName, x.getMethodName());
+	}
+	
 	@SuppressWarnings("unchecked")
 	public static void assertInvalidParamterExceptionStorageIdentifierMutator(Object obj, String methodName) throws Exception {
 		InvalidParameterException x = null;
