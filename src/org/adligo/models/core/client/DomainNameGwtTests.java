@@ -1,9 +1,22 @@
 package org.adligo.models.core.client;
 
 import org.adligo.models.core.client.english.DomainValidationConstants;
+import org.adligo.tests.client.AGwtTest;
 
 
-public class DomainNameGwtTests extends ModelsCoreGwtBaseTest {
+public class DomainNameGwtTests extends AGwtTest {
+	
+	@Override
+	public String getModuleName() {
+		return ModelsCoreGwtTestSetup.ENGLISH_MODULE_NAME;
+	}
+	
+	@Override
+	protected void gwtSetUp() throws Exception {
+		// TODO Auto-generated method stub
+		super.gwtSetUp();
+		ModelsCoreGwtTestSetup.init();
+	}
 	
 	public void testValidationClassAndPropertyFileMatch() throws Exception {
 		assertPropertyFile("");
