@@ -1,7 +1,7 @@
 package org.adligo.models.core;
 
 import org.adligo.models.core.client.DomainName;
-import org.adligo.models.core.client.DomainNameGwtTests;
+import org.adligo.models.core.client.DomainNameAssertions;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreRegistry;
@@ -22,21 +22,21 @@ public class DomainTests extends ATest {
 	
 	public void testValidate() throws Exception {
 		
-		DomainNameGwtTests.assertInvalidDomainParamterException(null,
+		DomainNameAssertions.assertInvalidDomainParamterException(this,null,
 				DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
-		DomainNameGwtTests.assertInvalidDomainParamterException("",
+		DomainNameAssertions.assertInvalidDomainParamterException(this,"",
 				DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
-		DomainNameGwtTests.assertInvalidDomainParamterException("a.b",
+		DomainNameAssertions.assertInvalidDomainParamterException(this,"a.b",
 				DomainValidationConstants.DOMAIN_TO_SHORT);
-		DomainNameGwtTests.assertInvalidDomainParamterException(".abc",
+		DomainNameAssertions.assertInvalidDomainParamterException(this,".abc",
 				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_FIRST_CHARACTER);
-		DomainNameGwtTests.assertInvalidDomainParamterException("abc.",
+		DomainNameAssertions.assertInvalidDomainParamterException(this,"abc.",
 				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_LAST_CHARACTER);
-		DomainNameGwtTests.assertInvalidDomainParamterException("ab .",
+		DomainNameAssertions.assertInvalidDomainParamterException(this,"ab .",
 				DomainValidationConstants.DOMAIN_MAY_NOT_CONTAIN_A_SPACE);
-		DomainNameGwtTests.assertInvalidDomainParamterException("a..b",
+		DomainNameAssertions.assertInvalidDomainParamterException(this,"a..b",
 				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
-		DomainNameGwtTests.assertInvalidDomainParamterException("a.b..com",
+		DomainNameAssertions.assertInvalidDomainParamterException(this, "a.b..com",
 				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
 		
 		DomainName.validate("adligo.com");
