@@ -1,8 +1,6 @@
 package org.adligo.models.core;
 
 import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.NamedId;
-import org.adligo.models.core.client.NamedIdMutant;
 import org.adligo.models.core.client.StorageIdentifier;
 import org.adligo.models.core.client.StorageIdentifierMutant;
 import org.adligo.tests.ATest;
@@ -136,12 +134,11 @@ public class StorageIdentifierTests extends ATest {
 	}
 	
 	public void testSubClass() throws Exception {
-		StorageIdentifierSubclass subclass = null;
 		StorageIdentifierMutant mutant = new StorageIdentifierMutant();
 		
 		InvalidParameterException exception = null;
 		try {
-			subclass = new StorageIdentifierSubclass(mutant);
+			new StorageIdentifierSubclass(mutant);
 		} catch (InvalidParameterException x) {
 			exception = x;
 		}
@@ -152,7 +149,7 @@ public class StorageIdentifierTests extends ATest {
 		exception = null;
 		mutant.setId((long) 4);
 		try {
-			subclass = new StorageIdentifierSubclass(mutant);
+			new StorageIdentifierSubclass(mutant);
 		} catch (InvalidParameterException x) {
 			exception = x;
 		}
@@ -164,7 +161,7 @@ public class StorageIdentifierTests extends ATest {
 		mutant = new StorageIdentifierMutant();
 		mutant.setKey("mydn");
 		try {
-			subclass = new StorageIdentifierSubclass(mutant);
+			new StorageIdentifierSubclass(mutant);
 		} catch (InvalidParameterException x) {
 			exception = x;
 		}

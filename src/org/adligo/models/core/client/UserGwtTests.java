@@ -1,32 +1,12 @@
 package org.adligo.models.core.client;
 
-import org.adligo.models.core.client.ConstantsFactory;
-import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.i18n.I_UserValidationConstants;
-import org.adligo.tests.client.AGwtTest;
 
 import com.google.gwt.core.client.GWT;
 
-public class UserGwtTests extends AGwtTest {
+public class UserGwtTests extends FrModelsCoreGwtBaseTest {
 
-	@Override
-	public String getModuleName() {
-		return "org.adligo.models.core.ModelsCoreTests";
-	}
 
-	@Override
-	protected void gwtSetUp() throws Exception {
-		System.out.println("UserGwtTests.gwtSetUp ");
-		// TODO Auto-generated method stub
-		super.gwtSetUp();
-		
-		I_GwtUserValidationConstants type = (I_GwtUserValidationConstants) 
-			GWT.create(I_GwtUserValidationConstants.class);
-		System.out.println("type is " + type);
-		ConstantsFactory.INSTANCE.put(I_UserValidationConstants.class, type);
-		ModelsCoreRegistry.init();
-	}
 
 	
 	public void testErrorStrings() {

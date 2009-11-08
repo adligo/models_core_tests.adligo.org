@@ -1,5 +1,7 @@
 package org.adligo.models.core.client;
 
+import org.adligo.models.core.client.i18n.I_GwtUserValidationConstants;
+
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.client.GWT;
 

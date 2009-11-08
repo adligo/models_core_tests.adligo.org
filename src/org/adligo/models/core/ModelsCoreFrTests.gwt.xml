@@ -16,5 +16,10 @@
         <when-type-assignable class="org.adligo.tests.client.PropertyMap"/>
     </generate-with> 
     
+	<!-- French language, independent of country -->
+    <extend-property name="locale" values="fr"/>
+	
+	
+	<set-property name="locale" value="fr" /> 
 	<entry-point class="org.adligo.models.core.client.MockModelsEntryPoint"/>
 </module>

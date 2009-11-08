@@ -3,6 +3,7 @@ package org.adligo.models.core;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.StorageIdentifier;
 import org.adligo.models.core.client.StorageIdentifierMutant;
@@ -21,7 +22,7 @@ public class ParamterExceptionAsserter {
 		try {
 			method.invoke(obj, new Object[] {null});
 		} catch (Exception g) {
-			x = isIPE(g);
+			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		ATest.assertNotNull(x);
 		ATest.assertEquals(methodName, x.getMethodName());
@@ -30,24 +31,12 @@ public class ParamterExceptionAsserter {
 		try {
 			method.invoke(obj, "");
 		} catch (Exception g) {
-			x = isIPE(g);
+			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		ATest.assertNotNull(x);
 		ATest.assertEquals(methodName, x.getMethodName());
 	}
 
-	public static InvalidParameterException isIPE(Exception g) {
-		if (g instanceof InvalidParameterException) {
-			return (InvalidParameterException) g;
-		} else if (g instanceof InvocationTargetException ) {
-			InvocationTargetException te = (InvocationTargetException) g;
-			Throwable t = te.getCause();
-			if (t instanceof InvalidParameterException) {
-				return (InvalidParameterException) t;
-			}
-		}
-		return null;
-	}
 	
 	@SuppressWarnings("unchecked")
 	public static void assertInvalidParamterExceptionIntegerMutator(Object obj, String methodName) throws Exception {
@@ -58,7 +47,7 @@ public class ParamterExceptionAsserter {
 		try {
 			method.invoke(obj, new Object[] {null});
 		} catch (Exception g) {
-			x = isIPE(g);
+			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		ATest.assertNotNull(x);
 		ATest.assertEquals(methodName, x.getMethodName());
@@ -73,7 +62,7 @@ public class ParamterExceptionAsserter {
 		try {
 			method.invoke(obj, new Object[] {null});
 		} catch (Exception g) {
-			x = isIPE(g);
+			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		ATest.assertNotNull(x);
 		ATest.assertEquals(methodName, x.getMethodName());
@@ -88,7 +77,7 @@ public class ParamterExceptionAsserter {
 		try {
 			method.invoke(obj, new Object[] {null});
 		} catch (Exception g) {
-			x = isIPE(g);
+			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		ATest.assertNotNull(x);
 		ATest.assertEquals(methodName, x.getMethodName());
@@ -97,7 +86,7 @@ public class ParamterExceptionAsserter {
 		try {
 			method.invoke(obj, new Object[] {new StorageIdentifierMutant()});
 		} catch (Exception g) {
-			x = isIPE(g);
+			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		ATest.assertNotNull(x);
 		ATest.assertEquals(methodName, x.getMethodName());
