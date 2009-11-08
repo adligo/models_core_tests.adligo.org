@@ -10,12 +10,12 @@ public class FrDomainNameGwtTests extends AGwtTest {
 	protected void gwtSetUp() throws Exception {
 		// TODO Auto-generated method stub
 		super.gwtSetUp();
-		ModelsCoreGwtTestSetup.init();
+		ModelsCoreTestGwtSetup.init();
 	}
 	
 	@Override
 	public String getModuleName() {
-		return ModelsCoreGwtTestSetup.FRENCH_MODULE_NAME;
+		return ModelsCoreTestGwtSetup.FRENCH_MODULE_NAME;
 	}
 	
 	public void testFrenchProperyFile() throws Exception {

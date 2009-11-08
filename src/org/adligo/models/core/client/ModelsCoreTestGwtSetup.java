@@ -7,17 +7,21 @@ import org.adligo.models.core.client.i18n.I_UserValidationConstants;
 
 import com.google.gwt.core.client.GWT;
 
-public class ModelsCoreGwtTestSetup {
+public class ModelsCoreTestGwtSetup {
 	public static final String ENGLISH_MODULE_NAME = "org.adligo.models.core.ModelsCoreTests";
 	public static final String FRENCH_MODULE_NAME = "org.adligo.models.core.ModelsCoreFrTests";
+	private static boolean isInit = false;
 	
 	public static void init() {
-		ConstantsFactory.INSTANCE.put(I_DomainNameValidationConstants.class, 
-				GWT.create(I_GwtDomainNameValidationConstants.class));
-		//set up adi code for GWT
-		I_GwtUserValidationConstants type = (I_GwtUserValidationConstants) 
-			GWT.create(I_GwtUserValidationConstants.class);
-		ConstantsFactory.INSTANCE.put(I_UserValidationConstants.class, type);
-		ModelsCoreRegistry.init();
+		if (!isInit) {
+			isInit = true;
+			ConstantsFactory.INSTANCE.put(I_DomainNameValidationConstants.class, 
+					GWT.create(I_GwtDomainNameValidationConstants.class));
+			//set up adi code for GWT
+			I_GwtUserValidationConstants type = (I_GwtUserValidationConstants) 
+				GWT.create(I_GwtUserValidationConstants.class);
+			ConstantsFactory.INSTANCE.put(I_UserValidationConstants.class, type);
+			ModelsCoreRegistry.init();
+		}
 	}
 }

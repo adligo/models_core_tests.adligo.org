@@ -20,13 +20,13 @@ public class UserGwtTests extends AGwtTest {
 
 	@Override
 	public String getModuleName() {
-		return ModelsCoreGwtTestSetup.ENGLISH_MODULE_NAME;
+		return ModelsCoreTestGwtSetup.ENGLISH_MODULE_NAME;
 	}
 	
 	@Override
 	protected void gwtSetUp() throws Exception {
 		// TODO Auto-generated method stub
 		super.gwtSetUp();
-		ModelsCoreGwtTestSetup.init();
+		ModelsCoreTestGwtSetup.init();
 	}
 }
