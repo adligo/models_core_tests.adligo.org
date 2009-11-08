@@ -6,6 +6,7 @@ import org.adligo.models.core.client.StorageIdentifier;
 import org.adligo.models.core.client.StorageIdentifierMutant;
 import org.adligo.models.core.client.User;
 import org.adligo.models.core.client.UserMutant;
+import org.adligo.models.core.client.english.EnglishConstantsFactory;
 import org.adligo.tests.ATest;
 
 public class UserTests extends ATest {
@@ -14,6 +15,7 @@ public class UserTests extends ATest {
 	protected void setUp() throws Exception {
 		super.setUp();
 		ModelsCoreRegistry.init();
+		new EnglishConstantsFactory();
 	}
 	
 
