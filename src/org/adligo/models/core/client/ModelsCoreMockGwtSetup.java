@@ -7,7 +7,7 @@ import org.adligo.models.core.client.i18n.I_UserValidationConstants;
 
 import com.google.gwt.core.client.GWT;
 
-public class ModelsCoreTestGwtSetup {
+public class ModelsCoreMockGwtSetup {
 	public static final String ENGLISH_MODULE_NAME = "org.adligo.models.core.ModelsCoreTests";
 	public static final String FRENCH_MODULE_NAME = "org.adligo.models.core.ModelsCoreFrTests";
 	private static boolean isInit = false;
