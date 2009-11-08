@@ -41,6 +41,7 @@ public class DomainTests extends ATest {
 		
 		DomainName.validate("adligo.com");
 		DomainName.validate("adligo.org");
+	
 	}
 	
 	public void testStringConstructor() throws Exception {
@@ -75,6 +76,10 @@ public class DomainTests extends ATest {
 		DomainName com3 = new DomainName(com);
 		assertEquals(com, com2);
 		assertEquals(com, com3);
+		
+		//assert to strings
+		assertEquals("adligo.com", com.toString());
+		assertEquals("adligo.org", org.toString());
 		
 		assertNotSame(com, org);
 		assertNotSame(com2, org);

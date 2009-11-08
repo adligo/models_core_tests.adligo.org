@@ -1,5 +1,6 @@
 package org.adligo.models.core;
 
+import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.StorageIdentifier;
@@ -61,7 +62,7 @@ public class UserTests extends ATest {
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStorageIdentifierMutator(mutant, "setId");
 		
 		mutant.setDomain("adligo.com");
-		assertEquals("adligo.com", mutant.getDomain());
+		assertEquals(new DomainName("adligo.com"), mutant.getDomain());
 		
 		mutant.setPassword("pswd");
 		assertEquals("pswd", mutant.getPassword());
@@ -77,13 +78,13 @@ public class UserTests extends ATest {
 	
 	public void testCopy() throws Exception {
 		UserMutant mutant = new UserMutant();
-		mutant.setDomain("domain");
+		mutant.setDomain("domain.com");
 		mutant.setName("name");
 		mutant.setPassword("password");
 		mutant.setEmail("support@adligo.com");
 		
 		User user = new User(mutant);
-		assertEquals("domain", user.getDomain());
+		assertEquals(new DomainName("domain.com"), user.getDomain());
 		assertEquals("name", user.getName());
 		assertNull(user.getId());
 		assertEquals("password", user.getPassword());
@@ -93,7 +94,7 @@ public class UserTests extends ATest {
 		mutant.setId(id);
 		
 		user = new User(mutant);
-		assertEquals("domain", user.getDomain());
+		assertEquals(new DomainName("domain.com"), user.getDomain());
 		assertEquals("name", user.getName());
 		assertEquals("password", user.getPassword());
 		assertEquals("support@adligo.com", user.getEmail());
