@@ -15,5 +15,4 @@
         <when-type-assignable class="org.adligo.tests.client.PropertyMap"/>
     </generate-with> 
     
-	<entry-point class="org.adligo.models.core.client.MockModelsEntryPoint"/>
 </module>

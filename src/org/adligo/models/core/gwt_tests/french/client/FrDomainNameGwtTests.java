@@ -2,6 +2,7 @@ package org.adligo.models.core.gwt_tests.french.client;
 
 import org.adligo.models.core.client.DomainNameAssertions;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
+import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.tests.client.AGwtTest;
 
 
@@ -12,6 +13,7 @@ public class FrDomainNameGwtTests extends AGwtTest {
 	protected void gwtSetUp() throws Exception {
 		// TODO Auto-generated method stub
 		super.gwtSetUp();
+		ModelsCoreRegistry.init();
 		ModelsCoreMockGwtSetup.init();
 	}
 	
