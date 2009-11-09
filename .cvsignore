@@ -5,3 +5,4 @@ www-test
 gwt_test_output
 tomcat
 .gwt-tmp
+test_failure.properties

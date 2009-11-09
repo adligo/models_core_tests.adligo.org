@@ -1,0 +1,15 @@
+<module>
+	<inherits name="com.google.gwt.user.User"/>
+	<inherits name="com.google.gwt.i18n.I18N"/>
+	<inherits name='com.google.gwt.junit.JUnit'/> 
+	
+	<inherits name="org.adligo.i.util.I_Util"/>
+	<inherits name="org.adligo.i.util.I_UtilTestModule"/>
+	<inherits name="org.adligo.gwt.util.GwtUtil"/>
+	<inherits name="org.adligo.i.log.I_Log"/>
+	<inherits name="org.adligo.models.core.Models_Core"/>
+	<inherits name="org.adligo.i.adi.Adi"/>
+	<inherits name="org.adligo.tests.Tests" />
+	
+	<entry-point class="org.adligo.models.core.gwt.client.MockModelsEntryPoint"/>
+</module>
