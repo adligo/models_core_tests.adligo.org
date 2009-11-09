@@ -1,5 +1,6 @@
 package org.adligo.models.core.gwt_tests.english.client;
 
+import org.adligo.models.core.client.DomainNameAssertions;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
 import org.adligo.tests.client.AGwtTest;
 
@@ -11,8 +12,8 @@ public class EMailGwtTests extends AGwtTest {
 	}
 	
 	
-	public void testNothing() {
-		//todo
+	public void testStringConstructorAndValidateVsPropertyfile() throws Exception {
+		DomainNameAssertions.assertInvalidParameterExceptions("", this);
 	}
 
 

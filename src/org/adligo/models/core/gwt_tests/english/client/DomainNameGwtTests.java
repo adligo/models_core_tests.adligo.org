@@ -24,7 +24,7 @@ public class DomainNameGwtTests extends AGwtTest {
 	}
 	
 	public void testValidationClassAndPropertyFileMatch() throws Exception {
-		DomainNameAssertions.assertPropertyFile("", this);
+		DomainNameAssertions.assertInvalidParameterExceptions("", this);
 	}
 
 

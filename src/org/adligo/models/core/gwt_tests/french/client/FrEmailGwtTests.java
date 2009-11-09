@@ -1,13 +1,12 @@
 package org.adligo.models.core.gwt_tests.french.client;
 
 import org.adligo.models.core.client.DomainNameAssertions;
+import org.adligo.models.core.client.EmailAssertions;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
 import org.adligo.tests.client.AGwtTest;
 
+public class FrEmailGwtTests extends AGwtTest {
 
-
-public class FrDomainNameGwtTests extends AGwtTest {
-	
 	@Override
 	protected void gwtSetUp() throws Exception {
 		// TODO Auto-generated method stub
@@ -21,6 +20,6 @@ public class FrDomainNameGwtTests extends AGwtTest {
 	}
 	
 	public void testFrenchProperyFile() throws Exception {
-		DomainNameAssertions.assertInvalidParameterExceptions("fr ", this);
+		EmailAssertions.assertInvalidParameterExceptions("fr ", this);
 	}
 }

@@ -21,23 +21,7 @@ public class DomainTests extends ATest {
 	}
 	
 	public void testValidate() throws Exception {
-		
-		DomainNameAssertions.assertInvalidDomainParamterException(this,null,
-				DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
-		DomainNameAssertions.assertInvalidDomainParamterException(this,"",
-				DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
-		DomainNameAssertions.assertInvalidDomainParamterException(this,"a.b",
-				DomainValidationConstants.DOMAIN_TO_SHORT);
-		DomainNameAssertions.assertInvalidDomainParamterException(this,".abc",
-				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_FIRST_CHARACTER);
-		DomainNameAssertions.assertInvalidDomainParamterException(this,"abc.",
-				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_LAST_CHARACTER);
-		DomainNameAssertions.assertInvalidDomainParamterException(this,"ab .",
-				DomainValidationConstants.DOMAIN_MAY_NOT_CONTAIN_A_SPACE);
-		DomainNameAssertions.assertInvalidDomainParamterException(this,"a..b",
-				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
-		DomainNameAssertions.assertInvalidDomainParamterException(this, "a.b..com",
-				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
+		DomainNameAssertions.assertInvalidParameterExceptions("", this);
 		
 		DomainName.validate("adligo.com");
 		DomainName.validate("adligo.org");

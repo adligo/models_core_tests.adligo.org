@@ -5,7 +5,7 @@ import org.adligo.tests.client.I_Test;
 
 public class DomainNameAssertions  {
 
-	public static void assertPropertyFile(String pre, I_Test test) throws Exception {
+	public static void assertInvalidParameterExceptions(String pre, I_Test test) throws Exception {
 		assertInvalidDomainParamterException(test, null,
 				pre+ DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
 		assertInvalidDomainParamterException(test,"",

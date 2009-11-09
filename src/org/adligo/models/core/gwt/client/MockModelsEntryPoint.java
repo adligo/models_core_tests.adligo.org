@@ -57,13 +57,18 @@ public class MockModelsEntryPoint implements EntryPoint{
 		if (view != null) {
 			// TODO Auto-generated method stub
 			RootPanel.get().add(view);
+			try {
+				GwtPlatform.init();
+				GwtLogFactory.init();
+				ModelsCoreRegistry.init();
+				new EnglishConstantsFactory();
+			} catch (Exception x) {
+				x.printStackTrace();
+			}
 		}
 		try {
 			
-			GwtPlatform.init();
-			GwtLogFactory.init();
-			ModelsCoreRegistry.init();
-			new EnglishConstantsFactory();
+			
 			
 			holder.addUsed(new Address());
 			holder.addUsed(new AddressMutant());
