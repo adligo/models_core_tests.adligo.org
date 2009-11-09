@@ -1,9 +1,9 @@
 package org.adligo.models.core.client;
 
-import org.adligo.models.core.client.InvalidParameterException;
+import org.adligo.tests.client.AGwtTest;
 
 
-public class GwtParameterExceptionAsserter {
+public class GwtParameterExceptionAsserter extends AGwtTest {
 
 	public static InvalidParameterException isIPE(Exception g) {
 		if (g instanceof InvalidParameterException) {
@@ -14,6 +14,8 @@ public class GwtParameterExceptionAsserter {
 				return (InvalidParameterException) t;
 			}
 		}
+		g.printStackTrace();
+		assertTrue("Exception " + g + " is not a InvalidParameterException see log" ,false);
 		return null;
 	}
 }
