@@ -8,6 +8,7 @@ import org.adligo.i.log.client.LogFactory;
 import org.adligo.i.util.GwtCompileUsedAllClassesAsserter;
 import org.adligo.i.util.client.ClassUtils;
 import org.adligo.models.core.client.DomainNameAssertions;
+import org.adligo.models.core.client.EmailAssertions;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
 import org.adligo.models.core.client.ModelsCoreRegistry;
@@ -29,10 +30,12 @@ public class ModelsCoreGwtCompileUsedAllClassesAsserter  extends ATest {
 		Set<String> ignore = new HashSet<String>();
 		//ignore from this project 
 		ignore.add(ClassUtils.getClassName(DomainNameAssertions.class));
+		ignore.add(ClassUtils.getClassName(EmailAssertions.class));
 		ignore.add(ClassUtils.getClassName(GwtParameterExceptionAsserter.class));
 		ignore.add(ClassUtils.getClassName(ModelsCoreMockGwtSetup.class));
 		ignore.add(ClassUtils.getClassName(I_GwtDomainNameValidationConstants.class));
 		ignore.add(ClassUtils.getClassName(I_GwtUserValidationConstants.class));
+		ignore.add(ClassUtils.getClassName(I_GwtEmailValidationConstants.class));
 		//ignore from the models_core_relations project
 		ignore.add(ClassUtils.getClassName(I_GwtDomainNameValidationConstants.class));
 		ignore.add(ClassUtils.getClassName(I_GwtEmailValidationConstants.class));

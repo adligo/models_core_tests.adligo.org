@@ -30,6 +30,7 @@ import org.adligo.models.core.client.StorageIdentifierMutant;
 import org.adligo.models.core.client.User;
 import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.english.DomainValidationConstants;
+import org.adligo.models.core.client.english.EmailValidationConstants;
 import org.adligo.models.core.client.english.EnglishConstantsFactory;
 import org.adligo.models.core.client.english.UserValidationConstants;
 import org.adligo.models.core.client.i18n.I_DomainNameValidationConstants;
@@ -97,6 +98,7 @@ public class MockModelsEntryPoint implements EntryPoint{
 			holder.addUsed(new UserMutant());
 			
 			holder.addUsed(new DomainValidationConstants());
+			holder.addUsed(new EmailValidationConstants());
 			holder.addUsed(EnglishConstantsFactory.class);
 			holder.addUsed(new UserValidationConstants());
 			
