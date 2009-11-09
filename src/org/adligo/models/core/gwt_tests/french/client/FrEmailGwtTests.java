@@ -1,6 +1,5 @@
 package org.adligo.models.core.gwt_tests.french.client;
 
-import org.adligo.models.core.client.DomainNameAssertions;
 import org.adligo.models.core.client.EmailAssertions;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
 import org.adligo.tests.client.AGwtTest;
