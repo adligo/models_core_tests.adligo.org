@@ -2,10 +2,12 @@ package org.adligo.models.core;
 
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.DomainNameAssertions;
+import org.adligo.models.core.client.EMail;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.english.DomainValidationConstants;
+import org.adligo.models.core.client.english.EmailValidationConstants;
 import org.adligo.models.core.client.english.EnglishConstantsFactory;
 import org.adligo.tests.ATest;
 
@@ -25,6 +27,17 @@ public class DomainTests extends ATest {
 		
 		DomainName.validate("adligo.com");
 		DomainName.validate("adligo.org");
+		
+		
+		InvalidParameterException x = null;
+		try {
+			new DomainName(new DomainName());
+		} catch (Exception g) {
+			x = GwtParameterExceptionAsserter.isIPE(g);
+		}
+		assertIsNotNull(x);
+		assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
+		assertIsEquals(DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
 	
 	}
 	

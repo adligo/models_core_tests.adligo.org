@@ -80,4 +80,19 @@ public class NameIdTests extends ATest {
 			
 			
 	}
+	
+	public void testEquals() throws Exception {
+		NamedId a = new NamedId();
+		NamedIdMutant b = new NamedIdMutant();
+		
+		assertEquals(a, b);
+		b.setName("some_name");
+		a = new NamedId(b);
+		assertEquals(a, b);
+		
+		b.setId(new StorageIdentifier((long) 1));
+		a = new NamedId(a);
+		assertEquals(a, b);
+		
+	}
 }

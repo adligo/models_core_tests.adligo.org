@@ -1,5 +1,6 @@
 package org.adligo.models.core;
 
+import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.StorageIdentifier;
 import org.adligo.models.core.client.StorageIdentifierMutant;
@@ -171,5 +172,25 @@ public class StorageIdentifierTests extends ATest {
 		
 		StorageIdentifier id = new StorageIdentifier(mutant);
 		id = new StorageIdentifierSubclass(id);
+	}
+	
+	public void testEquals() throws Exception {
+		StorageIdentifier a = new StorageIdentifier();
+		StorageIdentifierMutant b = new StorageIdentifierMutant();
+		
+		assertEquals(a, b);
+		b.setId((long) 1);
+		a = new StorageIdentifier(b);
+		assertEquals(a, b);
+		
+		b = new StorageIdentifierMutant();
+		b.setKey("some_key");
+		
+		a = new StorageIdentifier(b);
+		assertEquals(a, b);
+	}
+	
+	public void testIsSeralizable() throws Exception {
+		IsGwtRpcSerializable.isRpcSerializable(StorageIdentifier.class);
 	}
 }

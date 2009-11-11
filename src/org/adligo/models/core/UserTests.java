@@ -1,6 +1,7 @@
 package org.adligo.models.core;
 
 import org.adligo.models.core.client.DomainName;
+import org.adligo.models.core.client.EMail;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.StorageIdentifier;
@@ -56,13 +57,15 @@ public class UserTests extends ATest {
 	public void testMutators() throws Exception {
 		UserMutant mutant = new UserMutant();
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setName");
-		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setDomain");
+		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, UserMutant.SET_DOMAIN);
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setPassword");
-		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setEmail");
+		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, UserMutant.SET_EMAIL);
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStorageIdentifierMutator(mutant, "setId");
 		
 		mutant.setDomain("adligo.com");
-		assertEquals(new DomainName("adligo.com"), mutant.getDomain());
+		DomainName name = new DomainName("adligo.com");
+		boolean equal = name.equals(mutant.getDomain());
+		assertTrue(equal);
 		
 		mutant.setPassword("pswd");
 		assertEquals("pswd", mutant.getPassword());
@@ -88,7 +91,7 @@ public class UserTests extends ATest {
 		assertEquals("name", user.getName());
 		assertNull(user.getId());
 		assertEquals("password", user.getPassword());
-		assertEquals("support@adligo.com", user.getEmail());
+		assertEquals(new EMail("support@adligo.com"), user.getEmail());
 		
 		StorageIdentifier id = new StorageIdentifier((long) 1);
 		mutant.setId(id);
@@ -97,7 +100,7 @@ public class UserTests extends ATest {
 		assertEquals(new DomainName("domain.com"), user.getDomain());
 		assertEquals("name", user.getName());
 		assertEquals("password", user.getPassword());
-		assertEquals("support@adligo.com", user.getEmail());
+		assertEquals(new EMail("support@adligo.com"), user.getEmail());
 		assertEquals(id, user.getId());
 	}
 
