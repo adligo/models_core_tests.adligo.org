@@ -1,0 +1,46 @@
+package org.adligo.models.core;
+
+import org.adligo.models.core.client.ModelsCoreRegistry;
+import org.adligo.models.core.client.PersonAssertions;
+import org.adligo.models.core.client.PersonMutant;
+import org.adligo.models.core.client.english.EnglishConstantsFactory;
+import org.adligo.tests.ATest;
+
+public class PersonTests extends ATest {
+
+	@Override
+	protected void setUp() throws Exception {
+		super.setUp();
+		ModelsCoreRegistry.init();
+		new EnglishConstantsFactory();
+	}
+	
+	public void testMutators() throws Exception {
+		PersonAssertions.assertMutators(this, "");
+	}
+	
+	public void testConstructors() throws Exception {
+		PersonAssertions.assertConstructors(this, "");
+	}
+	
+	public void testGetName() throws Exception {
+		PersonMutant mutant = new PersonMutant();
+		assertEquals("", mutant.getName());
+		mutant.setLast_name("lname");
+		assertEquals("lname", mutant.getName());
+		
+		mutant.setMiddle_name("mname");
+		assertEquals("mname lname", mutant.getName());
+		
+		mutant.setFirst_name("fname");
+		assertEquals("fname mname lname", mutant.getName());
+		
+		mutant = new PersonMutant();
+		mutant.setFirst_name("fname");
+		assertEquals("fname", mutant.getName());
+		
+		mutant = new PersonMutant();
+		mutant.setMiddle_name("mname");
+		assertEquals("mname", mutant.getName());
+	}
+}

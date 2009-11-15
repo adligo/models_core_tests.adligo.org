@@ -22,6 +22,28 @@ public class DomainNameAssertions  {
 				pre+ DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
 		assertInvalidDomainParamterException(test,"a.b..com",
 				pre+ DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
+		
+		
+		InvalidParameterException x = null;
+		
+		try {
+			new DomainName((DomainName) null);
+		} catch (Exception g) {
+			x = GwtParameterExceptionAsserter.isIPE(g);
+		}
+		test.assertIsNotNull(x);
+		test.assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
+		test.assertIsEquals( pre+ DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
+		
+		x = null;
+		try {
+			new DomainName((String) null);
+		} catch (Exception g) {
+			x = GwtParameterExceptionAsserter.isIPE(g);
+		}
+		test.assertIsNotNull(x);
+		test.assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
+		test.assertIsEquals(pre+ DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
 	}
 	
 	@SuppressWarnings("static-access")

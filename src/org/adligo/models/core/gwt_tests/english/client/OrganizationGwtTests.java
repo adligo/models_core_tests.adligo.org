@@ -2,18 +2,10 @@ package org.adligo.models.core.gwt_tests.english.client;
 
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
 import org.adligo.models.core.client.ModelsCoreRegistry;
-import org.adligo.models.core.client.UserAssertions;
-import org.adligo.models.core.client.UserMutant;
+import org.adligo.models.core.client.OrganizationAssertions;
 import org.adligo.tests.client.AGwtTest;
 
-public class UserGwtTests extends AGwtTest {
-
-	public void testErrorStrings() throws Exception {
-		UserAssertions.assertMutators(this, "");
-		UserAssertions.assertConstructors(this, "");
-	}
-
-
+public class OrganizationGwtTests extends AGwtTest {
 	@Override
 	public String getModuleName() {
 		return ModelsCoreMockGwtSetup.ENGLISH_MODULE_NAME;
@@ -25,5 +17,10 @@ public class UserGwtTests extends AGwtTest {
 		super.gwtSetUp();
 		ModelsCoreRegistry.init();
 		ModelsCoreMockGwtSetup.init();
+	}
+	
+	public void testValidationClassAndPropertyFileMatch() throws Exception {
+		OrganizationAssertions.assertMutators(this, "");
+		OrganizationAssertions.assertConstructors(this, "");
 	}
 }

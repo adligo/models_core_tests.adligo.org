@@ -1,22 +1,21 @@
-package org.adligo.models.core.gwt_tests.english.client;
+package org.adligo.models.core.gwt_tests.french.client;
 
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
 import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.UserAssertions;
-import org.adligo.models.core.client.UserMutant;
 import org.adligo.tests.client.AGwtTest;
 
-public class UserGwtTests extends AGwtTest {
+public class FrUserGwtTests extends AGwtTest {
 
 	public void testErrorStrings() throws Exception {
-		UserAssertions.assertMutators(this, "");
-		UserAssertions.assertConstructors(this, "");
+		UserAssertions.assertMutators(this, "fr ");
+		UserAssertions.assertConstructors(this, "fr ");
 	}
 
 
 	@Override
 	public String getModuleName() {
-		return ModelsCoreMockGwtSetup.ENGLISH_MODULE_NAME;
+		return ModelsCoreMockGwtSetup.FRENCH_MODULE_NAME;
 	}
 	
 	@Override

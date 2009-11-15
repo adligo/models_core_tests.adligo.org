@@ -7,6 +7,7 @@ import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.StorageIdentifier;
 import org.adligo.models.core.client.StorageIdentifierMutant;
 import org.adligo.models.core.client.User;
+import org.adligo.models.core.client.UserAssertions;
 import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.english.EnglishConstantsFactory;
 import org.adligo.tests.ATest;
@@ -77,9 +78,11 @@ public class UserTests extends ATest {
 		id.setId((long) 12);
 		mutant.setId(id);
 		assertEquals(id, mutant.getId());
+		
+		UserAssertions.assertMutators(this, "");
 	}
 	
-	public void testCopy() throws Exception {
+	public void testConstructors() throws Exception {
 		UserMutant mutant = new UserMutant();
 		mutant.setDomain("domain.com");
 		mutant.setName("name");
@@ -102,6 +105,8 @@ public class UserTests extends ATest {
 		assertEquals("password", user.getPassword());
 		assertEquals(new EMail("support@adligo.com"), user.getEmail());
 		assertEquals(id, user.getId());
+		
+		UserAssertions.assertConstructors(this, "");
 	}
 
 	

@@ -13,7 +13,9 @@ import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMail;
 import org.adligo.models.core.client.I_Mutable;
 import org.adligo.models.core.client.I_NamedId;
+import org.adligo.models.core.client.I_Storable;
 import org.adligo.models.core.client.I_StorageIdGenerator;
+import org.adligo.models.core.client.I_StorageMutant;
 import org.adligo.models.core.client.I_User;
 import org.adligo.models.core.client.I_Validateable;
 import org.adligo.models.core.client.InvalidParameterException;
@@ -35,10 +37,16 @@ import org.adligo.models.core.client.english.AddressValidationConstants;
 import org.adligo.models.core.client.english.DomainValidationConstants;
 import org.adligo.models.core.client.english.EmailValidationConstants;
 import org.adligo.models.core.client.english.EnglishConstantsFactory;
+import org.adligo.models.core.client.english.OrganizationsValidationConstants;
+import org.adligo.models.core.client.english.PersonValidationConstants;
+import org.adligo.models.core.client.english.PhoneNumberValidationConstants;
 import org.adligo.models.core.client.english.UserValidationConstants;
 import org.adligo.models.core.client.i18n.I_AddressValidationConstants;
 import org.adligo.models.core.client.i18n.I_DomainNameValidationConstants;
 import org.adligo.models.core.client.i18n.I_EmailValidationConstants;
+import org.adligo.models.core.client.i18n.I_OrganizationValidationConstants;
+import org.adligo.models.core.client.i18n.I_PersonValidationConstants;
+import org.adligo.models.core.client.i18n.I_PhoneNumberValidationConstants;
 import org.adligo.models.core.client.i18n.I_UserValidationConstants;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -84,6 +92,8 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new EMail("support@adligo.com"));
 			holder.addUsed(I_Mutable.class);
 			holder.addUsed(I_NamedId.class);
+			holder.addUsed(I_Storable.class);
+			holder.addUsed(I_StorageMutant.class);
 			holder.addUsed(I_StorageIdGenerator.class);
 			holder.addUsed(I_User.class);
 			holder.addUsed(I_Validateable.class);
@@ -107,11 +117,17 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new DomainValidationConstants());
 			holder.addUsed(new EmailValidationConstants());
 			holder.addUsed(EnglishConstantsFactory.class);
+			holder.addUsed(new OrganizationsValidationConstants());
+			holder.addUsed(new PersonValidationConstants());
+			holder.addUsed(new PhoneNumberValidationConstants());
 			holder.addUsed(new UserValidationConstants());
 			
 			holder.addUsed(I_AddressValidationConstants.class);
 			holder.addUsed(I_DomainNameValidationConstants.class);
 			holder.addUsed(I_EmailValidationConstants.class);
+			holder.addUsed(I_PersonValidationConstants.class);
+			holder.addUsed(I_OrganizationValidationConstants.class);
+			holder.addUsed(I_PhoneNumberValidationConstants.class);
 			holder.addUsed(I_UserValidationConstants.class);
 			
 		} catch (Exception x) {

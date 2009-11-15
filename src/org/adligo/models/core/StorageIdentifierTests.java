@@ -69,6 +69,8 @@ public class StorageIdentifierTests extends ATest {
 		id = new StorageIdentifier(mutant);
 		assertEquals(new Long(3), id.getId());
 		assertNull(id.getKey());
+		
+		assertEquals(mutant, id);
 	}
 
 	public void testStringConstructor() throws Exception {
@@ -171,7 +173,14 @@ public class StorageIdentifierTests extends ATest {
 		assertEquals(StorageIdentifierSubclass.KEY_ERROR, exception.getMessage());
 		
 		StorageIdentifier id = new StorageIdentifier(mutant);
-		id = new StorageIdentifierSubclass(id);
+		try {
+			id = new StorageIdentifierSubclass(id);
+		} catch (InvalidParameterException x) {
+			exception = x;
+		}
+		assertNotNull(exception);
+		assertEquals(StorageIdentifier.SET_KEY, exception.getMethodName());
+		assertEquals(StorageIdentifierSubclass.KEY_ERROR, exception.getMessage());
 	}
 	
 	public void testEquals() throws Exception {
