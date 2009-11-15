@@ -8,6 +8,7 @@ import org.adligo.models.core.client.i18n.I_GwtDomainNameValidationConstants;
 import org.adligo.models.core.client.i18n.I_GwtEmailValidationConstants;
 import org.adligo.models.core.client.i18n.I_GwtUserValidationConstants;
 import org.adligo.models.core.client.i18n.I_UserValidationConstants;
+import org.adligo.models.core.client.i18n.ModelsCoreConstantsSetup;
 
 import com.google.gwt.core.client.GWT;
 
@@ -19,17 +20,8 @@ public class ModelsCoreMockGwtSetup {
 	
 	public static void init() {
 		if (!isInit) {
+			ModelsCoreConstantsSetup.init();
 			isInit = true;
-			ConstantsFactory.INSTANCE.put(I_DomainNameValidationConstants.class, 
-					GWT.create(I_GwtDomainNameValidationConstants.class));
-			//set up adi code for GWT
-			I_GwtUserValidationConstants type = (I_GwtUserValidationConstants) 
-				GWT.create(I_GwtUserValidationConstants.class);
-			ConstantsFactory.INSTANCE.put(I_UserValidationConstants.class, type);
-			
-			ConstantsFactory.INSTANCE.put(I_EmailValidationConstants.class, 
-					GWT.create(I_GwtEmailValidationConstants.class));
-			ModelsCoreRegistry.init();
 		}
 	}
 }

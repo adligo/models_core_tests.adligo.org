@@ -35,8 +35,33 @@ public class ParamterExceptionAsserter {
 		}
 		ATest.assertNotNull(x);
 		ATest.assertEquals(methodName, x.getMethodName());
+	
 	}
 
+	public static void assertInvalidParamterExceptionStringMutator(Object obj, String methodName, String exceptionMessage) throws Exception {
+		InvalidParameterException x = null;
+		Class<?> clazz = obj.getClass();
+		Method method = clazz.getDeclaredMethod(methodName,new Class[] {String.class});
+		
+		try {
+			method.invoke(obj, new Object[] {null});
+		} catch (Exception g) {
+			x = GwtParameterExceptionAsserter.isIPE(g);
+		}
+		ATest.assertNotNull(x);
+		ATest.assertEquals(methodName, x.getMethodName());
+		
+		x = null;
+		try {
+			method.invoke(obj, "");
+		} catch (Exception g) {
+			x = GwtParameterExceptionAsserter.isIPE(g);
+		}
+		ATest.assertNotNull(x);
+		ATest.assertEquals(methodName, x.getMethodName());
+		ATest.assertEquals(exceptionMessage, x.getMessage());
+		
+	}
 	
 	@SuppressWarnings("unchecked")
 	public static void assertInvalidParamterExceptionIntegerMutator(Object obj, String methodName) throws Exception {
