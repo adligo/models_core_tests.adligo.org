@@ -1,5 +1,6 @@
 package org.adligo.models.core;
 
+import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMail;
 import org.adligo.models.core.client.EmailAssertions;
@@ -51,5 +52,9 @@ public class EmailTests extends ATest {
 		
 		
 		
+	}
+	
+	public void testSerialization() throws Exception {
+		IsGwtRpcSerializable.isRpcSerializable(EMail.class);
 	}
 }

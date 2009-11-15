@@ -1,5 +1,7 @@
 package org.adligo.models.core;
 
+import org.adligo.i.util.IsGwtRpcSerializable;
+import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.NamedIdMutant;
@@ -10,8 +12,15 @@ public class NameIdTests extends ATest {
 
 	public void testSetters() throws Exception {
 		NamedIdMutant mutant = new NamedIdMutant();
+		InvalidParameterException ex = null;
+		try {
+			mutant.setId(null);
+		} catch (Exception e) {
+			ex = GwtParameterExceptionAsserter.isIPE(e);
+		}
+		assertNotNull(ex);
+		assertEquals("You set the id to null?", ex.getMessage());
 		
-		mutant.setId(null);
 		assertNull(mutant.getId());
 		mutant.setName(null);
 		assertNull(mutant.getName());
@@ -48,6 +57,9 @@ public class NameIdTests extends ATest {
 		assertEquals("mutant name", id.getName());
 		assertEquals(sid, id.getId());
 		
+		assertEquals(id, mutant);
+		assertEquals("NamedIdMutant [name=mutant name,id=StorageIdentifier [id=1,key=null]]", mutant.toString());
+		assertEquals("NamedId [name=mutant name,id=StorageIdentifier [id=1,key=null]]", id.toString());
 	}
 	
 	public void testSubClass() throws Exception {
@@ -62,10 +74,10 @@ public class NameIdTests extends ATest {
 				exception = x;
 			}
 			assertNotNull(exception);
-			assertEquals(NamedId.SET_ID, exception.getMethodName());
-			assertEquals(NameIdSubclass.ID_ERROR, exception.getMessage());
+			assertEquals(NamedId.NAMED_ID, exception.getMethodName());
+			assertEquals(NameIdSubclass.NAME_ERROR, exception.getMessage());
 			
-			StorageIdentifier sid = new StorageIdentifier((long) 1);
+			StorageIdentifier sid = new StorageIdentifier((long) 2);
 			mutant.setId(sid);
 			NameIdSubclass.setThrow_id_error(false);
 			exception = null;
@@ -75,10 +87,18 @@ public class NameIdTests extends ATest {
 				exception = x;
 			}
 			assertNotNull(exception);
-			assertEquals(NamedId.SET_NAME, exception.getMethodName());
+			assertEquals(NamedId.NAMED_ID, exception.getMethodName());
 			assertEquals(NameIdSubclass.NAME_ERROR, exception.getMessage());
 			
-			
+			exception = null;
+			try {
+				subclass = new NameIdSubclass(null);
+			} catch (InvalidParameterException x) {
+				exception = x;
+			}
+			assertNotNull(exception);
+			assertEquals(NamedId.NAMED_ID, exception.getMethodName());
+			assertEquals(NamedId.NULL_TO_CONSTRUCTOR, exception.getMessage());
 	}
 	
 	public void testEquals() throws Exception {
@@ -94,5 +114,9 @@ public class NameIdTests extends ATest {
 		a = new NamedId(a);
 		assertEquals(a, b);
 		
+	}
+	
+	public void testSerialization() throws Exception {
+		IsGwtRpcSerializable.isRpcSerializable(NamedId.class);
 	}
 }

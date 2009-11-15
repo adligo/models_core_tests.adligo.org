@@ -1,6 +1,8 @@
 package org.adligo.models.core;
 
+import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.ModelsCoreRegistry;
+import org.adligo.models.core.client.Person;
 import org.adligo.models.core.client.PersonAssertions;
 import org.adligo.models.core.client.PersonMutant;
 import org.adligo.models.core.client.english.EnglishConstantsFactory;
@@ -42,5 +44,9 @@ public class PersonTests extends ATest {
 		mutant = new PersonMutant();
 		mutant.setMiddle_name("mname");
 		assertEquals("mname", mutant.getName());
+	}
+	
+	public void testSerialization() throws Exception {
+		IsGwtRpcSerializable.isRpcSerializable(Person.class);
 	}
 }

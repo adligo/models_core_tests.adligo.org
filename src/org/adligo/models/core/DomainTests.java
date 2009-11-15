@@ -1,13 +1,12 @@
 package org.adligo.models.core;
 
+import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.DomainNameAssertions;
-import org.adligo.models.core.client.EMail;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.english.DomainValidationConstants;
-import org.adligo.models.core.client.english.EmailValidationConstants;
 import org.adligo.models.core.client.english.EnglishConstantsFactory;
 import org.adligo.tests.ATest;
 
@@ -104,5 +103,9 @@ public class DomainTests extends ATest {
 		super.setUp();
 		new EnglishConstantsFactory();
 		ModelsCoreRegistry.init();
+	}
+	
+	public void testSerialization() throws Exception {
+		IsGwtRpcSerializable.isRpcSerializable(DomainName.class);
 	}
 }

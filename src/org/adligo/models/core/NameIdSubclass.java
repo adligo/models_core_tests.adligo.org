@@ -13,11 +13,7 @@ public class NameIdSubclass extends NamedId {
 	@SuppressWarnings("unused")
 	private NameIdSubclass() {}
 	
-	public NameIdSubclass(NamedId other)  {
-		super(other);
-	}
-	
-	public NameIdSubclass(NamedIdMutant other) throws InvalidParameterException {
+	public NameIdSubclass(NamedId other) throws InvalidParameterException {
 		super(other);
 	}
 	

@@ -1,5 +1,6 @@
 package org.adligo.models.core;
 
+import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMail;
 import org.adligo.models.core.client.InvalidParameterException;
@@ -109,5 +110,8 @@ public class UserTests extends ATest {
 		UserAssertions.assertConstructors(this, "");
 	}
 
+	public void testSerialization() throws Exception {
+		IsGwtRpcSerializable.isRpcSerializable(User.class);
+	}
 	
 }
