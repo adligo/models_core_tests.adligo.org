@@ -3,7 +3,6 @@ package org.adligo.models.core.gwt.client;
 import org.adligo.gwt.util.client.GwtLogFactory;
 import org.adligo.gwt.util.client.GwtPlatform;
 import org.adligo.i.util.client.ClassUsageView;
-import org.adligo.i.util.client.CommonTime;
 import org.adligo.i.util.client.I_UsageHolder;
 import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.AddressMutant;
@@ -85,7 +84,6 @@ public class MockModelsEntryPoint implements EntryPoint {
 			
 			holder.addUsed(new Address());
 			holder.addUsed(new AddressMutant());
-			holder.addUsed(CommonTime.class);
 			holder.addUsed(ConstantsFactory.INSTANCE);
 			holder.addUsed(CoreRoles.class);
 			holder.addUsed(new DomainName());
