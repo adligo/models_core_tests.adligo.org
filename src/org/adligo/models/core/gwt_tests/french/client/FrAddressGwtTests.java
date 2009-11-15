@@ -9,7 +9,7 @@ import org.adligo.tests.client.AGwtTest;
 public class FrAddressGwtTests extends AGwtTest {
 	@Override
 	public String getModuleName() {
-		return ModelsCoreMockGwtSetup.ENGLISH_MODULE_NAME;
+		return ModelsCoreMockGwtSetup.FRENCH_MODULE_NAME;
 	}
 	
 	@Override
