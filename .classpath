@@ -13,5 +13,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/gwt_util"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/i_log"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/models_core_relations"/>
+	<classpathentry kind="lib" path="/models_core/src"/>
+	<classpathentry kind="lib" path="/models_core_relations/src"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>

@@ -13,12 +13,20 @@ import org.adligo.tests.ATest;
 public class DomainTests extends ATest {
 
 	
-	public void testUserDomainToDC() throws Exception {
+	public void testDomainToDC() throws Exception {
 		String result = DomainName.toDn("adligo.com");
 		assertEquals("dc=adligo,dc=com", result);
 		
 		result = DomainName.toDn("foo.bar.adligo.com");
 		assertEquals("dc=foo,dc=bar,dc=adligo,dc=com", result);
+	}
+	
+	public void testDomainFromDC() throws Exception {
+		String result = DomainName.fromDn("dc=adligo,dc=com");
+		assertEquals("adligo.com", result);
+		
+		result = DomainName.fromDn("dc=foo,dc=bar,dc=adligo,dc=com");
+		assertEquals("foo.bar.adligo.com", result);
 	}
 	
 	public void testValidate() throws Exception {

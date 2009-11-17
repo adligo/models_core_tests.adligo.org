@@ -1,0 +1,1 @@
+tests the models_core and models_core_relations projects
