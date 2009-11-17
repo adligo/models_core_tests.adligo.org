@@ -27,18 +27,21 @@ public class UserTests extends ATest {
 	public void testgetDC() throws Exception {
 		UserMutant mutant = new UserMutant();
 		
-		String result = mutant.getDn();
-		assertNull(result);
-		
 		InvalidParameterException x = null;
+		try {
+			mutant.getDn();
+		} catch (InvalidParameterException y) {
+			x = y;
+		}
+		assertNotNull(x);
+		
+		x = null;
 		try {
 			mutant.setName("");
 		} catch (InvalidParameterException y) {
 			x = y;
 		}
 		assertNotNull(x);
-		result = mutant.getDn();
-		assertNull(result);
 		
 		x = null;
 		try {
@@ -47,12 +50,10 @@ public class UserTests extends ATest {
 			x = y;
 		}
 		assertNotNull(x);
-		result = mutant.getDn();
-		assertNull(result);
 		
 		mutant.setName("scott");
 		mutant.setDomain("adligo.com");
-		result = mutant.getDn();
+		String result = mutant.getDn();
 		assertEquals("uid=scott,dc=adligo,dc=com", result);
 	}
 	
