@@ -3,11 +3,10 @@ package org.adligo.models.core;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.DomainNameAssertions;
+import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.ModelsCoreRegistry;
-import org.adligo.models.core.client.english.DomainValidationConstants;
-import org.adligo.models.core.client.english.EnglishConstantsFactory;
+import org.adligo.models.core.client.ModelsCoreEnglishValidationConstants;
 import org.adligo.tests.ATest;
 
 public class DomainTests extends ATest {
@@ -44,28 +43,28 @@ public class DomainTests extends ATest {
 		}
 		assertIsNotNull(x);
 		assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
-		assertIsEquals(DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
+		assertIsEquals(ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
 	
 	}
 	
 	public void testStringConstructor() throws Exception {
 		
 		assertStringConstructorParamterException(null,
-				DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
+				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
 		assertStringConstructorParamterException("",
-				DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
+				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
 		assertStringConstructorParamterException("a.b",
-				DomainValidationConstants.DOMAIN_TO_SHORT);
+				ModelsCoreEnglishValidationConstants.DOMAIN_TO_SHORT);
 		assertStringConstructorParamterException(".abc",
-				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_FIRST_CHARACTER);
+				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_FIRST_CHARACTER);
 		assertStringConstructorParamterException("abc.",
-				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_LAST_CHARACTER);
+				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_LAST_CHARACTER);
 		assertStringConstructorParamterException("ab .",
-				DomainValidationConstants.DOMAIN_MAY_NOT_CONTAIN_A_SPACE);
+				ModelsCoreEnglishValidationConstants.DOMAIN_MAY_NOT_CONTAIN_A_SPACE);
 		assertStringConstructorParamterException("a..b",
-				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
+				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
 		assertStringConstructorParamterException("a.b..com",
-				DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
+				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
 		
 		new DomainName("adligo.com");
 		new DomainName("adligo.org");
@@ -109,8 +108,7 @@ public class DomainTests extends ATest {
 	protected void setUp() throws Exception {
 		// TODO Auto-generated method stub
 		super.setUp();
-		new EnglishConstantsFactory();
-		ModelsCoreRegistry.init();
+		new ModelsCoreEnglishConstantsFactory();
 	}
 	
 	public void testSerialization() throws Exception {

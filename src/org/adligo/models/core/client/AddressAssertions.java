@@ -1,6 +1,5 @@
 package org.adligo.models.core.client;
 
-import org.adligo.models.core.client.english.AddressValidationConstants;
 import org.adligo.tests.client.I_Test;
 
 public class AddressAssertions {
@@ -16,7 +15,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_CITY_FIELD_MAY_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_CITY_FIELD_MAY_NOT_BE_EMPTY,
 				ipe.getMessage());
 		
 		ipe = null;
@@ -27,7 +26,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_CITY_FIELD_MAY_NOT_BE_EMPTY, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_CITY_FIELD_MAY_NOT_BE_EMPTY, 
 				ipe.getMessage());
 		mutant.setCity("city A");
 		test.assertIsEquals("city A", mutant.getCity());
@@ -40,7 +39,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_POSTAL_CODE_FIELD_MAY_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_POSTAL_CODE_FIELD_MAY_NOT_BE_EMPTY,
 				ipe.getMessage());
 		
 		ipe = null;
@@ -51,7 +50,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_POSTAL_CODE_FIELD_MAY_NOT_BE_EMPTY, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_POSTAL_CODE_FIELD_MAY_NOT_BE_EMPTY, 
 				ipe.getMessage());
 		mutant.setPostal_code("12345");
 		test.assertIsEquals("12345", mutant.getPostal_code());
@@ -64,7 +63,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_STREET_FIELD_MAY_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_STREET_FIELD_MAY_NOT_BE_EMPTY,
 				ipe.getMessage());
 		
 		ipe = null;
@@ -75,7 +74,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_STREET_FIELD_MAY_NOT_BE_EMPTY, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_STREET_FIELD_MAY_NOT_BE_EMPTY, 
 				ipe.getMessage());
 		mutant.setStreet_address("1234 long row");
 		test.assertIsEquals("1234 long row", mutant.getStreet_address());
@@ -91,7 +90,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_COUNTRY_FIELD_MAY_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_COUNTRY_FIELD_MAY_NOT_BE_EMPTY,
 				ipe.getMessage());
 		
 		ipe = null;
@@ -102,7 +101,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_COUNTRY_FIELD_MAY_NOT_BE_EMPTY, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_COUNTRY_FIELD_MAY_NOT_BE_EMPTY, 
 				ipe.getMessage());
 		
 		ipe = null;
@@ -113,7 +112,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_COUNTRY_FIELD_MUST_BE_2_DIGITS, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_COUNTRY_FIELD_MUST_BE_2_DIGITS, 
 				ipe.getMessage());
 		
 		mutant.setCountry_sub_code("IL");
@@ -127,7 +126,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_COUNTRY_SUBDIVISION_CODE_MAY_NOT_BE_EMPTY, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_COUNTRY_SUBDIVISION_CODE_MAY_NOT_BE_EMPTY, 
 				ipe.getMessage());
 		
 		ipe = null;
@@ -138,7 +137,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_COUNTRY_SUBDIVISION_CODE_MAY_NOT_BE_EMPTY, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_COUNTRY_SUBDIVISION_CODE_MAY_NOT_BE_EMPTY, 
 				ipe.getMessage());
 		
 		ipe = null;
@@ -149,7 +148,7 @@ public class AddressAssertions {
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_COUNTRY_SUBDIVISION_CODE_MUST_BE_4_DIGITS_OR_LESS, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_COUNTRY_SUBDIVISION_CODE_MUST_BE_4_DIGITS_OR_LESS, 
 				ipe.getMessage());
 	}
 	
@@ -163,7 +162,7 @@ public class AddressAssertions {
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(Address.ADDRESS, ipe.getMethodName());
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_STREET_FIELD_MAY_NOT_BE_EMPTY, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_STREET_FIELD_MAY_NOT_BE_EMPTY, 
 				ipe.getMessage());
 		
 		mutant.setStreet_address("1234 test row");
@@ -177,7 +176,7 @@ public class AddressAssertions {
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(Address.ADDRESS, ipe.getMethodName());
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_CITY_FIELD_MAY_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_CITY_FIELD_MAY_NOT_BE_EMPTY,
 				ipe.getMessage());
 		
 		mutant.setCity("city A");
@@ -190,7 +189,7 @@ public class AddressAssertions {
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(Address.ADDRESS, ipe.getMethodName());
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_COUNTRY_FIELD_MAY_NOT_BE_EMPTY, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_COUNTRY_FIELD_MAY_NOT_BE_EMPTY, 
 				ipe.getMessage());
 		
 		mutant.setCountry_code("US");
@@ -203,7 +202,7 @@ public class AddressAssertions {
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(Address.ADDRESS, ipe.getMethodName());
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_COUNTRY_SUBDIVISION_CODE_MAY_NOT_BE_EMPTY, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_COUNTRY_SUBDIVISION_CODE_MAY_NOT_BE_EMPTY, 
 				ipe.getMessage());
 		
 		mutant.setCountry_sub_code("IL");
@@ -216,7 +215,7 @@ public class AddressAssertions {
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(Address.ADDRESS, ipe.getMethodName());
 		test.assertIsEquals(
-				prefix + AddressValidationConstants.THE_POSTAL_CODE_FIELD_MAY_NOT_BE_EMPTY, 
+				prefix + ModelsCoreEnglishValidationConstants.THE_POSTAL_CODE_FIELD_MAY_NOT_BE_EMPTY, 
 				ipe.getMessage());
 		
 		mutant.setPostal_code("12345A");

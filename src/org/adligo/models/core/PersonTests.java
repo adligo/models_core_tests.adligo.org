@@ -1,11 +1,10 @@
 package org.adligo.models.core;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
-import org.adligo.models.core.client.ModelsCoreRegistry;
+import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.Person;
 import org.adligo.models.core.client.PersonAssertions;
 import org.adligo.models.core.client.PersonMutant;
-import org.adligo.models.core.client.english.EnglishConstantsFactory;
 import org.adligo.tests.ATest;
 
 public class PersonTests extends ATest {
@@ -13,8 +12,7 @@ public class PersonTests extends ATest {
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
-		ModelsCoreRegistry.init();
-		new EnglishConstantsFactory();
+		new ModelsCoreEnglishConstantsFactory();
 	}
 	
 	public void testMutators() throws Exception {

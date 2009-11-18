@@ -4,11 +4,10 @@ import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMail;
 import org.adligo.models.core.client.EmailAssertions;
+import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.ModelsCoreRegistry;
-import org.adligo.models.core.client.english.EmailValidationConstants;
-import org.adligo.models.core.client.english.EnglishConstantsFactory;
+import org.adligo.models.core.client.ModelsCoreEnglishValidationConstants;
 import org.adligo.tests.ATest;
 
 public class EmailTests extends ATest {
@@ -16,8 +15,7 @@ public class EmailTests extends ATest {
 	protected void setUp() throws Exception {
 		// TODO Auto-generated method stub
 		super.setUp();
-		new EnglishConstantsFactory();
-		ModelsCoreRegistry.init();
+		new ModelsCoreEnglishConstantsFactory();
 	}
 	
 	public void testStringConstructorAndValidateExceptions() throws Exception {
@@ -36,7 +34,7 @@ public class EmailTests extends ATest {
 		}
 		assertIsNotNull(x);
 		assertIsEquals(EMail.EMAIL, x.getMethodName());
-		assertIsEquals(EmailValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY, x.getMessage());
+		assertIsEquals(ModelsCoreEnglishValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY, x.getMessage());
 	}
 	
 	public void testCopyConstructor() throws Exception {

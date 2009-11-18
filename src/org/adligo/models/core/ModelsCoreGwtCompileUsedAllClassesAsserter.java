@@ -10,23 +10,15 @@ import org.adligo.i.util.client.ClassUtils;
 import org.adligo.models.core.client.AddressAssertions;
 import org.adligo.models.core.client.DomainNameAssertions;
 import org.adligo.models.core.client.EmailAssertions;
+import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
-import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.OrganizationAssertions;
 import org.adligo.models.core.client.PersonAssertions;
 import org.adligo.models.core.client.PhoneNumberAssertions;
 import org.adligo.models.core.client.UserAssertions;
-import org.adligo.models.core.client.english.EnglishConstantsFactory;
-import org.adligo.models.core.client.i18n.I_EmailValidationConstants;
-import org.adligo.models.core.client.i18n.I_GwtAddressValidationConstants;
-import org.adligo.models.core.client.i18n.I_GwtDomainNameValidationConstants;
-import org.adligo.models.core.client.i18n.I_GwtEmailValidationConstants;
-import org.adligo.models.core.client.i18n.I_GwtOrganizationsValidationConstants;
-import org.adligo.models.core.client.i18n.I_GwtPersonValidationConstants;
-import org.adligo.models.core.client.i18n.I_GwtPhoneNumberValidationConstants;
-import org.adligo.models.core.client.i18n.I_GwtUserValidationConstants;
-import org.adligo.models.core.client.i18n.I_OrganizationValidationConstants;
+import org.adligo.models.core.client.UserRelationsAssertions;
+import org.adligo.models.core.client.i18n.I_GwtModelsCoreValidationConstants;
 import org.adligo.models.core.client.i18n.ModelsCoreConstantsSetup;
 import org.adligo.models.core.gwt.client.MockModelsEntryPoint;
 import org.adligo.tests.ATest;
@@ -48,15 +40,12 @@ public class ModelsCoreGwtCompileUsedAllClassesAsserter  extends ATest {
 		ignore.add(ClassUtils.getClassName(UserAssertions.class));
 		ignore.add(ClassUtils.getClassName(GwtParameterExceptionAsserter.class));
 		ignore.add(ClassUtils.getClassName(ModelsCoreMockGwtSetup.class));
+		
+		ignore.add(ClassUtils.getClassName(UserRelationsAssertions.class));
 		//ignore from the models_core_relations project
-		ignore.add(ClassUtils.getClassName(I_GwtAddressValidationConstants.class));
-		ignore.add(ClassUtils.getClassName(I_GwtDomainNameValidationConstants.class));
-		ignore.add(ClassUtils.getClassName(I_GwtEmailValidationConstants.class));
-		ignore.add(ClassUtils.getClassName(I_GwtUserValidationConstants.class));
-		ignore.add(ClassUtils.getClassName(I_GwtPhoneNumberValidationConstants.class));
-		ignore.add(ClassUtils.getClassName(I_GwtPersonValidationConstants.class));
-		ignore.add(ClassUtils.getClassName(I_GwtOrganizationsValidationConstants.class));
+		ignore.add(ClassUtils.getClassName(I_GwtModelsCoreValidationConstants.class));
 		String modelsCoreSetupClassName = ClassUtils.getClassName(ModelsCoreConstantsSetup.class);
+		
 		ignore.add(modelsCoreSetupClassName);
 		for (int i = 0; i <= 7; i++) {
 			ignore.add(modelsCoreSetupClassName + "$" + i);
@@ -74,12 +63,11 @@ public class ModelsCoreGwtCompileUsedAllClassesAsserter  extends ATest {
 				GwtCompileUsedAllClassesAsserter.getClasses("org.adligo.models.core.client.english", 
 						ignore));
 		
-		ModelsCoreRegistry.init();
-		new EnglishConstantsFactory();
+		new ModelsCoreEnglishConstantsFactory();
 		MockModelsEntryPoint entryPoint = new MockModelsEntryPoint(usageHolder);
 		entryPoint.onModuleLoad();
 		
-		assertEquals(43, usageHolder.getUsedClasses().size());
+		assertEquals(29, usageHolder.getUsedClasses().size());
 		
 		assertCollectionEquals(classes, usageHolder.getUsedClasses());
 		

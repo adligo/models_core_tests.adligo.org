@@ -4,8 +4,7 @@ import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.AddressAssertions;
 import org.adligo.models.core.client.AddressMutant;
-import org.adligo.models.core.client.ModelsCoreRegistry;
-import org.adligo.models.core.client.english.EnglishConstantsFactory;
+import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.tests.ATest;
 
 public class AddressTests extends ATest {
@@ -20,8 +19,7 @@ public class AddressTests extends ATest {
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
-		ModelsCoreRegistry.init();
-		new EnglishConstantsFactory();
+		new ModelsCoreEnglishConstantsFactory();
 	}
 	
 	public void testCopy() throws Exception {

@@ -3,14 +3,13 @@ package org.adligo.models.core;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMail;
+import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.StorageIdentifier;
 import org.adligo.models.core.client.StorageIdentifierMutant;
 import org.adligo.models.core.client.User;
 import org.adligo.models.core.client.UserAssertions;
 import org.adligo.models.core.client.UserMutant;
-import org.adligo.models.core.client.english.EnglishConstantsFactory;
 import org.adligo.tests.ATest;
 
 public class UserTests extends ATest {
@@ -18,8 +17,7 @@ public class UserTests extends ATest {
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
-		ModelsCoreRegistry.init();
-		new EnglishConstantsFactory();
+		new ModelsCoreEnglishConstantsFactory();
 	}
 	
 

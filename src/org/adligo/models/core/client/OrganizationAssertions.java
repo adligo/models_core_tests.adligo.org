@@ -1,6 +1,5 @@
 package org.adligo.models.core.client;
 
-import org.adligo.models.core.client.english.OrganizationsValidationConstants;
 import org.adligo.tests.client.I_Test;
 
 public class OrganizationAssertions {
@@ -17,7 +16,7 @@ public class OrganizationAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Organization.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + OrganizationsValidationConstants.THE_NAME_FIELD_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_NAME_FIELD_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -29,7 +28,7 @@ public class OrganizationAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Organization.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + OrganizationsValidationConstants.THE_NAME_FIELD_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_NAME_FIELD_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -41,7 +40,7 @@ public class OrganizationAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Organization.SET_TYPE, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + OrganizationsValidationConstants.THE_TYPE_FIELD_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_TYPE_FIELD_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -53,7 +52,7 @@ public class OrganizationAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Organization.SET_TYPE, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + OrganizationsValidationConstants.THE_TYPE_FIELD_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_TYPE_FIELD_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -65,7 +64,7 @@ public class OrganizationAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Organization.SET_TYPE, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + OrganizationsValidationConstants.THE_TYPE_FIELD_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_TYPE_FIELD_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setName("someName");
@@ -89,7 +88,7 @@ public class OrganizationAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Organization.ORGANIZAITION, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + OrganizationsValidationConstants.THE_NAME_FIELD_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_NAME_FIELD_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setName("someName");
@@ -102,7 +101,7 @@ public class OrganizationAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Organization.ORGANIZAITION, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + OrganizationsValidationConstants.THE_TYPE_FIELD_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.THE_TYPE_FIELD_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setType(new NamedId("someType"));

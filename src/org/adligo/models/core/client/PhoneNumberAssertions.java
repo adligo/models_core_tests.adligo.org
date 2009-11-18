@@ -1,6 +1,5 @@
 package org.adligo.models.core.client;
 
-import org.adligo.models.core.client.english.PhoneNumberValidationConstants;
 import org.adligo.tests.client.I_Test;
 
 public class PhoneNumberAssertions {
@@ -17,7 +16,7 @@ public class PhoneNumberAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(PhoneNumber.SET_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + PhoneNumberValidationConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -29,7 +28,7 @@ public class PhoneNumberAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(PhoneNumber.SET_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + PhoneNumberValidationConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		
@@ -42,7 +41,7 @@ public class PhoneNumberAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(PhoneNumber.SET_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + PhoneNumberValidationConstants.PHONE_NUMBER_MAY_ONLY_HAVE_ARABIC_NUMERALS,
+				prefix + ModelsCoreEnglishValidationConstants.PHONE_NUMBER_MAY_ONLY_HAVE_ARABIC_NUMERALS,
 				ex.getMessage());
 		
 		mutant.setNumber("123456");
@@ -91,7 +90,7 @@ public class PhoneNumberAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(PhoneNumber.PHONE_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + PhoneNumberValidationConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setNumber("123456");

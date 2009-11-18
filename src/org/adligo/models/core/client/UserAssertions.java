@@ -1,9 +1,5 @@
 package org.adligo.models.core.client;
 
-import org.adligo.models.core.client.english.DomainValidationConstants;
-import org.adligo.models.core.client.english.EmailValidationConstants;
-import org.adligo.models.core.client.english.PhoneNumberValidationConstants;
-import org.adligo.models.core.client.english.UserValidationConstants;
 import org.adligo.tests.client.I_Test;
 
 public class UserAssertions {
@@ -20,7 +16,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + UserValidationConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -32,7 +28,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + UserValidationConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
 		
 		assertEmails(test, prefix, mutant);
@@ -47,7 +43,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + UserValidationConstants.USER_NAME_CANT_CONTAIN_A_SPACE,
+				prefix + ModelsCoreEnglishValidationConstants.USER_NAME_CANT_CONTAIN_A_SPACE,
 				ex.getMessage());
 		
 		assertEmails(test, prefix, mutant);
@@ -62,7 +58,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_PASSWORD, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + UserValidationConstants.USER_PASSWORD_CAN_T_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.USER_PASSWORD_CAN_T_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -74,7 +70,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_PASSWORD, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + UserValidationConstants.USER_PASSWORD_CAN_T_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.USER_PASSWORD_CAN_T_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -129,7 +125,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_DOMAIN, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		ex = null;
 		try {
@@ -140,7 +136,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_DOMAIN, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -152,7 +148,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_DOMAIN, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -164,7 +160,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_DOMAIN, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 	}
 
@@ -180,7 +176,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + EmailValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -192,7 +188,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + EmailValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -204,7 +200,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + EmailValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -216,7 +212,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + EmailValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 	}
 	
@@ -235,7 +231,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.USER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setDomain("adligo.org");
@@ -252,7 +248,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.USER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + UserValidationConstants.USER_PASSWORD_CAN_T_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.USER_PASSWORD_CAN_T_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setPassword("password");
@@ -269,7 +265,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.USER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + UserValidationConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
 		
 		mutant.setName("userName");
@@ -286,7 +282,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.USER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + EmailValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setEmail("support@adligo.com");
@@ -315,5 +311,154 @@ public class UserAssertions {
 				user.toString());
 		test.assertIsEquals("UserMutant [name=userName,id=StorageIdentifier [id=201,key=null],email=support@adligo.com,domain=adligo.org]",
 				mutant.toString());
+		
+		 assertNameEmailDomainConstructors(test, prefix);
+	}
+	
+	/**
+	 * tests 
+	 * User(String p_domain, String p_name)
+	 * User(String p_domain, String p_name, String p_email)
+	 * 
+	 * @param test
+	 * @param prefix
+	 * @throws Exception
+	 */
+	public static void assertNameEmailDomainConstructors(I_Test test, String prefix) throws Exception {
+		
+		InvalidParameterException ex = null;
+		try {
+			new User(null, null);
+		} catch (Exception e) {
+			ex = GwtParameterExceptionAsserter.isIPE(e);
+		}
+		test.assertIsNotNull(ex);
+		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(
+				prefix + ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				ex.getMessage());
+		
+		ex = null;
+		try {
+			new User("", null);
+		} catch (Exception e) {
+			ex = GwtParameterExceptionAsserter.isIPE(e);
+		}
+		test.assertIsNotNull(ex);
+		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(
+				prefix + ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				ex.getMessage());
+		
+		ex = null;
+		try {
+			new User("unknown.org", null);
+		} catch (Exception e) {
+			ex = GwtParameterExceptionAsserter.isIPE(e);
+		}
+		test.assertIsNotNull(ex);
+		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(
+				prefix + ModelsCoreEnglishValidationConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
+				ex.getMessage());
+		
+		ex = null;
+		try {
+			new User("unknown.org", "");
+		} catch (Exception e) {
+			ex = GwtParameterExceptionAsserter.isIPE(e);
+		}
+		test.assertIsNotNull(ex);
+		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(
+				prefix + ModelsCoreEnglishValidationConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
+				ex.getMessage());
+		
+		User user = new User("unknown.org", "joe");
+		
+		test.assertIsEquals(new DomainName("unknown.org"), user.getDomain());
+		test.assertIsEquals("joe", user.getName());
+		
+		
+		//and email
+		
+		ex = null;
+		try {
+			new User(null, null, null);
+		} catch (Exception e) {
+			ex = GwtParameterExceptionAsserter.isIPE(e);
+		}
+		test.assertIsNotNull(ex);
+		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(
+				prefix + ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				ex.getMessage());
+		
+		ex = null;
+		try {
+			new User("", null, null);
+		} catch (Exception e) {
+			ex = GwtParameterExceptionAsserter.isIPE(e);
+		}
+		test.assertIsNotNull(ex);
+		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(
+				prefix + ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				ex.getMessage());
+		
+		ex = null;
+		try {
+			new User("unknown.org", null, null);
+		} catch (Exception e) {
+			ex = GwtParameterExceptionAsserter.isIPE(e);
+		}
+		test.assertIsNotNull(ex);
+		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(
+				prefix + ModelsCoreEnglishValidationConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
+				ex.getMessage());
+		
+		ex = null;
+		try {
+			new User("unknown.org", "", null);
+		} catch (Exception e) {
+			ex = GwtParameterExceptionAsserter.isIPE(e);
+		}
+		test.assertIsNotNull(ex);
+		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(
+				prefix + ModelsCoreEnglishValidationConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
+				ex.getMessage());
+		
+		ex = null;
+		try {
+			new User("unknown.org", "jon", null);
+		} catch (Exception e) {
+			ex = GwtParameterExceptionAsserter.isIPE(e);
+		}
+		test.assertIsNotNull(ex);
+		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(
+				prefix + ModelsCoreEnglishValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				ex.getMessage());
+		
+		ex = null;
+		try {
+			new User("unknown.org", "jon", "");
+		} catch (Exception e) {
+			ex = GwtParameterExceptionAsserter.isIPE(e);
+		}
+		test.assertIsNotNull(ex);
+		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(
+				prefix + ModelsCoreEnglishValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				ex.getMessage());
+		
+		user = new User("unknown.org", "joe", "joe@kingstable.org");
+		
+		test.assertIsEquals(new DomainName("unknown.org"), user.getDomain());
+		test.assertIsEquals("joe", user.getName());
+		test.assertIsEquals(new EMail("joe@kingstable.org"), user.getEmail());
+		
 	}
 }

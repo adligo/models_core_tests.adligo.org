@@ -1,6 +1,5 @@
 package org.adligo.models.core.client;
 
-import org.adligo.models.core.client.english.PersonValidationConstants;
 import org.adligo.tests.client.I_Test;
 
 public class PersonAssertions {
@@ -19,7 +18,7 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Person.SET_LAST_NAME, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + PersonValidationConstants.A_NAME_LAST_NAME_IS_REQUIRED,
+				prefix + ModelsCoreEnglishValidationConstants.A_NAME_LAST_NAME_IS_REQUIRED,
 				ex.getMessage());
 		
 		ex = null;
@@ -31,7 +30,7 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Person.SET_LAST_NAME, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + PersonValidationConstants.A_NAME_LAST_NAME_IS_REQUIRED,
+				prefix + ModelsCoreEnglishValidationConstants.A_NAME_LAST_NAME_IS_REQUIRED,
 				ex.getMessage());
 		
 		ex = null;
@@ -96,7 +95,7 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Person.PERSON, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + PersonValidationConstants.A_NAME_LAST_NAME_IS_REQUIRED,
+				prefix + ModelsCoreEnglishValidationConstants.A_NAME_LAST_NAME_IS_REQUIRED,
 				ex.getMessage());
 		
 		

@@ -1,7 +1,5 @@
 package org.adligo.models.core.client;
 
-import org.adligo.models.core.client.english.DomainValidationConstants;
-import org.adligo.models.core.client.english.EmailValidationConstants;
 import org.adligo.tests.client.I_Test;
 
 public class EmailAssertions {
@@ -9,37 +7,37 @@ public class EmailAssertions {
 	public static void assertInvalidParameterExceptions(String pre, I_Test test) throws Exception {
 		
 		assertInvalidEmailParamterException(test,
-				null, pre+EmailValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY, null);
+				null, pre+ModelsCoreEnglishValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY, null);
 		assertInvalidEmailParamterException(test,
-				"", pre+EmailValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY, null);
+				"", pre+ModelsCoreEnglishValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY, null);
 		assertInvalidEmailParamterException(test,
-				"a@l.j", pre+EmailValidationConstants.TWO_SHORT, null);
+				"a@l.j", pre+ModelsCoreEnglishValidationConstants.TWO_SHORT, null);
 		assertInvalidEmailParamterException(test,
-				"a@o", pre+EmailValidationConstants.TWO_SHORT, null);
+				"a@o", pre+ModelsCoreEnglishValidationConstants.TWO_SHORT, null);
 		assertInvalidEmailParamterException(test,
-				"a@ou. io", pre+EmailValidationConstants.SPACE_CHARACTER, null);
+				"a@ou. io", pre+ModelsCoreEnglishValidationConstants.SPACE_CHARACTER, null);
 		
 		assertInvalidEmailParamterException(test,
-				"asou.as.io",pre+ EmailValidationConstants.NO_AT_SYMBOL, null);
+				"asou.as.io",pre+ ModelsCoreEnglishValidationConstants.NO_AT_SYMBOL, null);
 		
 		
-		assertInvalidEmailParamterException(test, "yohan@", pre+ EmailValidationConstants.DOMAIN_ERROR,
-				pre+ DomainValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
-		assertInvalidEmailParamterException(test, "yohan@a.b", pre+ EmailValidationConstants.DOMAIN_ERROR,
-				pre+ DomainValidationConstants.DOMAIN_TO_SHORT);
-		assertInvalidEmailParamterException(test, "yohan@.abc", pre+ EmailValidationConstants.DOMAIN_ERROR,
-				pre+ DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_FIRST_CHARACTER);
-		assertInvalidEmailParamterException(test, "yohan@abc.", pre+ EmailValidationConstants.DOMAIN_ERROR,
-				pre+ DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_LAST_CHARACTER);
-		assertInvalidEmailParamterException(test, "yohan@ab .", pre+ EmailValidationConstants.SPACE_CHARACTER,
+		assertInvalidEmailParamterException(test, "yohan@", pre+ ModelsCoreEnglishValidationConstants.DOMAIN_ERROR,
+				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
+		assertInvalidEmailParamterException(test, "yohan@a.b", pre+ ModelsCoreEnglishValidationConstants.DOMAIN_ERROR,
+				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_TO_SHORT);
+		assertInvalidEmailParamterException(test, "yohan@.abc", pre+ ModelsCoreEnglishValidationConstants.DOMAIN_ERROR,
+				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_FIRST_CHARACTER);
+		assertInvalidEmailParamterException(test, "yohan@abc.", pre+ ModelsCoreEnglishValidationConstants.DOMAIN_ERROR,
+				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_LAST_CHARACTER);
+		assertInvalidEmailParamterException(test, "yohan@ab .", pre+ ModelsCoreEnglishValidationConstants.SPACE_CHARACTER,
 				null);
-		assertInvalidEmailParamterException(test, "yohan@a..b", pre+ EmailValidationConstants.DOMAIN_ERROR,
-				pre+ DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
-		assertInvalidEmailParamterException(test, "yohan@a.b..com", pre+ EmailValidationConstants.DOMAIN_ERROR,
-				pre+ DomainValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
+		assertInvalidEmailParamterException(test, "yohan@a..b", pre+ ModelsCoreEnglishValidationConstants.DOMAIN_ERROR,
+				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
+		assertInvalidEmailParamterException(test, "yohan@a.b..com", pre+ ModelsCoreEnglishValidationConstants.DOMAIN_ERROR,
+				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
 		
 		assertInvalidEmailParamterException(test,
-				"@asou.as.io",pre+ EmailValidationConstants.NO_USER, null);
+				"@asou.as.io",pre+ ModelsCoreEnglishValidationConstants.NO_USER, null);
 			
 	}
 	
