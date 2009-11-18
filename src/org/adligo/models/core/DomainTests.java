@@ -6,7 +6,7 @@ import org.adligo.models.core.client.DomainNameAssertions;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.ModelsCoreEnglishValidationConstants;
+import org.adligo.models.core.client.ModelsCoreEnglishConstants;
 import org.adligo.tests.ATest;
 
 public class DomainTests extends ATest {
@@ -43,28 +43,28 @@ public class DomainTests extends ATest {
 		}
 		assertIsNotNull(x);
 		assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
-		assertIsEquals(ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
+		assertIsEquals(ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
 	
 	}
 	
 	public void testStringConstructor() throws Exception {
 		
 		assertStringConstructorParamterException(null,
-				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
+				ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY);
 		assertStringConstructorParamterException("",
-				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
+				ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY);
 		assertStringConstructorParamterException("a.b",
-				ModelsCoreEnglishValidationConstants.DOMAIN_TO_SHORT);
+				ModelsCoreEnglishConstants.DOMAIN_TO_SHORT);
 		assertStringConstructorParamterException(".abc",
-				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_FIRST_CHARACTER);
+				ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_FIRST_CHARACTER);
 		assertStringConstructorParamterException("abc.",
-				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_LAST_CHARACTER);
+				ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_LAST_CHARACTER);
 		assertStringConstructorParamterException("ab .",
-				ModelsCoreEnglishValidationConstants.DOMAIN_MAY_NOT_CONTAIN_A_SPACE);
+				ModelsCoreEnglishConstants.DOMAIN_MAY_NOT_CONTAIN_A_SPACE);
 		assertStringConstructorParamterException("a..b",
-				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
+				ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
 		assertStringConstructorParamterException("a.b..com",
-				ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
+				ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
 		
 		new DomainName("adligo.com");
 		new DomainName("adligo.org");

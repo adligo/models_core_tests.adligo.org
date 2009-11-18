@@ -6,21 +6,21 @@ public class DomainNameAssertions  {
 
 	public static void assertInvalidParameterExceptions(String pre, I_Test test) throws Exception {
 		assertInvalidDomainParamterException(test, null,
-				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
+				pre+ ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY);
 		assertInvalidDomainParamterException(test,"",
-				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY);
+				pre+ ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY);
 		assertInvalidDomainParamterException(test,"a.b",
-				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_TO_SHORT);
+				pre+ ModelsCoreEnglishConstants.DOMAIN_TO_SHORT);
 		assertInvalidDomainParamterException(test,".abc",
-				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_FIRST_CHARACTER);
+				pre+ ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_FIRST_CHARACTER);
 		assertInvalidDomainParamterException(test,"abc.",
-				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_LAST_CHARACTER);
+				pre+ ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_HAVE_A_DOT_AS_ITS_LAST_CHARACTER);
 		assertInvalidDomainParamterException(test,"ab .",
-				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_MAY_NOT_CONTAIN_A_SPACE);
+				pre+ ModelsCoreEnglishConstants.DOMAIN_MAY_NOT_CONTAIN_A_SPACE);
 		assertInvalidDomainParamterException(test,"a..b",
-				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
+				pre+ ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
 		assertInvalidDomainParamterException(test,"a.b..com",
-				pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
+				pre+ ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_HAVE_TWO_CONSECUTIVE_DOTS);
 		
 		
 		InvalidParameterException x = null;
@@ -32,7 +32,7 @@ public class DomainNameAssertions  {
 		}
 		test.assertIsNotNull(x);
 		test.assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
-		test.assertIsEquals( pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
+		test.assertIsEquals( pre+ ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
 		
 		x = null;
 		try {
@@ -42,7 +42,7 @@ public class DomainNameAssertions  {
 		}
 		test.assertIsNotNull(x);
 		test.assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
-		test.assertIsEquals(pre+ ModelsCoreEnglishValidationConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
+		test.assertIsEquals(pre+ ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
 	}
 	
 	@SuppressWarnings("static-access")

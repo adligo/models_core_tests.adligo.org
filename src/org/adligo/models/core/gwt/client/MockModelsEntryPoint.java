@@ -11,7 +11,7 @@ import org.adligo.models.core.client.CoreRoles;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMail;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
-import org.adligo.models.core.client.I_ModelsCoreValidationConstants;
+import org.adligo.models.core.client.I_ModelsCoreConstants;
 import org.adligo.models.core.client.I_Mutable;
 import org.adligo.models.core.client.I_NamedId;
 import org.adligo.models.core.client.I_Storable;
@@ -20,8 +20,8 @@ import org.adligo.models.core.client.I_StorageMutant;
 import org.adligo.models.core.client.I_User;
 import org.adligo.models.core.client.I_Validateable;
 import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.ModelsCoreEnglishValidationConstants;
-import org.adligo.models.core.client.ModelsCoreValidationConstantsObtainer;
+import org.adligo.models.core.client.ModelsCoreEnglishConstants;
+import org.adligo.models.core.client.ModelsCoreConstantsObtainer;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.NamedIdMutant;
 import org.adligo.models.core.client.Organization;
@@ -94,11 +94,11 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new User());
 			holder.addUsed(new UserMutant());
 			
-			holder.addUsed(new ModelsCoreEnglishValidationConstants());
-			holder.addUsed(new ModelsCoreValidationConstantsObtainer());
+			holder.addUsed(new ModelsCoreEnglishConstants());
+			holder.addUsed(new ModelsCoreConstantsObtainer());
 			holder.addUsed(ModelsCoreEnglishConstantsFactory.class);
 			
-			holder.addUsed(I_ModelsCoreValidationConstants.class);
+			holder.addUsed(I_ModelsCoreConstants.class);
 			
 		} catch (Exception x) {
 			x.printStackTrace();

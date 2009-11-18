@@ -16,7 +16,7 @@ public class PhoneNumberAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(PhoneNumber.SET_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishValidationConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -28,7 +28,7 @@ public class PhoneNumberAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(PhoneNumber.SET_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishValidationConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		
@@ -41,7 +41,7 @@ public class PhoneNumberAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(PhoneNumber.SET_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishValidationConstants.PHONE_NUMBER_MAY_ONLY_HAVE_ARABIC_NUMERALS,
+				prefix + ModelsCoreEnglishConstants.PHONE_NUMBER_MAY_ONLY_HAVE_ARABIC_NUMERALS,
 				ex.getMessage());
 		
 		mutant.setNumber("123456");
@@ -90,7 +90,7 @@ public class PhoneNumberAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(PhoneNumber.PHONE_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishValidationConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setNumber("123456");

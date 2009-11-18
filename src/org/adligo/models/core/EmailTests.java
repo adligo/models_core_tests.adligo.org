@@ -7,7 +7,7 @@ import org.adligo.models.core.client.EmailAssertions;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.ModelsCoreEnglishValidationConstants;
+import org.adligo.models.core.client.ModelsCoreEnglishConstants;
 import org.adligo.tests.ATest;
 
 public class EmailTests extends ATest {
@@ -34,7 +34,7 @@ public class EmailTests extends ATest {
 		}
 		assertIsNotNull(x);
 		assertIsEquals(EMail.EMAIL, x.getMethodName());
-		assertIsEquals(ModelsCoreEnglishValidationConstants.E_MAIL_CAN_NOT_BE_EMPTY, x.getMessage());
+		assertIsEquals(ModelsCoreEnglishConstants.E_MAIL_CAN_NOT_BE_EMPTY, x.getMessage());
 	}
 	
 	public void testCopyConstructor() throws Exception {

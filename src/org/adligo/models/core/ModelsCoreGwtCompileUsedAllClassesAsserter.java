@@ -18,7 +18,7 @@ import org.adligo.models.core.client.PersonAssertions;
 import org.adligo.models.core.client.PhoneNumberAssertions;
 import org.adligo.models.core.client.UserAssertions;
 import org.adligo.models.core.client.UserRelationsAssertions;
-import org.adligo.models.core.client.i18n.I_GwtModelsCoreValidationConstants;
+import org.adligo.models.core.client.i18n.I_GwtModelsCoreConstants;
 import org.adligo.models.core.client.i18n.ModelsCoreConstantsSetup;
 import org.adligo.models.core.gwt.client.MockModelsEntryPoint;
 import org.adligo.tests.ATest;
@@ -43,7 +43,7 @@ public class ModelsCoreGwtCompileUsedAllClassesAsserter  extends ATest {
 		
 		ignore.add(ClassUtils.getClassName(UserRelationsAssertions.class));
 		//ignore from the models_core_relations project
-		ignore.add(ClassUtils.getClassName(I_GwtModelsCoreValidationConstants.class));
+		ignore.add(ClassUtils.getClassName(I_GwtModelsCoreConstants.class));
 		String modelsCoreSetupClassName = ClassUtils.getClassName(ModelsCoreConstantsSetup.class);
 		
 		ignore.add(modelsCoreSetupClassName);

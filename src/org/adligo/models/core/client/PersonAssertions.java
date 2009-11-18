@@ -18,7 +18,7 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Person.SET_LAST_NAME, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishValidationConstants.A_NAME_LAST_NAME_IS_REQUIRED,
+				prefix + ModelsCoreEnglishConstants.PERSON_A_NAME_LAST_NAME_IS_REQUIRED,
 				ex.getMessage());
 		
 		ex = null;
@@ -30,7 +30,7 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Person.SET_LAST_NAME, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishValidationConstants.A_NAME_LAST_NAME_IS_REQUIRED,
+				prefix + ModelsCoreEnglishConstants.PERSON_A_NAME_LAST_NAME_IS_REQUIRED,
 				ex.getMessage());
 		
 		ex = null;
@@ -95,7 +95,7 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Person.PERSON, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishValidationConstants.A_NAME_LAST_NAME_IS_REQUIRED,
+				prefix + ModelsCoreEnglishConstants.PERSON_A_NAME_LAST_NAME_IS_REQUIRED,
 				ex.getMessage());
 		
 		
