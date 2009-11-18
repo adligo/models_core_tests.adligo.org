@@ -4,7 +4,7 @@ import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
 import org.adligo.models.core.client.UserGroupAssertions;
 import org.adligo.tests.client.AGwtTest;
 
-public class UserGroupTests extends AGwtTest {
+public class UserGroupGwtTests extends AGwtTest {
 
 	public void testErrorStrings() throws Exception {
 		UserGroupAssertions.assertMutators(this, "");
