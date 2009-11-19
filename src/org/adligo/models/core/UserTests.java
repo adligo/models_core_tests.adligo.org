@@ -77,6 +77,7 @@ public class UserTests extends ATest {
 		StorageIdentifierMutant id = new StorageIdentifierMutant();
 		id.setId((long) 12);
 		mutant.setId(id);
+		
 		assertEquals(id, mutant.getId());
 		
 		UserAssertions.assertMutators(this, "");

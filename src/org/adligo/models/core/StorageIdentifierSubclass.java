@@ -1,5 +1,6 @@
 package org.adligo.models.core;
 
+import org.adligo.models.core.client.I_StorageIdentifier;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.StorageIdentifier;
 
@@ -10,7 +11,7 @@ public class StorageIdentifierSubclass extends StorageIdentifier {
 	@SuppressWarnings("unused")
 	private StorageIdentifierSubclass() {}
 	
-	public StorageIdentifierSubclass(StorageIdentifier other) throws InvalidParameterException {
+	public StorageIdentifierSubclass(I_StorageIdentifier other) throws InvalidParameterException {
 		super(other);
 	}
 	

@@ -124,14 +124,14 @@ public class UserRelationsAssertions {
 				ex.getMessage());
 		
 		
-		mutant.addGroup("admins");
+		mutant.addGroup("admins_group");
 		groups = new HashSet<String>();
-		groups.add("bartenders");
+		groups.add("bartenders_group");
 		mutant.addAllGroups(groups);
 		
 		Set<String> groupsFromMutant = mutant.getGroups();
-		test.assertIsTrue(groupsFromMutant.contains("admin"));
-		test.assertIsTrue(groupsFromMutant.contains("bartender"));
+		test.assertIsTrue(groupsFromMutant.contains("admins_group"));
+		test.assertIsTrue(groupsFromMutant.contains("bartenders_group"));
 		test.assertIsFalse(groupsFromMutant.contains(""));
 		test.assertIsFalse(groupsFromMutant.contains(null));
 		
@@ -175,9 +175,21 @@ public class UserRelationsAssertions {
 		user.setPassword("123");
 		
 		mutant = new UserRelationsMutant(user);
-		new UserRelations(mutant);
+		UserRelations ur = new UserRelations(mutant);
+		test.assertIsEquals(new DomainName("bo.com"), ur.getDomain());
+		test.assertIsEquals(new EMail("bo@bo.com"), ur.getEmail());
+		test.assertIsEquals("bo", ur.getName());
+		test.assertIsEquals("123", ur.getPassword());
 		
+		mutant.addGroup("somegroup");
+		ur = new UserRelations(mutant);
+		test.assertIsEquals(new DomainName("bo.com"), ur.getDomain());
+		test.assertIsEquals(new EMail("bo@bo.com"), ur.getEmail());
+		test.assertIsEquals("bo", ur.getName());
+		test.assertIsEquals("123", ur.getPassword());
+		test.assertIsTrue(ur.getGroups().contains("somegroup"));
 		mutant.setOrg_mutant(new OrganizationMutant());
+		
 		
 		ex = null;
 		try {
@@ -311,6 +323,7 @@ public class UserRelationsAssertions {
 		test.assertIsFalse(user.isUserInRole(null));
 		test.assertIsFalse(user.isUserInRole(""));
 		test.assertIsTrue(user.isUserInRole("admin"));
+		
 		
 		
 	}

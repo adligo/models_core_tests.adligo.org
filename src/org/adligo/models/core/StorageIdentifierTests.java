@@ -202,4 +202,16 @@ public class StorageIdentifierTests extends ATest {
 	public void testIsSeralizable() throws Exception {
 		IsGwtRpcSerializable.isRpcSerializable(StorageIdentifier.class);
 	}
+	
+	public void testMutantNOTSeralizable() {
+		Exception ex = null;
+		try {
+			IsGwtRpcSerializable.isRpcSerializable(StorageIdentifierMutant.class);
+		} catch (Exception x) {
+			ex = x;
+		}
+		assertNotNull(ex);
+		assertEquals("class class org.adligo.models.core.client.StorageIdentifierMutant" +
+				" with parents [] is not serlizeable see log. ", ex.getMessage());
+	}
 }

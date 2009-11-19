@@ -4,6 +4,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
+import org.adligo.models.core.client.I_StorageIdentifier;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.StorageIdentifier;
 import org.adligo.models.core.client.StorageIdentifierMutant;
@@ -97,7 +98,7 @@ public class ParamterExceptionAsserter {
 	public static void assertInvalidParamterExceptionStorageIdentifierMutator(Object obj, String methodName) throws Exception {
 		InvalidParameterException x = null;
 		Class clazz = obj.getClass();
-		Method method = clazz.getDeclaredMethod(methodName,new Class[] {StorageIdentifier.class});
+		Method method = clazz.getDeclaredMethod(methodName,new Class[] {I_StorageIdentifier.class});
 		
 		try {
 			method.invoke(obj, new Object[] {null});
