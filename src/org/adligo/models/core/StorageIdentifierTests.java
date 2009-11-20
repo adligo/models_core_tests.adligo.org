@@ -136,53 +136,6 @@ public class StorageIdentifierTests extends ATest {
 		assertEquals("StorageIdentifier [id=12,key=keyVal]", id.toString());
 	}
 	
-	public void testSubClass() throws Exception {
-		StorageIdentifierMutant mutant = new StorageIdentifierMutant();
-		
-		InvalidParameterException exception = null;
-		try {
-			new StorageIdentifierSubclass(mutant);
-		} catch (InvalidParameterException x) {
-			exception = x;
-		}
-		assertNotNull(exception);
-		assertEquals(StorageIdentifier.CLAZZ_SIMPLE_NAME, exception.getMethodName());
-		assertEquals(StorageIdentifier.NO_KEY_OR_A_ID, exception.getMessage());
-		
-		exception = null;
-		mutant.setId((long) 4);
-		try {
-			new StorageIdentifierSubclass(mutant);
-		} catch (InvalidParameterException x) {
-			exception = x;
-		}
-		assertNotNull(exception);
-		assertEquals(StorageIdentifier.SET_ID, exception.getMethodName());
-		assertEquals(StorageIdentifierSubclass.ID_ERROR, exception.getMessage());
-		
-		exception = null;
-		mutant = new StorageIdentifierMutant();
-		mutant.setKey("mydn");
-		try {
-			new StorageIdentifierSubclass(mutant);
-		} catch (InvalidParameterException x) {
-			exception = x;
-		}
-		assertNotNull(exception);
-		assertEquals(StorageIdentifier.SET_KEY, exception.getMethodName());
-		assertEquals(StorageIdentifierSubclass.KEY_ERROR, exception.getMessage());
-		
-		StorageIdentifier id = new StorageIdentifier(mutant);
-		try {
-			id = new StorageIdentifierSubclass(id);
-		} catch (InvalidParameterException x) {
-			exception = x;
-		}
-		assertNotNull(exception);
-		assertEquals(StorageIdentifier.SET_KEY, exception.getMethodName());
-		assertEquals(StorageIdentifierSubclass.KEY_ERROR, exception.getMessage());
-	}
-	
 	public void testEquals() throws Exception {
 		StorageIdentifier a = new StorageIdentifier();
 		StorageIdentifierMutant b = new StorageIdentifierMutant();
@@ -211,7 +164,7 @@ public class StorageIdentifierTests extends ATest {
 			ex = x;
 		}
 		assertNotNull(ex);
-		assertEquals("class class org.adligo.models.core.client.StorageIdentifierMutant" +
+		assertEquals("class org.adligo.models.core.client.StorageIdentifierMutant" +
 				" with parents [] is not serlizeable see log. ", ex.getMessage());
 	}
 }

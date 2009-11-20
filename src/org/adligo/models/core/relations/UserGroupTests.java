@@ -4,6 +4,8 @@ import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.UserGroupAssertions;
 import org.adligo.models.core.relations.client.UserGroup;
+import org.adligo.models.core.relations.client.UserGroupMutant;
+import org.adligo.models.core.relations.client.UserRelationsMutant;
 import org.adligo.tests.ATest;
 
 public class UserGroupTests extends ATest {
@@ -25,5 +27,17 @@ public class UserGroupTests extends ATest {
 	
 	public void testMutators() throws Exception {
 		UserGroupAssertions.assertMutators(this, "");
+	}
+	
+	public void testMutantNOTSeralizable() {
+		Exception ex = null;
+		try {
+			IsGwtRpcSerializable.isRpcSerializable(UserGroupMutant.class);
+		} catch (Exception x) {
+			ex = x;
+		}
+		assertNotNull(ex);
+		assertEquals("class org.adligo.models.core.relations.client.UserGroupMutant" +
+				" with parents [] is not serlizeable see log. ", ex.getMessage());
 	}
 }

@@ -58,9 +58,9 @@ public class UserTests extends ATest {
 	public void testMutators() throws Exception {
 		UserMutant mutant = new UserMutant();
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setName");
-		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, UserMutant.SET_DOMAIN);
+		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, User.SET_DOMAIN);
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setPassword");
-		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, UserMutant.SET_EMAIL);
+		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, User.SET_EMAIL);
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStorageIdentifierMutator(mutant, "setId");
 		
 		mutant.setDomain("adligo.com");
@@ -114,4 +114,15 @@ public class UserTests extends ATest {
 		IsGwtRpcSerializable.isRpcSerializable(User.class);
 	}
 	
+	public void testMutantNOTSeralizable() {
+		Exception ex = null;
+		try {
+			IsGwtRpcSerializable.isRpcSerializable(UserMutant.class);
+		} catch (Exception x) {
+			ex = x;
+		}
+		assertNotNull(ex);
+		assertEquals("class org.adligo.models.core.client.UserMutant" +
+				" with parents [] is not serlizeable see log. ", ex.getMessage());
+	}
 }

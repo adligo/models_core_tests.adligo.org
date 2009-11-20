@@ -77,6 +77,18 @@ public class PersonAssertions {
 		test.assertIsFalse(hashCode == mutant.hashCode());
 	    hashCode = mutant.hashCode();
 	    
+	    mutant.setBirthday(new Long( 1));
+		test.assertIsEquals(new Long(1), mutant.getBirthday());
+		test.assertIsTrue(mutant.isValid());
+		test.assertIsFalse(hashCode == mutant.hashCode());
+	    hashCode = mutant.hashCode();
+	    
+	    mutant.setDeceased(new Long( 2));
+		test.assertIsEquals(new Long(2), mutant.getDeceased());
+		test.assertIsTrue(mutant.isValid());
+		test.assertIsFalse(hashCode == mutant.hashCode());
+	    hashCode = mutant.hashCode();
+	    
 		mutant.setId(new StorageIdentifier((long) 8));
 		test.assertIsEquals(new StorageIdentifier((long) 8), mutant.getId());
 		test.assertIsFalse(hashCode == mutant.hashCode());
@@ -102,16 +114,22 @@ public class PersonAssertions {
 		mutant.setLast_name("someName");
 		mutant.setFirst_name("someFirstName");
 		mutant.setMiddle_name("someMiddleName");
+		mutant.setBirthday(new Long(3));
+		mutant.setDeceased(new Long(4));
 		
 		Person person = new Person(mutant);
 		test.assertIsEquals("someName", person.getLast_name());
 		test.assertIsEquals("someFirstName", person.getFirst_name());
 		test.assertIsEquals("someMiddleName", person.getMiddle_name());
+		test.assertIsEquals(new Long(3), person.getBirthday());
+		test.assertIsEquals(new Long(4), person.getDeceased());
 		
 		test.assertIsEquals(person, mutant);
 		
-		test.assertIsEquals("Person [first_name=someFirstName,middle_name=someMiddleName,last_name=someName,id=null]", person.toString());
-		test.assertIsEquals("PersonMutant [first_name=someFirstName,middle_name=someMiddleName,last_name=someName,id=null]", mutant.toString());
+		test.assertIsEquals("Person [first_name=someFirstName,middle_name=someMiddleName,last_name=someName," +
+				"id=null,birthday=12/31/69 6:00 PM 003,deceased=12/31/69 6:00 PM 004]", person.toString());
+		test.assertIsEquals("PersonMutant [first_name=someFirstName,middle_name=someMiddleName," +
+				"last_name=someName,id=null,birthday=12/31/69 6:00 PM 003,deceased=12/31/69 6:00 PM 004]", mutant.toString());
 		
 		
 		mutant.setId(new StorageIdentifier((long) 8));

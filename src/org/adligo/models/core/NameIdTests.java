@@ -6,6 +6,7 @@ import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.NamedIdMutant;
 import org.adligo.models.core.client.StorageIdentifier;
+import org.adligo.models.core.client.StorageIdentifierMutant;
 import org.adligo.tests.ATest;
 
 public class NameIdTests extends ATest {
@@ -62,45 +63,6 @@ public class NameIdTests extends ATest {
 		assertEquals("NamedId [name=mutant name,id=StorageIdentifier [id=1,key=null]]", id.toString());
 	}
 	
-	public void testSubClass() throws Exception {
-			@SuppressWarnings("unused")
-			NameIdSubclass subclass = null;
-			NamedIdMutant mutant = new NamedIdMutant();
-			
-			InvalidParameterException exception = null;
-			try {
-				subclass = new NameIdSubclass(mutant);
-			} catch (InvalidParameterException x) {
-				exception = x;
-			}
-			assertNotNull(exception);
-			assertEquals(NamedId.NAMED_ID, exception.getMethodName());
-			assertEquals(NameIdSubclass.NAME_ERROR, exception.getMessage());
-			
-			StorageIdentifier sid = new StorageIdentifier((long) 2);
-			mutant.setId(sid);
-			NameIdSubclass.setThrow_id_error(false);
-			exception = null;
-			try {
-				subclass = new NameIdSubclass(mutant);
-			} catch (InvalidParameterException x) {
-				exception = x;
-			}
-			assertNotNull(exception);
-			assertEquals(NamedId.NAMED_ID, exception.getMethodName());
-			assertEquals(NameIdSubclass.NAME_ERROR, exception.getMessage());
-			
-			exception = null;
-			try {
-				subclass = new NameIdSubclass(null);
-			} catch (InvalidParameterException x) {
-				exception = x;
-			}
-			assertNotNull(exception);
-			assertEquals(NamedId.NAMED_ID, exception.getMethodName());
-			assertEquals(NamedId.NULL_TO_CONSTRUCTOR, exception.getMessage());
-	}
-	
 	public void testEquals() throws Exception {
 		NamedId a = new NamedId();
 		NamedIdMutant b = new NamedIdMutant();
@@ -118,5 +80,17 @@ public class NameIdTests extends ATest {
 	
 	public void testSerialization() throws Exception {
 		IsGwtRpcSerializable.isRpcSerializable(NamedId.class);
+	}
+	
+	public void testMutantNOTSeralizable() {
+		Exception ex = null;
+		try {
+			IsGwtRpcSerializable.isRpcSerializable(NamedIdMutant.class);
+		} catch (Exception x) {
+			ex = x;
+		}
+		assertNotNull(ex);
+		assertEquals("class org.adligo.models.core.client.NamedIdMutant" +
+				" with parents [] is not serlizeable see log. ", ex.getMessage());
 	}
 }

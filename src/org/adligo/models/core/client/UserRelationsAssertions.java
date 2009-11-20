@@ -3,6 +3,7 @@ package org.adligo.models.core.client;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.adligo.models.core.relations.client.I_UserRelations;
 import org.adligo.models.core.relations.client.UserRelations;
 import org.adligo.models.core.relations.client.UserRelationsMutant;
 import org.adligo.tests.client.I_Test;
@@ -187,30 +188,17 @@ public class UserRelationsAssertions {
 		test.assertIsEquals(new EMail("bo@bo.com"), ur.getEmail());
 		test.assertIsEquals("bo", ur.getName());
 		test.assertIsEquals("123", ur.getPassword());
+		
 		test.assertIsTrue(ur.getGroups().contains("somegroup"));
-		mutant.setOrg_mutant(new OrganizationMutant());
-		
-		
-		ex = null;
-		try {
-			new UserRelations(mutant);
-		} catch (Exception e) {
-			ex = GwtParameterExceptionAsserter.isIPE(e);
-		}
-		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.USER_RELATIONS, ex.getMethodName());
-		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_NAME,
-				ex.getMessage());
-		
 		OrganizationMutant orgMutant = new OrganizationMutant();
 		orgMutant.setName("admins");
 		orgMutant.setType(new NamedId("department"));
 		
-		mutant.setOrg_mutant(orgMutant);
+		mutant.setOrg(orgMutant);
 		
 		PersonMutant pm = new PersonMutant();
-		mutant.setPerson_mutant(pm);
+		pm.setLast_name("someLastName");
+		mutant.setPerson(pm);
 		
 		try {
 			new UserRelations(mutant);
@@ -220,8 +208,9 @@ public class UserRelationsAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(UserRelations.USER_RELATIONS, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.PERSON_A_NAME_LAST_NAME_IS_REQUIRED,
+				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
+		
 		
 	}
 	

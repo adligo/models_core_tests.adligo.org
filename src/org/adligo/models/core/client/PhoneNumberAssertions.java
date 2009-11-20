@@ -94,7 +94,7 @@ public class PhoneNumberAssertions {
 				ex.getMessage());
 		
 		mutant.setNumber("123456");
-		PhoneNumber nbr = new PhoneNumber(mutant);
+		I_PhoneNumber nbr = new PhoneNumber(mutant);
 		test.assertIsTrue(mutant.isValid());
 		test.assertIsTrue(hashCode != mutant.hashCode());
 		
