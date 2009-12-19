@@ -108,9 +108,9 @@ public class UserAssertions {
 		test.assertIsEquals(new DomainName("google.com"), mutant.getDomain());
 		
 		mutant.setEmail("support@adligo.com");
-		test.assertIsEquals(new EMail("support@adligo.com"), mutant.getEmail());
-		mutant.setEmail(new EMail("support@google.com"));
-		test.assertIsEquals(new EMail("support@google.com"), mutant.getEmail());
+		test.assertIsEquals(new EMailAddress("support@adligo.com"), mutant.getEmail());
+		mutant.setEmail(new EMailAddress("support@google.com"));
+		test.assertIsEquals(new EMailAddress("support@google.com"), mutant.getEmail());
 	}
 
 	private static void assertDomains(I_Test test, String prefix,
@@ -193,7 +193,7 @@ public class UserAssertions {
 		
 		ex = null;
 		try {
-			mutant.setEmail((EMail) null);
+			mutant.setEmail((EMailAddress) null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
@@ -205,7 +205,7 @@ public class UserAssertions {
 		
 		ex = null;
 		try {
-			mutant.setEmail(new EMail());
+			mutant.setEmail(new EMailAddress());
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
@@ -294,7 +294,7 @@ public class UserAssertions {
 		test.assertIsEquals("userName", user.getName());
 		test.assertIsEquals(new DomainName("adligo.org"), user.getDomain());
 		test.assertIsEquals("password", user.getPassword());
-		test.assertIsEquals(new EMail("support@adligo.com"), user.getEmail());
+		test.assertIsEquals(new EMailAddress("support@adligo.com"), user.getEmail());
 		test.assertIsNull(user.getId());
 		test.assertIsTrue(user.isValid());
 		test.assertIsEquals(mutant, user);
@@ -458,7 +458,7 @@ public class UserAssertions {
 		
 		test.assertIsEquals(new DomainName("unknown.org"), user.getDomain());
 		test.assertIsEquals("joe", user.getName());
-		test.assertIsEquals(new EMail("joe@kingstable.org"), user.getEmail());
+		test.assertIsEquals(new EMailAddress("joe@kingstable.org"), user.getEmail());
 		
 	}
 }

@@ -4,7 +4,7 @@ import org.adligo.models.core.client.EmailAssertions;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
 import org.adligo.tests.client.AGwtTest;
 
-public class FrEmailGwtTests extends AGwtTest {
+public class FrEmailAddressGwtTests extends AGwtTest {
 
 	@Override
 	protected void gwtSetUp() throws Exception {

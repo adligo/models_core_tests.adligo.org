@@ -9,7 +9,7 @@ import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.AddressMutant;
 import org.adligo.models.core.client.CoreRoles;
 import org.adligo.models.core.client.DomainName;
-import org.adligo.models.core.client.EMail;
+import org.adligo.models.core.client.EMailAddress;
 import org.adligo.models.core.client.I_Address;
 import org.adligo.models.core.client.I_Org;
 import org.adligo.models.core.client.I_Person;
@@ -78,7 +78,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new AddressMutant());
 			holder.addUsed(CoreRoles.class);
 			holder.addUsed(new DomainName());
-			holder.addUsed(new EMail("support@adligo.com"));
+			holder.addUsed(new EMailAddress("support@adligo.com"));
 			holder.addUsed(I_Address.class);
 			holder.addUsed(I_Mutable.class);
 			holder.addUsed(I_NamedId.class);

@@ -2,7 +2,7 @@ package org.adligo.models.core;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
-import org.adligo.models.core.client.EMail;
+import org.adligo.models.core.client.EMailAddress;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.StorageIdentifier;
@@ -95,7 +95,7 @@ public class UserTests extends ATest {
 		assertEquals("name", user.getName());
 		assertNull(user.getId());
 		assertEquals("password", user.getPassword());
-		assertEquals(new EMail("support@adligo.com"), user.getEmail());
+		assertEquals(new EMailAddress("support@adligo.com"), user.getEmail());
 		
 		StorageIdentifier id = new StorageIdentifier((long) 1);
 		mutant.setId(id);
@@ -104,7 +104,7 @@ public class UserTests extends ATest {
 		assertEquals(new DomainName("domain.com"), user.getDomain());
 		assertEquals("name", user.getName());
 		assertEquals("password", user.getPassword());
-		assertEquals(new EMail("support@adligo.com"), user.getEmail());
+		assertEquals(new EMailAddress("support@adligo.com"), user.getEmail());
 		assertEquals(id, user.getId());
 		
 		UserAssertions.assertConstructors(this, "");

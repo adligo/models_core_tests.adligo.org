@@ -141,7 +141,7 @@ public class UserRelationsAssertions {
 		mutant.setPassword("psw");
 		test.assertIsEquals("psw", mutant.getPassword());
 		mutant.setEmail("john@psw.net");
-		test.assertIsEquals(new EMail("john@psw.net"), mutant.getEmail());
+		test.assertIsEquals(new EMailAddress("john@psw.net"), mutant.getEmail());
 		mutant.setDomain("go.net");
 		test.assertIsEquals(new DomainName("go.net"), mutant.getDomain());
 		mutant.setId(new StorageIdentifier("key"));
@@ -178,14 +178,14 @@ public class UserRelationsAssertions {
 		mutant = new UserRelationsMutant(user);
 		UserRelations ur = new UserRelations(mutant);
 		test.assertIsEquals(new DomainName("bo.com"), ur.getDomain());
-		test.assertIsEquals(new EMail("bo@bo.com"), ur.getEmail());
+		test.assertIsEquals(new EMailAddress("bo@bo.com"), ur.getEmail());
 		test.assertIsEquals("bo", ur.getName());
 		test.assertIsEquals("123", ur.getPassword());
 		
 		mutant.addGroup("somegroup");
 		ur = new UserRelations(mutant);
 		test.assertIsEquals(new DomainName("bo.com"), ur.getDomain());
-		test.assertIsEquals(new EMail("bo@bo.com"), ur.getEmail());
+		test.assertIsEquals(new EMailAddress("bo@bo.com"), ur.getEmail());
 		test.assertIsEquals("bo", ur.getName());
 		test.assertIsEquals("123", ur.getPassword());
 		

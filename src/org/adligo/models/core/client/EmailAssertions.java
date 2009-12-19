@@ -48,12 +48,12 @@ public class EmailAssertions {
 		InvalidParameterException x = null;
 	
 		try {
-			EMail.validate(email);
+			EMailAddress.validate(email);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.EMAIL, x.getMethodName());
+		test.assertIsEquals(EMailAddress.EMAIL, x.getMethodName());
 		test.assertIsEquals(expectedError, x.getMessage());
 		
 		if (expectedNestedError != null) {
@@ -66,12 +66,12 @@ public class EmailAssertions {
 		x = null;
 		
 		try {
-			new EMail(email);
+			new EMailAddress(email);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.EMAIL, x.getMethodName());
+		test.assertIsEquals(EMailAddress.EMAIL, x.getMethodName());
 		test.assertIsEquals(expectedError, x.getMessage());
 		
 		if (expectedNestedError != null) {

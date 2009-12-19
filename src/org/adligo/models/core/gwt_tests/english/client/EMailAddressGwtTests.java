@@ -4,7 +4,7 @@ import org.adligo.models.core.client.EmailAssertions;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
 import org.adligo.tests.client.AGwtTest;
 
-public class EMailGwtTests extends AGwtTest {
+public class EMailAddressGwtTests extends AGwtTest {
 
 	@Override
 	public String getModuleName() {
