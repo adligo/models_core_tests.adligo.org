@@ -3,7 +3,7 @@ package org.adligo.models.core;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMailAddress;
-import org.adligo.models.core.client.EmailAssertions;
+import org.adligo.models.core.client.EmailAddressAssertions;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
@@ -19,7 +19,7 @@ public class EmailAddressTests extends ATest {
 	}
 	
 	public void testStringConstructorAndValidateExceptions() throws Exception {
-		EmailAssertions.assertInvalidParameterExceptions("", this);
+		EmailAddressAssertions.assertInvalidParameterExceptions("", this);
 		
 		EMailAddress a = new EMailAddress("support@adligo.org");
 		assertEquals("support@adligo.org", a.toString());
@@ -34,7 +34,7 @@ public class EmailAddressTests extends ATest {
 		}
 		assertIsNotNull(x);
 		assertIsEquals(EMailAddress.EMAIL, x.getMethodName());
-		assertIsEquals(ModelsCoreEnglishConstants.E_MAIL_CAN_NOT_BE_EMPTY, x.getMessage());
+		assertIsEquals(ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY, x.getMessage());
 	}
 	
 	public void testCopyConstructor() throws Exception {

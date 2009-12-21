@@ -1,10 +1,10 @@
 package org.adligo.models.core.gwt_tests.english.client;
 
-import org.adligo.models.core.client.EmailAddressAssertions;
+import org.adligo.models.core.client.EMailAssertions;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
 import org.adligo.tests.client.AGwtTest;
 
-public class EMailAddressGwtTests extends AGwtTest {
+public class EMailGwtTest extends AGwtTest {
 
 	@Override
 	public String getModuleName() {
@@ -13,9 +13,12 @@ public class EMailAddressGwtTests extends AGwtTest {
 	
 	
 	public void testStringConstructorAndValidateVsPropertyfile() throws Exception {
-		EmailAddressAssertions.assertInvalidParameterExceptions("", this);
+		EMailAssertions.assertConstructorInvalidParameterExceptions("", this);
 	}
-
+	
+	public void testSetterValidateVsPropertyfile() throws Exception {
+		EMailAssertions.assertSetterInvalidParameterExceptions("", this);
+	}
 
 	@Override
 	protected void gwtSetUp() throws Exception {
@@ -23,4 +26,5 @@ public class EMailAddressGwtTests extends AGwtTest {
 		super.gwtSetUp();
 		ModelsCoreMockGwtSetup.init();
 	}
+
 }

@@ -176,7 +176,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -188,7 +188,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -200,7 +200,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -212,7 +212,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 	}
 	
@@ -282,7 +282,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.USER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setEmail("support@adligo.com");
@@ -439,7 +439,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.USER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -451,7 +451,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(User.USER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.E_MAIL_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		user = new User("unknown.org", "joe", "joe@kingstable.org");
