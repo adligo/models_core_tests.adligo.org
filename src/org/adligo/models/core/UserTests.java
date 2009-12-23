@@ -3,10 +3,11 @@ package org.adligo.models.core;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMailAddress;
-import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.StorageIdentifier;
-import org.adligo.models.core.client.StorageIdentifierMutant;
+import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
+import org.adligo.models.core.client.ModelsMockSetup;
+import org.adligo.models.core.client.StringIdentifier;
+import org.adligo.models.core.client.StringIdentifierMutant;
 import org.adligo.models.core.client.User;
 import org.adligo.models.core.client.UserAssertions;
 import org.adligo.models.core.client.UserMutant;
@@ -18,9 +19,8 @@ public class UserTests extends ATest {
 	protected void setUp() throws Exception {
 		super.setUp();
 		new ModelsCoreEnglishConstantsFactory();
+		ModelsMockSetup.setUp();
 	}
-	
-
 	
 	public void testgetDC() throws Exception {
 		UserMutant mutant = new UserMutant();
@@ -74,8 +74,8 @@ public class UserTests extends ATest {
 		mutant.setName("george");
 		assertEquals("george", mutant.getName());
 		
-		StorageIdentifierMutant id = new StorageIdentifierMutant();
-		id.setId((long) 12);
+		StringIdentifierMutant id = new StringIdentifierMutant();
+		id.setKey("sid");
 		mutant.setId(id);
 		
 		assertEquals(id, mutant.getId());
@@ -97,7 +97,7 @@ public class UserTests extends ATest {
 		assertEquals("password", user.getPassword());
 		assertEquals(new EMailAddress("support@adligo.com"), user.getEmail());
 		
-		StorageIdentifier id = new StorageIdentifier((long) 1);
+		StringIdentifier id = new StringIdentifier("sid");
 		mutant.setId(id);
 		
 		user = new User(mutant);

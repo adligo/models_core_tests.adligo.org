@@ -144,8 +144,8 @@ public class UserRelationsAssertions {
 		test.assertIsEquals(new EMailAddress("john@psw.net"), mutant.getEmail());
 		mutant.setDomain("go.net");
 		test.assertIsEquals(new DomainName("go.net"), mutant.getDomain());
-		mutant.setId(new StorageIdentifier("key"));
-		test.assertIsEquals(new StorageIdentifier("key"), mutant.getId());
+		mutant.setId(new StringIdentifier("key"));
+		test.assertIsEquals(new StringIdentifier("key"), mutant.getId());
 	}
 	
 	public static void assertConstructors(I_Test test, String prefix) throws Exception {

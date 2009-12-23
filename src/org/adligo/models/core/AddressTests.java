@@ -6,7 +6,8 @@ import org.adligo.models.core.client.AddressAssertions;
 import org.adligo.models.core.client.AddressMutant;
 import org.adligo.models.core.client.I_Address;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
-import org.adligo.models.core.client.StorageIdentifierMutant;
+import org.adligo.models.core.client.ModelsMockSetup;
+import org.adligo.models.core.client.StringIdentifierMutant;
 import org.adligo.tests.ATest;
 
 public class AddressTests extends ATest {
@@ -22,6 +23,7 @@ public class AddressTests extends ATest {
 	protected void setUp() throws Exception {
 		super.setUp();
 		new ModelsCoreEnglishConstantsFactory();
+		ModelsMockSetup.setUp();
 	}
 	
 	public void testCopy() throws Exception {

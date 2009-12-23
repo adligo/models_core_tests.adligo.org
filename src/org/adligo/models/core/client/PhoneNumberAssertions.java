@@ -57,23 +57,23 @@ public class PhoneNumberAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				StorageIdentifier.NO_KEY_OR_A_ID,
+				CommonModel.ID_NULL,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			mutant.setId(new StorageIdentifier());
+			mutant.setId(new StringIdentifier());
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				StorageIdentifier.NO_KEY_OR_A_ID,
+				CommonModel.ID_EMPTY,
 				ex.getMessage());
 		
-		mutant.setId(new StorageIdentifier("key"));
-		test.assertIsEquals(new StorageIdentifier("key"), mutant.getId());
+		mutant.setId(new StringIdentifier("key"));
+		test.assertIsEquals(new StringIdentifier("key"), mutant.getId());
 	}
 	
 	public static void assertConstructors(I_Test test, String prefix) throws Exception {

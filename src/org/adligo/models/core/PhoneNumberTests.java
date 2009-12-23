@@ -1,8 +1,8 @@
 package org.adligo.models.core;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
-import org.adligo.models.core.client.AddressMutant;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
+import org.adligo.models.core.client.ModelsMockSetup;
 import org.adligo.models.core.client.PhoneNumber;
 import org.adligo.models.core.client.PhoneNumberAssertions;
 import org.adligo.models.core.client.PhoneNumberMutant;
@@ -14,6 +14,7 @@ public class PhoneNumberTests extends ATest {
 	protected void setUp() throws Exception {
 		super.setUp();
 		new ModelsCoreEnglishConstantsFactory();
+		ModelsMockSetup.setUp();
 	}
 	
 	public void testMutators() throws Exception {

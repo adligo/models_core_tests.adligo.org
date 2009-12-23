@@ -74,7 +74,7 @@ public class EMailAssertions {
 		
 		x = null;
 		try {
-			mutant.addAttachment(new StorageIdentifier());
+			mutant.addAttachment(new StringIdentifier());
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
@@ -95,7 +95,7 @@ public class EMailAssertions {
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ATTACHEMNT_MAY_NOT_BE_NULL, x.getMessage());
 		
 		set.clear();
-		set.add(new StorageIdentifier());
+		set.add(new StringIdentifier());
 		
 		try {
 			mutant.addAllAttachments(set);
@@ -318,22 +318,22 @@ public class EMailAssertions {
 		test.assertIsEquals(0, bccs.size());
 		
 		//attachments
-		test.assertIsTrue(mutant.addAttachment(new StorageIdentifier("some_file")));
+		test.assertIsTrue(mutant.addAttachment(new StringIdentifier("some_file")));
 		Set<I_SerializableStorageIdentifier> attachments = mutant.getAttachments();
 		test.assertIsEquals(1, attachments.size());
-		test.assertIsTrue(attachments.contains(new StorageIdentifier("some_file")));
-		test.assertIsTrue(mutant.removeAttachment(new StorageIdentifier("some_file")));
+		test.assertIsTrue(attachments.contains(new StringIdentifier("some_file")));
+		test.assertIsTrue(mutant.removeAttachment(new StringIdentifier("some_file")));
 		attachments = mutant.getAttachments();
 		test.assertIsEquals(0, attachments.size());
 		
 		Set<I_SerializableStorageIdentifier> newAttachemnts = new HashSet<I_SerializableStorageIdentifier>();
-		test.assertIsTrue(newAttachemnts.add(new StorageIdentifier("file1")));
-		test.assertIsTrue(newAttachemnts.add(new StorageIdentifier("file2")));
+		test.assertIsTrue(newAttachemnts.add(new StringIdentifier("file1")));
+		test.assertIsTrue(newAttachemnts.add(new StringIdentifier("file2")));
 		test.assertIsTrue(mutant.addAllAttachments(newAttachemnts));
 		attachments = mutant.getAttachments();
 		test.assertIsEquals(2, attachments.size());
-		test.assertIsTrue(attachments.contains(new StorageIdentifier("file1")));
-		test.assertIsTrue(attachments.contains(new StorageIdentifier("file2")));
+		test.assertIsTrue(attachments.contains(new StringIdentifier("file1")));
+		test.assertIsTrue(attachments.contains(new StringIdentifier("file2")));
 		test.assertIsTrue(mutant.removeAllAttachments(newAttachemnts));
 		attachments = mutant.getAttachments();
 		test.assertIsEquals(0, attachments.size());
@@ -348,7 +348,7 @@ public class EMailAssertions {
 		test.assertIsTrue(mutant.addTo(new EMailAddress("to@adligo.com")));
 		test.assertIsTrue(mutant.addCc(new EMailAddress("cc@adligo.com")));
 		test.assertIsTrue(mutant.addBcc(new EMailAddress("bcc@adligo.com")));
-		test.assertIsTrue(mutant.addAttachment(new StorageIdentifier("some_file")));
+		test.assertIsTrue(mutant.addAttachment(new StringIdentifier("some_file")));
 		
 		EMail email = new EMail(mutant);
 		test.assertIsEquals(new EMailAddress("support@adligo.com"), email.getFrom());
@@ -369,6 +369,6 @@ public class EMailAssertions {
 		
 		Set<I_SerializableStorageIdentifier> attachments = mutant.getAttachments();
 		test.assertIsEquals(1, attachments.size());
-		test.assertIsTrue(attachments.contains(new StorageIdentifier("some_file")));
+		test.assertIsTrue(attachments.contains(new StringIdentifier("some_file")));
 	}
 }

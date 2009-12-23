@@ -1,9 +1,14 @@
 package org.adligo.models.core.client;
 
+import org.adligo.i.adi.client.Registry;
 import org.adligo.tests.client.I_Test;
 
 public class PersonAssertions {
 
+	public void setUp() {
+		Registry.addCheckedInvoker(ModelsCoreCheckedInvokerNames.STORAGE_IDENTIFIER_FACTORY, 
+				new DefaultStorageIdentifierFactory());
+	}
 	public static void assertMutators(I_Test test, String prefix) throws Exception {
 		PersonMutant mutant = new PersonMutant();
 		test.assertIsFalse(mutant.isValid());
@@ -42,19 +47,19 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				StorageIdentifier.NO_KEY_OR_A_ID,
+				CommonModel.ID_NULL,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			mutant.setId(new StorageIdentifier());
+			mutant.setId(new StringIdentifier());
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				StorageIdentifier.NO_KEY_OR_A_ID,
+				CommonModel.ID_EMPTY,
 				ex.getMessage());
 		
 		
@@ -89,8 +94,8 @@ public class PersonAssertions {
 		test.assertIsFalse(hashCode == mutant.hashCode());
 	    hashCode = mutant.hashCode();
 	    
-		mutant.setId(new StorageIdentifier((long) 8));
-		test.assertIsEquals(new StorageIdentifier((long) 8), mutant.getId());
+		mutant.setId(new StringIdentifier("sid"));
+		test.assertIsEquals(new StringIdentifier("sid"), mutant.getId());
 		test.assertIsFalse(hashCode == mutant.hashCode());
 		
 	}
@@ -132,10 +137,10 @@ public class PersonAssertions {
 				"last_name=someName,id=null,birthday=12/31/69 6:00 PM 003,deceased=12/31/69 6:00 PM 004]", mutant.toString());
 		
 		
-		mutant.setId(new StorageIdentifier((long) 8));
+		mutant.setId(new StringIdentifier("sid"));
 		person = new Person(mutant);
 		test.assertIsEquals(person, mutant);
-		test.assertIsEquals(new StorageIdentifier((long) 8), person.getId());
+		test.assertIsEquals(new StringIdentifier("sid"), person.getId());
 		
 		mutant.setFirst_name("john");
 		test.assertIsFalse(person.equals(mutant));

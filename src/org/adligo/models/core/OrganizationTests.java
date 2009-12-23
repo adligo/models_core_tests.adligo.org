@@ -2,6 +2,7 @@ package org.adligo.models.core;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
+import org.adligo.models.core.client.ModelsMockSetup;
 import org.adligo.models.core.client.Organization;
 import org.adligo.models.core.client.OrganizationAssertions;
 import org.adligo.tests.ATest;
@@ -14,6 +15,7 @@ public class OrganizationTests extends ATest {
 	protected void setUp() throws Exception {
 		super.setUp();
 		new ModelsCoreEnglishConstantsFactory();
+		ModelsMockSetup.setUp();
 	}
 	
 	public void testMutators() throws Exception {

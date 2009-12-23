@@ -2,7 +2,7 @@ package org.adligo.models.core.relations;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
-import org.adligo.models.core.client.UserMutant;
+import org.adligo.models.core.client.ModelsMockSetup;
 import org.adligo.models.core.client.UserRelationsAssertions;
 import org.adligo.models.core.relations.client.UserRelations;
 import org.adligo.models.core.relations.client.UserRelationsMutant;
@@ -14,6 +14,7 @@ public class UserRelationsTests extends ATest {
 	protected void setUp() throws Exception {
 		super.setUp();
 		new ModelsCoreEnglishConstantsFactory();
+		ModelsMockSetup.setUp();
 	}
 	
 	public void testSerialization() throws Exception {

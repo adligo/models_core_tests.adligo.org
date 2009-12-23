@@ -3,10 +3,10 @@ package org.adligo.models.core;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
+import org.adligo.models.core.client.ModelsMockSetup;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.NamedIdMutant;
-import org.adligo.models.core.client.StorageIdentifier;
-import org.adligo.models.core.client.StorageIdentifierMutant;
+import org.adligo.models.core.client.StringIdentifier;
 import org.adligo.tests.ATest;
 
 public class NameIdTests extends ATest {
@@ -26,7 +26,7 @@ public class NameIdTests extends ATest {
 		mutant.setName(null);
 		assertNull(mutant.getName());
 		
-		StorageIdentifier id = new StorageIdentifier((long) 1);
+		StringIdentifier id = new StringIdentifier("some_string");
 		mutant.setId(id);
 		assertEquals(id, mutant.getId());
 		mutant.setName("name");
@@ -41,7 +41,7 @@ public class NameIdTests extends ATest {
 		assertNull(id.getName());
 		assertNull(id.getId());
 		
-		StorageIdentifier sid = new StorageIdentifier((long) 1);
+		StringIdentifier sid = new StringIdentifier("sid");
 		mutant.setId(sid);
 		id = new NamedId(mutant);
 		assertNull(id.getName());
@@ -59,8 +59,8 @@ public class NameIdTests extends ATest {
 		assertEquals(sid, id.getId());
 		
 		assertEquals(id, mutant);
-		assertEquals("NamedIdMutant [name=mutant name,id=StorageIdentifier [id=1,key=null]]", mutant.toString());
-		assertEquals("NamedId [name=mutant name,id=StorageIdentifier [id=1,key=null]]", id.toString());
+		assertEquals("NamedIdMutant [name=mutant name,id=StringIdentifier [key=sid]]", mutant.toString());
+		assertEquals("NamedId [name=mutant name,id=StringIdentifier [key=sid]]", id.toString());
 	}
 	
 	public void testEquals() throws Exception {
@@ -72,7 +72,7 @@ public class NameIdTests extends ATest {
 		a = new NamedId(b);
 		assertEquals(a, b);
 		
-		b.setId(new StorageIdentifier((long) 1));
+		b.setId(new StringIdentifier("sid"));
 		a = new NamedId(a);
 		assertEquals(a, b);
 		
@@ -92,5 +92,11 @@ public class NameIdTests extends ATest {
 		assertNotNull(ex);
 		assertEquals("class org.adligo.models.core.client.NamedIdMutant" +
 				" with parents [] is not serlizeable see log. ", ex.getMessage());
+	}
+
+	@Override
+	protected void setUp() throws Exception {
+		super.setUp();
+		ModelsMockSetup.setUp();
 	}
 }

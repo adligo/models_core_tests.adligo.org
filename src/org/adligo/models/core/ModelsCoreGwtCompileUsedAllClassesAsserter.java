@@ -11,9 +11,10 @@ import org.adligo.models.core.client.AddressAssertions;
 import org.adligo.models.core.client.DomainNameAssertions;
 import org.adligo.models.core.client.EMailAssertions;
 import org.adligo.models.core.client.EmailAddressAssertions;
-import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
+import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
+import org.adligo.models.core.client.ModelsMockSetup;
 import org.adligo.models.core.client.OrganizationAssertions;
 import org.adligo.models.core.client.PersonAssertions;
 import org.adligo.models.core.client.PhoneNumberAssertions;
@@ -43,7 +44,7 @@ public class ModelsCoreGwtCompileUsedAllClassesAsserter  extends ATest {
 		ignore.add(ClassUtils.getClassName(UserAssertions.class));
 		ignore.add(ClassUtils.getClassName(GwtParameterExceptionAsserter.class));
 		ignore.add(ClassUtils.getClassName(ModelsCoreMockGwtSetup.class));
-		
+		ignore.add(ClassUtils.getClassName(ModelsMockSetup.class));
 		ignore.add(ClassUtils.getClassName(UserRelationsAssertions.class));
 		ignore.add(ClassUtils.getClassName(UserGroupAssertions.class));
 		//ignore from the models_core_relations project
@@ -71,7 +72,7 @@ public class ModelsCoreGwtCompileUsedAllClassesAsserter  extends ATest {
 		MockModelsEntryPoint entryPoint = new MockModelsEntryPoint(usageHolder);
 		entryPoint.onModuleLoad();
 		
-		assertEquals(42, usageHolder.getUsedClasses().size());
+		assertEquals(52, usageHolder.getUsedClasses().size());
 		
 		assertCollectionEquals(classes, usageHolder.getUsedClasses());
 		

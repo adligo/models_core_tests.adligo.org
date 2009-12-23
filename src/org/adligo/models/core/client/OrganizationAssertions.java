@@ -110,17 +110,17 @@ public class OrganizationAssertions {
 		test.assertIsEquals(new NamedId("someType"), org.getType());
 		test.assertIsNull(org.getId());
 		
-		mutant.setId(new StorageIdentifier((long) 99));
+		mutant.setId(new StringIdentifier("sid"));
 		
 		org = new Organization(mutant);
 		test.assertIsEquals("someName", org.getName());
 		test.assertIsEquals(new NamedId("someType"), org.getType());
-		test.assertIsEquals(new StorageIdentifier((long) 99) , org.getId());
+		test.assertIsEquals(new StringIdentifier("sid") , org.getId());
 		
 		test.assertIsEquals(mutant, org);
 		test.assertIsEquals("Organization [name=someName,type=NamedId " +
-				"[name=someType,id=null],id=StorageIdentifier [id=99,key=null]]", org.toString());
+				"[name=someType,id=null],id=StringIdentifier [key=sid]]", org.toString());
 		test.assertIsEquals("OrganizationMutant [name=someName,type=NamedId " +
-				"[name=someType,id=null],id=StorageIdentifier [id=99,key=null]]", mutant.toString());
+				"[name=someType,id=null],id=StringIdentifier [key=sid]]", mutant.toString());
 	}
 }

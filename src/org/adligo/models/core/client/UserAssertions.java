@@ -82,19 +82,19 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				User.USER_ID_NULL,
+				CommonModel.ID_NULL,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			mutant.setId(new StorageIdentifier());
+			mutant.setId(new StringIdentifier());
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				User.USER_ID_EMPTY,
+				CommonModel.ID_EMPTY,
 				ex.getMessage());
 		
 		mutant.setName("userName");
@@ -300,16 +300,16 @@ public class UserAssertions {
 		test.assertIsEquals(mutant, user);
 		test.assertIsEquals(mutant.hashCode(), user.hashCode());
 		
-		mutant.setId(new StorageIdentifier((long) 201));
+		mutant.setId(new StringIdentifier("sid"));
 		user = new User(mutant);
-		test.assertIsEquals(new StorageIdentifier((long) 201), user.getId());
+		test.assertIsEquals(new StringIdentifier("sid"), user.getId());
 		test.assertIsTrue(user.isValid());
 		test.assertIsEquals(mutant, user);
 		test.assertIsEquals(mutant.hashCode(), user.hashCode());
 		
-		test.assertIsEquals("User [name=userName,id=StorageIdentifier [id=201,key=null],email=support@adligo.com,domain=adligo.org]",
+		test.assertIsEquals("User [name=userName,id=StringIdentifier [key=sid],email=support@adligo.com,domain=adligo.org]",
 				user.toString());
-		test.assertIsEquals("UserMutant [name=userName,id=StorageIdentifier [id=201,key=null],email=support@adligo.com,domain=adligo.org]",
+		test.assertIsEquals("UserMutant [name=userName,id=StringIdentifier [key=sid],email=support@adligo.com,domain=adligo.org]",
 				mutant.toString());
 		
 		 assertNameEmailDomainConstructors(test, prefix);
