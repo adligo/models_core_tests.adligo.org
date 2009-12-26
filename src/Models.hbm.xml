@@ -1,0 +1,18 @@
+<?xml version="1.0"?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping>
+
+    <class name="org.adligo.models.core.client.Person" table="persons">
+        <composite-id name="id" class="org.adligo.models.core.client.VersionedIdentifier">
+	        <key-property name="id" column="tid"/>
+	        <key-property name="version"/>
+	    </composite-id>
+        <property name="first_name" column="fname" />
+        <property name="middle_name" column="mname" />
+        <property name="last_name" column="lname" />
+        <property name="birthday"/>
+    </class>
+
+</hibernate-mapping>

@@ -1,8 +1,8 @@
 package org.adligo.models.core.relations;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
+import org.adligo.models.core.ModelsMockSetup;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
-import org.adligo.models.core.client.ModelsMockSetup;
 import org.adligo.models.core.client.UserRelationsAssertions;
 import org.adligo.models.core.relations.client.UserRelations;
 import org.adligo.models.core.relations.client.UserRelationsMutant;

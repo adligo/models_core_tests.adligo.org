@@ -14,7 +14,6 @@ import org.adligo.models.core.client.EmailAddressAssertions;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
-import org.adligo.models.core.client.ModelsMockSetup;
 import org.adligo.models.core.client.OrganizationAssertions;
 import org.adligo.models.core.client.PersonAssertions;
 import org.adligo.models.core.client.PhoneNumberAssertions;
