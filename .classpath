@@ -7,7 +7,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/models_core"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/tests"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER/GWT (3)"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/i_util_tests"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/adi"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/gwt_util"/>
@@ -24,10 +23,14 @@
 	<classpathentry kind="var" path="HIBERNATE_HOME/lib/required/slf4j-api-1.5.2.jar"/>
 	<classpathentry kind="var" path="HIBERNATE_HOME/hibernate3.jar"/>
 	<classpathentry kind="var" path="HSQLDB_HOME/lib/hsqldb.jar"/>
-	<classpathentry kind="var" path="SLF4J_HOME/slf4j-simple-1.5.2.jar"/>
+	<classpathentry kind="var" path="SLF4J_HOME/slf4j-simple-1.5.8.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/xmlt-tests"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/xmlt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/xmlt4hibernate"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/params"/>
+	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
+	<classpathentry kind="var" path="HIBERNATE_HOME"/>
+	<classpathentry kind="var" path="HSQLDB_HOME"/>
+	<classpathentry kind="var" path="SLF4J_HOME"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
