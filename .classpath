@@ -28,9 +28,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/xmlt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/xmlt4hibernate"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/params"/>
-	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
-	<classpathentry kind="var" path="HIBERNATE_HOME"/>
-	<classpathentry kind="var" path="HSQLDB_HOME"/>
-	<classpathentry kind="var" path="SLF4J_HOME"/>
+	<classpathentry kind="var" path="GWT_HOME/gwt-user.jar"/>
 	<classpathentry kind="output" path="war/WEB-INF/classes"/>
 </classpath>
