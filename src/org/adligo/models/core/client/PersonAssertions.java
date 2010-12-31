@@ -11,34 +11,23 @@ public class PersonAssertions {
 	}
 	public static void assertMutators(I_Test test, String prefix) throws Exception {
 		PersonMutant mutant = new PersonMutant();
-		test.assertIsFalse(mutant.isValid());
+		ValidationException vx = null;
+		try {
+			test.assertIsFalse(mutant.isValid());
+		} catch (Exception x) {
+			test.assertIsTrue(x instanceof ValidationException);
+			vx = (ValidationException) x;
+		}
+		test.assertIsNotNull(vx);
 		int hashCode = mutant.hashCode();
 		
+		mutant.setLast_name(null);
+		test.assertIsNull(mutant.getLast_name());
+		
+		mutant.setLast_name("");
+		test.assertIsNull(mutant.getLast_name());
+		
 		InvalidParameterException ex = null;
-		try {
-			mutant.setLast_name(null);
-		} catch (Exception e) {
-			ex = GwtParameterExceptionAsserter.isIPE(e);
-		}
-		test.assertIsNotNull(ex);
-		test.assertIsEquals(Person.SET_LAST_NAME, ex.getMethodName());
-		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.PERSON_A_NAME_LAST_NAME_IS_REQUIRED,
-				ex.getMessage());
-		
-		ex = null;
-		try {
-			mutant.setLast_name("");
-		} catch (Exception e) {
-			ex = GwtParameterExceptionAsserter.isIPE(e);
-		}
-		test.assertIsNotNull(ex);
-		test.assertIsEquals(Person.SET_LAST_NAME, ex.getMethodName());
-		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.PERSON_A_NAME_LAST_NAME_IS_REQUIRED,
-				ex.getMessage());
-		
-		ex = null;
 		try {
 			mutant.setId(null);
 		} catch (Exception e) {
@@ -66,13 +55,19 @@ public class PersonAssertions {
 		
 		mutant.setFirst_name("someFirstName");
 		test.assertIsEquals("someFirstName", mutant.getFirst_name());
-		test.assertIsFalse(mutant.isValid());
+		test.assertIsTrue(mutant.isValid());
 		test.assertIsFalse(hashCode == mutant.hashCode());
 	    hashCode = mutant.hashCode();
 		
 		mutant.setMiddle_name("someMiddleName");
 		test.assertIsEquals("someMiddleName", mutant.getMiddle_name());
-		test.assertIsFalse(mutant.isValid());
+		test.assertIsTrue(mutant.isValid());
+		test.assertIsFalse(hashCode == mutant.hashCode());
+	    hashCode = mutant.hashCode();
+	    
+	    mutant.setNickname("someNickName");
+		test.assertIsEquals("someNickName", mutant.getNickname());
+		test.assertIsTrue(mutant.isValid());
 		test.assertIsFalse(hashCode == mutant.hashCode());
 	    hashCode = mutant.hashCode();
 	    
@@ -112,7 +107,7 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(Person.PERSON, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.PERSON_A_NAME_LAST_NAME_IS_REQUIRED,
+				prefix + ModelsCoreEnglishConstants.PERSON_A_NAME_IS_REQUIRED,
 				ex.getMessage());
 		
 		
@@ -132,9 +127,11 @@ public class PersonAssertions {
 		test.assertIsEquals(person, mutant);
 		
 		test.assertIsEquals("Person [first_name=someFirstName,middle_name=someMiddleName,last_name=someName," +
-				"id=null,birthday=12/31/69 6:00 PM 003,deceased=12/31/69 6:00 PM 004]", person.toString());
-		test.assertIsEquals("PersonMutant [first_name=someFirstName,middle_name=someMiddleName," +
-				"last_name=someName,id=null,birthday=12/31/69 6:00 PM 003,deceased=12/31/69 6:00 PM 004]", mutant.toString());
+				"nick_name=null,id=null,birthday=12/31/69 6:00 PM 003,deceased=12/31/69 6:00 PM 004," +
+				"gender=null,height=null]", person.toString());
+		test.assertIsEquals("PersonMutant [first_name=someFirstName,middle_name=someMiddleName,last_name=someName," +
+				"nick_name=null,id=null,birthday=12/31/69 6:00 PM 003,deceased=12/31/69 6:00 PM 004," +
+				"gender=null,height=null]", mutant.toString());
 		
 		
 		mutant.setId(new StringIdentifier("sid"));

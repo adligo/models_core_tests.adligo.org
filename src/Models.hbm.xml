@@ -4,7 +4,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"> 
 <hibernate-mapping>
 
-    <class name="org.adligo.models.core.client.Person" table="persons">
+    <class name="org.adligo.models.core.client.PersonMutant" table="persons">
         <composite-id name="id" class="org.adligo.models.core.client.VersionedIdentifier">
 	        <key-property name="id" column="tid"/>
 	        <key-property name="version"/>

@@ -24,15 +24,10 @@ public class UserTests extends ATest {
 	public void testgetDC() throws Exception {
 		UserMutant mutant = new UserMutant();
 		
-		InvalidParameterException x = null;
-		try {
-			mutant.getDn();
-		} catch (InvalidParameterException y) {
-			x = y;
-		}
-		assertNotNull(x);
+		String dn = mutant.getDn();
+		assertEquals("uid=null,dc=unknown", dn);
 		
-		x = null;
+		InvalidParameterException x = null;
 		try {
 			mutant.setName("");
 		} catch (InvalidParameterException y) {
@@ -113,15 +108,13 @@ public class UserTests extends ATest {
 		IsGwtRpcSerializable.isRpcSerializable(User.class);
 	}
 	
-	public void testMutantNOTSeralizable() {
+	public void testMutantSeralizable() {
 		Exception ex = null;
 		try {
 			IsGwtRpcSerializable.isRpcSerializable(UserMutant.class);
 		} catch (Exception x) {
 			ex = x;
 		}
-		assertNotNull(ex);
-		assertEquals("class org.adligo.models.core.client.UserMutant" +
-				" with parents [] is not serlizeable see log. ", ex.getMessage());
+		assertNull(ex);
 	}
 }

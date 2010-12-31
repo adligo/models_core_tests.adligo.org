@@ -28,15 +28,13 @@ public class PhoneNumberTests extends ATest {
 		IsGwtRpcSerializable.isRpcSerializable(PhoneNumber.class);
 	}
 	
-	public void testMutantNOTSeralizable() {
+	public void testMutantSeralizable() {
 		Exception ex = null;
 		try {
 			IsGwtRpcSerializable.isRpcSerializable(PhoneNumberMutant.class);
 		} catch (Exception x) {
 			ex = x;
 		}
-		assertNotNull(ex);
-		assertEquals("class org.adligo.models.core.client.PhoneNumberMutant" +
-				" with parents [] is not serlizeable see log. ", ex.getMessage());
+		assertNull(ex);
 	}
 }

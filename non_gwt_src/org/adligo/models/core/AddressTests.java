@@ -45,15 +45,13 @@ public class AddressTests extends ATest {
 		IsGwtRpcSerializable.isRpcSerializable(Address.class);
 	}
 	
-	public void testMutantNOTSeralizable() {
+	public void testMutantSeralizable() {
 		Exception ex = null;
 		try {
 			IsGwtRpcSerializable.isRpcSerializable(AddressMutant.class);
 		} catch (Exception x) {
 			ex = x;
 		}
-		assertNotNull(ex);
-		assertEquals("class org.adligo.models.core.client.AddressMutant" +
-				" with parents [] is not serlizeable see log. ", ex.getMessage());
+		assertNull(ex);
 	}
 }

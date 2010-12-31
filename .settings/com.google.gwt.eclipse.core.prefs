@@ -1,4 +1,4 @@
-#Sat Nov 07 05:48:50 CST 2009
+#Tue Dec 28 13:39:57 CST 2010
 eclipse.preferences.version=1
 entryPointModules=
-filesCopiedToWebInfLib=
+filesCopiedToWebInfLib=gwt-servlet.jar

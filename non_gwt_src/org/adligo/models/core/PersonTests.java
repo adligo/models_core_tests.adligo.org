@@ -77,8 +77,8 @@ public class PersonTests extends ATest {
 		input.setParams(params);
 		
 		SQLQuery query = HibernateTemplateParserEngine.parse(input);
-		query.addEntity(Person.class);
-		List<Person> persons = (List<Person>) query.list();
+		query.addEntity(PersonMutant.class);
+		List<PersonMutant> persons = (List<PersonMutant>) query.list();
 		
 		assertEquals(3, persons.size());
 		

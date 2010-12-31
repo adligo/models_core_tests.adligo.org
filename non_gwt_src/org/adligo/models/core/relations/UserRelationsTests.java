@@ -29,15 +29,13 @@ public class UserRelationsTests extends ATest {
 		UserRelationsAssertions.assertMutators(this, "");
 	}
 	
-	public void testMutantNOTSeralizable() {
+	public void testMutantSeralizable() {
 		Exception ex = null;
 		try {
 			IsGwtRpcSerializable.isRpcSerializable(UserRelationsMutant.class);
 		} catch (Exception x) {
 			ex = x;
 		}
-		assertNotNull(ex);
-		assertEquals("class org.adligo.models.core.relations.client.UserRelationsMutant" +
-				" with parents [] is not serlizeable see log. ", ex.getMessage());
+		assertNull(ex);
 	}
 }

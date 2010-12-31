@@ -81,16 +81,14 @@ public class NameIdTests extends ATest {
 		IsGwtRpcSerializable.isRpcSerializable(NamedId.class);
 	}
 	
-	public void testMutantNOTSeralizable() {
+	public void testMutantSeralizable() {
 		Exception ex = null;
 		try {
 			IsGwtRpcSerializable.isRpcSerializable(NamedIdMutant.class);
 		} catch (Exception x) {
 			ex = x;
 		}
-		assertNotNull(ex);
-		assertEquals("class org.adligo.models.core.client.NamedIdMutant" +
-				" with parents [] is not serlizeable see log. ", ex.getMessage());
+		assertNull(ex);
 	}
 
 	@Override
