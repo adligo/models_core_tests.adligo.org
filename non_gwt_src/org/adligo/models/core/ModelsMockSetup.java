@@ -1,9 +1,9 @@
 package org.adligo.models.core;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import org.adligo.i.adi.client.Registry;
-import org.adligo.i.util.client.MockDisposable;
 import org.adligo.models.core.client.DefaultStorageIdentifierFactory;
 import org.adligo.models.core.client.ModelsCoreCheckedInvokerNames;
 import org.adligo.tests.xml.parsers.template.jdbc.MockDatabase;
@@ -18,7 +18,7 @@ import org.hibernate.cfg.Configuration;
 */
 public class ModelsMockSetup {
 
-	public static void setUp() throws SQLException {
+	public static void setUp() throws SQLException, IOException {
 		Registry.addCheckedInvoker(ModelsCoreCheckedInvokerNames.STORAGE_IDENTIFIER_FACTORY, 
 				new DefaultStorageIdentifierFactory());
 		MockDatabase.createTestDb();
