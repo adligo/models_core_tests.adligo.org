@@ -3,11 +3,12 @@ package org.adligo.models.core;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMailAddress;
+import org.adligo.models.core.client.EMailAddressMutant;
 import org.adligo.models.core.client.EmailAddressAssertions;
-import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
+import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.tests.ATest;
 
 public class EmailAddressTests extends ATest {
@@ -33,7 +34,7 @@ public class EmailAddressTests extends ATest {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		assertIsNotNull(x);
-		assertIsEquals(EMailAddress.EMAIL, x.getMethodName());
+		assertIsEquals(EMailAddressMutant.EMAIL, x.getMethodName());
 		assertIsEquals(ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY, x.getMessage());
 	}
 	

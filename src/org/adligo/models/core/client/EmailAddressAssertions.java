@@ -53,7 +53,7 @@ public class EmailAddressAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMailAddress.EMAIL, x.getMethodName());
+		test.assertIsEquals(EMailAddressMutant.EMAIL, x.getMethodName());
 		test.assertIsEquals(expectedError, x.getMessage());
 		
 		if (expectedNestedError != null) {
@@ -71,7 +71,7 @@ public class EmailAddressAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMailAddress.EMAIL, x.getMethodName());
+		test.assertIsEquals(EMailAddressMutant.EMAIL, x.getMethodName());
 		test.assertIsEquals(expectedError, x.getMessage());
 		
 		if (expectedNestedError != null) {
