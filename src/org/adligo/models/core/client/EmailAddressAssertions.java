@@ -59,7 +59,7 @@ public class EmailAddressAssertions {
 		if (expectedNestedError != null) {
 			Exception cause = (Exception) x.getCause();
 			InvalidParameterException root = GwtParameterExceptionAsserter.isIPE(cause);
-			test.assertIsEquals(DomainName.DOMAIN_NAME, root.getMethodName());
+			test.assertIsEquals(DomainNameMutant.DOMAIN_NAME, root.getMethodName());
 			test.assertIsEquals(expectedNestedError, root.getMessage());
 		}
 		
@@ -77,7 +77,7 @@ public class EmailAddressAssertions {
 		if (expectedNestedError != null) {
 			Exception cause = (Exception) x.getCause();
 			InvalidParameterException root = GwtParameterExceptionAsserter.isIPE(cause);
-			test.assertIsEquals(DomainName.DOMAIN_NAME, root.getMethodName());
+			test.assertIsEquals(DomainNameMutant.DOMAIN_NAME, root.getMethodName());
 			test.assertIsEquals(expectedNestedError, root.getMessage());
 		}
 	}

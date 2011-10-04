@@ -72,7 +72,7 @@ public class NameIdTests extends ATest {
 		assertEquals(a, b);
 		
 		b.setId(new StringIdentifier("sid"));
-		a = new NamedId(a);
+		a = new NamedId(b);
 		assertEquals(a, b);
 		
 	}

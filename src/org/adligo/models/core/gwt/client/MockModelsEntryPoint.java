@@ -10,6 +10,7 @@ import org.adligo.models.core.client.CommonModel;
 import org.adligo.models.core.client.CoreRoles;
 import org.adligo.models.core.client.DefaultStorageIdentifierFactory;
 import org.adligo.models.core.client.DomainName;
+import org.adligo.models.core.client.DomainNameMutant;
 import org.adligo.models.core.client.EMailAddress;
 import org.adligo.models.core.client.I_Address;
 import org.adligo.models.core.client.I_ModelsCoreConstants;
@@ -86,6 +87,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(CoreRoles.class);
 			holder.addUsed(CommonModel.class);
 			holder.addUsed(new DomainName());
+			holder.addUsed(new DomainNameMutant());
 			holder.addUsed(new DefaultStorageIdentifierFactory());
 			holder.addUsed(new EMailAddress("support@adligo.com"));
 			holder.addUsed(I_Address.class);

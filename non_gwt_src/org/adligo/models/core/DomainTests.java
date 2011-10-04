@@ -3,36 +3,37 @@ package org.adligo.models.core;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.DomainNameAssertions;
-import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
+import org.adligo.models.core.client.DomainNameMutant;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
+import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.tests.ATest;
 
 public class DomainTests extends ATest {
 
 	
 	public void testDomainToDC() throws Exception {
-		String result = DomainName.toDn("adligo.com");
+		String result = DomainNameMutant.toDn("adligo.com");
 		assertEquals("dc=adligo,dc=com", result);
 		
-		result = DomainName.toDn("foo.bar.adligo.com");
+		result = DomainNameMutant.toDn("foo.bar.adligo.com");
 		assertEquals("dc=foo,dc=bar,dc=adligo,dc=com", result);
 	}
 	
 	public void testDomainFromDC() throws Exception {
-		String result = DomainName.fromDn("dc=adligo,dc=com");
+		String result = DomainNameMutant.fromDn("dc=adligo,dc=com");
 		assertEquals("adligo.com", result);
 		
-		result = DomainName.fromDn("dc=foo,dc=bar,dc=adligo,dc=com");
+		result = DomainNameMutant.fromDn("dc=foo,dc=bar,dc=adligo,dc=com");
 		assertEquals("foo.bar.adligo.com", result);
 	}
 	
 	public void testValidate() throws Exception {
 		DomainNameAssertions.assertInvalidParameterExceptions("", this);
 		
-		DomainName.validate("adligo.com");
-		DomainName.validate("adligo.org");
+		DomainNameMutant.validate("adligo.com");
+		DomainNameMutant.validate("adligo.org");
 		
 		
 		InvalidParameterException x = null;
@@ -42,7 +43,7 @@ public class DomainTests extends ATest {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		assertIsNotNull(x);
-		assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
+		assertIsEquals(DomainNameMutant.DOMAIN_NAME, x.getMethodName());
 		assertIsEquals(ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
 	
 	}
@@ -76,7 +77,7 @@ public class DomainTests extends ATest {
 		DomainName com2 = new DomainName("adligo.com");
 		
 		assertEquals(com, com);
-		DomainName com3 = new DomainName(com);
+		DomainNameMutant com3 = new DomainNameMutant(com.getName());
 		assertEquals(com, com2);
 		assertEquals(com, com3);
 		
@@ -99,7 +100,7 @@ public class DomainTests extends ATest {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		assertNotNull(x);
-		assertEquals(DomainName.DOMAIN_NAME, x.getMethodName());
+		assertEquals(DomainNameMutant.DOMAIN_NAME, x.getMethodName());
 		assertEquals(expectedError, x.getMessage());
 	}
 	
