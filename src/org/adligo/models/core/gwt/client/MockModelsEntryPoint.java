@@ -39,6 +39,7 @@ import org.adligo.models.core.client.ModelsCoreCheckedInvokerNames;
 import org.adligo.models.core.client.ModelsCoreConstantsObtainer;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
+import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.NamedIdMutant;
 import org.adligo.models.core.client.Organization;
@@ -120,6 +121,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_VersionedIdentifierMutant.class);
 			
 			holder.addUsed(new InvalidParameterException("", ""));
+			holder.addUsed(ModelsCoreRegistry.class);
 			holder.addUsed(new NamedId());
 			holder.addUsed(new NamedIdMutant());
 			holder.addUsed(new Organization());
