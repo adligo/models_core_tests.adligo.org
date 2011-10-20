@@ -14,7 +14,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_NAME, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
@@ -26,7 +26,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_NAME, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
@@ -41,7 +41,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_NAME, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_NAME_CANT_CONTAIN_A_SPACE,
 				ex.getMessage());
@@ -56,7 +56,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_PASSWORD, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_PASSWORD, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_PASSWORD_CAN_T_BE_EMPTY,
 				ex.getMessage());
@@ -68,7 +68,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_PASSWORD, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_PASSWORD, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_PASSWORD_CAN_T_BE_EMPTY,
 				ex.getMessage());
@@ -123,7 +123,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_DOMAIN, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_DOMAIN, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -134,7 +134,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_DOMAIN, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_DOMAIN, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -146,7 +146,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_DOMAIN, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_DOMAIN, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -158,7 +158,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_DOMAIN, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_DOMAIN, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -174,7 +174,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -186,7 +186,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -198,7 +198,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -210,7 +210,7 @@ public class UserAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.SET_EMAIL, ex.getMethodName());
+		test.assertIsEquals(UserMutant.SET_EMAIL, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -224,12 +224,12 @@ public class UserAssertions {
 		
 		InvalidParameterException ex = null;
 		try {
-			new User(mutant);
+			new UserMutant(mutant);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -241,12 +241,12 @@ public class UserAssertions {
 		
 		ex = null;
 		try {
-			new User(mutant);
+			new UserMutant(mutant);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_PASSWORD_CAN_T_BE_EMPTY,
 				ex.getMessage());
@@ -258,12 +258,12 @@ public class UserAssertions {
 		
 		ex = null;
 		try {
-			new User(mutant);
+			new UserMutant(mutant);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
@@ -275,12 +275,12 @@ public class UserAssertions {
 		
 		ex = null;
 		try {
-			new User(mutant);
+			new UserMutant(mutant);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -328,53 +328,53 @@ public class UserAssertions {
 		
 		InvalidParameterException ex = null;
 		try {
-			new User(null, null);
+			new UserMutant(null, null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			new User("", null);
+			new UserMutant("", null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			new User("unknown.org", null);
+			new UserMutant("unknown.org", null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			new User("unknown.org", "");
+			new UserMutant("unknown.org", "");
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
 		
-		User user = new User("unknown.org", "joe");
+		UserMutant user = new UserMutant("unknown.org", "joe");
 		
 		test.assertIsEquals(new DomainName("unknown.org"), user.getDomain());
 		test.assertIsEquals("joe", user.getName());
@@ -384,77 +384,77 @@ public class UserAssertions {
 		
 		ex = null;
 		try {
-			new User(null, null, null);
+			new UserMutant(null, null, null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			new User("", null, null);
+			new UserMutant("", null, null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			new User("unknown.org", null, null);
+			new UserMutant("unknown.org", null, null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			new User("unknown.org", "", null);
+			new UserMutant("unknown.org", "", null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			new User("unknown.org", "jon", null);
+			new UserMutant("unknown.org", "jon", null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			new User("unknown.org", "jon", "");
+			new UserMutant("unknown.org", "jon", "");
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(User.USER, ex.getMethodName());
+		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
-		user = new User("unknown.org", "joe", "joe@kingstable.org");
+		user = new UserMutant("unknown.org", "joe", "joe@kingstable.org");
 		
 		test.assertIsEquals(new DomainName("unknown.org"), user.getDomain());
 		test.assertIsEquals("joe", user.getName());

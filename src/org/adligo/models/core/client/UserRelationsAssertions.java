@@ -234,7 +234,7 @@ public class UserRelationsAssertions {
 		mutant.setDomain("bo.com");
 		mutant.setPassword("123");
 		
-		User user = new User(mutant);
+		UserMutant user = new UserMutant(mutant);
 		UserRelations rel = new UserRelations(user);
 		
 		test.assertIsEquals(new DomainName("bo.com"), rel.getDomain());

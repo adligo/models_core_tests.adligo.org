@@ -16,6 +16,8 @@ import org.adligo.models.core.client.EMailAddressMutant;
 import org.adligo.models.core.client.I_Address;
 import org.adligo.models.core.client.I_DomainName;
 import org.adligo.models.core.client.I_DomainNameMutant;
+import org.adligo.models.core.client.I_EMailAddress;
+import org.adligo.models.core.client.I_EMailAddressMutant;
 import org.adligo.models.core.client.I_ModelsCoreConstants;
 import org.adligo.models.core.client.I_Mutable;
 import org.adligo.models.core.client.I_NamedId;
@@ -31,6 +33,7 @@ import org.adligo.models.core.client.I_StringIdentifier;
 import org.adligo.models.core.client.I_StringIdentifierMutant;
 import org.adligo.models.core.client.I_Subject;
 import org.adligo.models.core.client.I_User;
+import org.adligo.models.core.client.I_UserMutant2;
 import org.adligo.models.core.client.I_Validateable;
 import org.adligo.models.core.client.I_VersionedIdentifier;
 import org.adligo.models.core.client.I_VersionedIdentifierMutant;
@@ -50,8 +53,8 @@ import org.adligo.models.core.client.PhoneNumber;
 import org.adligo.models.core.client.PhoneNumberMutant;
 import org.adligo.models.core.client.StringIdentifier;
 import org.adligo.models.core.client.StringIdentifierMutant;
-import org.adligo.models.core.client.User;
 import org.adligo.models.core.client.UserMutant;
+import org.adligo.models.core.client.User;
 import org.adligo.models.core.client.ValidationException;
 import org.adligo.models.core.client.VersionedIdentifier;
 import org.adligo.models.core.client.VersionedIdentifierMutant;
@@ -101,6 +104,9 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_Address.class);
 			holder.addUsed(I_DomainName.class);
 			holder.addUsed(I_DomainNameMutant.class);
+			holder.addUsed(I_EMailAddress.class);
+			holder.addUsed(I_EMailAddressMutant.class);
+			
 			holder.addUsed(I_Mutable.class);
 			holder.addUsed(I_NamedId.class);
 			holder.addUsed(I_NamedIdMutant.class);
@@ -116,6 +122,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			
 			holder.addUsed(I_Subject.class);
 			holder.addUsed(I_User.class);
+			holder.addUsed(I_UserMutant2.class);
 			holder.addUsed(I_Validateable.class);
 			holder.addUsed(I_VersionedIdentifier.class);
 			holder.addUsed(I_VersionedIdentifierMutant.class);
@@ -132,8 +139,8 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new PhoneNumberMutant());
 			holder.addUsed(new StringIdentifier());
 			holder.addUsed(new StringIdentifierMutant());
-			holder.addUsed(new User());
 			holder.addUsed(new UserMutant());
+			holder.addUsed(new User());
 			
 			holder.addUsed(new ModelsCoreCheckedInvokerNames());
 			holder.addUsed(new ModelsCoreEnglishConstants());

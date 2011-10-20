@@ -7,9 +7,9 @@ import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.StringIdentifier;
 import org.adligo.models.core.client.StringIdentifierMutant;
-import org.adligo.models.core.client.User;
-import org.adligo.models.core.client.UserAssertions;
 import org.adligo.models.core.client.UserMutant;
+import org.adligo.models.core.client.UserAssertions;
+import org.adligo.models.core.client.User;
 import org.adligo.tests.ATest;
 
 public class UserTests extends ATest {
@@ -52,9 +52,9 @@ public class UserTests extends ATest {
 	public void testMutators() throws Exception {
 		UserMutant mutant = new UserMutant();
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setName");
-		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, User.SET_DOMAIN);
+		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, UserMutant.SET_DOMAIN);
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setPassword");
-		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, User.SET_EMAIL);
+		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, UserMutant.SET_EMAIL);
 		ParamterExceptionAsserter.assertInvalidParamterExceptionStorageIdentifierMutator(mutant, "setId");
 		
 		mutant.setDomain("adligo.com");
@@ -84,7 +84,7 @@ public class UserTests extends ATest {
 		mutant.setPassword("password");
 		mutant.setEmail("support@adligo.com");
 		
-		User user = new User(mutant);
+		UserMutant user = new UserMutant(mutant);
 		assertEquals(new DomainName("domain.com"), user.getDomain());
 		assertEquals("name", user.getName());
 		assertNull(user.getId());
@@ -94,7 +94,7 @@ public class UserTests extends ATest {
 		StringIdentifier id = new StringIdentifier("sid");
 		mutant.setId(id);
 		
-		user = new User(mutant);
+		user = new UserMutant(mutant);
 		assertEquals(new DomainName("domain.com"), user.getDomain());
 		assertEquals("name", user.getName());
 		assertEquals("password", user.getPassword());
@@ -105,13 +105,13 @@ public class UserTests extends ATest {
 	}
 
 	public void testSerialization() throws Exception {
-		IsGwtRpcSerializable.isRpcSerializable(User.class);
+		IsGwtRpcSerializable.isRpcSerializable(UserMutant.class);
 	}
 	
 	public void testMutantSeralizable() {
 		Exception ex = null;
 		try {
-			IsGwtRpcSerializable.isRpcSerializable(UserMutant.class);
+			IsGwtRpcSerializable.isRpcSerializable(User.class);
 		} catch (Exception x) {
 			ex = x;
 		}
