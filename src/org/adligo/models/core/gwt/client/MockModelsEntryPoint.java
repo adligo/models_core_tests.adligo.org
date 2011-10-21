@@ -14,6 +14,7 @@ import org.adligo.models.core.client.DomainNameMutant;
 import org.adligo.models.core.client.EMailAddress;
 import org.adligo.models.core.client.EMailAddressMutant;
 import org.adligo.models.core.client.I_Address;
+import org.adligo.models.core.client.I_AddressMutant;
 import org.adligo.models.core.client.I_DomainName;
 import org.adligo.models.core.client.I_DomainNameMutant;
 import org.adligo.models.core.client.I_EMailAddress;
@@ -33,7 +34,7 @@ import org.adligo.models.core.client.I_StringIdentifier;
 import org.adligo.models.core.client.I_StringIdentifierMutant;
 import org.adligo.models.core.client.I_Subject;
 import org.adligo.models.core.client.I_User;
-import org.adligo.models.core.client.I_UserMutant2;
+import org.adligo.models.core.client.I_UserMutant;
 import org.adligo.models.core.client.I_Validateable;
 import org.adligo.models.core.client.I_VersionedIdentifier;
 import org.adligo.models.core.client.I_VersionedIdentifierMutant;
@@ -53,8 +54,8 @@ import org.adligo.models.core.client.PhoneNumber;
 import org.adligo.models.core.client.PhoneNumberMutant;
 import org.adligo.models.core.client.StringIdentifier;
 import org.adligo.models.core.client.StringIdentifierMutant;
-import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.User;
+import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.ValidationException;
 import org.adligo.models.core.client.VersionedIdentifier;
 import org.adligo.models.core.client.VersionedIdentifierMutant;
@@ -92,8 +93,8 @@ public class MockModelsEntryPoint implements EntryPoint {
 			
 			
 			
-			holder.addUsed(new Address());
 			holder.addUsed(new AddressMutant());
+			holder.addUsed(new Address());
 			holder.addUsed(CoreRoles.class);
 			holder.addUsed(CommonModel.class);
 			holder.addUsed(new DomainName());
@@ -102,7 +103,9 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new EMailAddress("support@adligo.com"));
 			holder.addUsed(new EMailAddressMutant());
 			holder.addUsed(I_Address.class);
+			holder.addUsed(I_AddressMutant.class);
 			holder.addUsed(I_DomainName.class);
+			
 			holder.addUsed(I_DomainNameMutant.class);
 			holder.addUsed(I_EMailAddress.class);
 			holder.addUsed(I_EMailAddressMutant.class);
@@ -122,7 +125,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			
 			holder.addUsed(I_Subject.class);
 			holder.addUsed(I_User.class);
-			holder.addUsed(I_UserMutant2.class);
+			holder.addUsed(I_UserMutant.class);
 			holder.addUsed(I_Validateable.class);
 			holder.addUsed(I_VersionedIdentifier.class);
 			holder.addUsed(I_VersionedIdentifierMutant.class);

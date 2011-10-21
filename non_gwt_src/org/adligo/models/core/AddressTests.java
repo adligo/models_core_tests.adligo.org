@@ -1,9 +1,9 @@
 package org.adligo.models.core;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
-import org.adligo.models.core.client.Address;
-import org.adligo.models.core.client.AddressAssertions;
 import org.adligo.models.core.client.AddressMutant;
+import org.adligo.models.core.client.AddressAssertions;
+import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.I_Address;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.StringIdentifierMutant;
@@ -30,25 +30,25 @@ public class AddressTests extends ATest {
 		
 		AddressAssertions.assertConstructors("", this, mutant);
 		
-		I_Address addr = new Address(mutant);
+		I_Address addr = new AddressMutant(mutant);
 		assertEquals("city A", addr.getCity());
-		assertEquals("1234 test row", addr.getStreet_address());
-		assertEquals("12345A", addr.getPostal_code());
-		assertEquals("US", addr.getCountry_code());
-		assertEquals("IL", addr.getCountry_sub_code());
+		assertEquals("1234 test row", addr.getStreetAddress());
+		assertEquals("12345A", addr.getPostalCode());
+		assertEquals("US", addr.getCountryCode());
+		assertEquals("IL", addr.getCountrySubCode());
 		
 		assertEquals(addr, mutant);
 		assertEquals(mutant, addr);
 	}
 	
 	public void testSerializable() throws Exception {
-		IsGwtRpcSerializable.isRpcSerializable(Address.class);
+		IsGwtRpcSerializable.isRpcSerializable(AddressMutant.class);
 	}
 	
 	public void testMutantSeralizable() {
 		Exception ex = null;
 		try {
-			IsGwtRpcSerializable.isRpcSerializable(AddressMutant.class);
+			IsGwtRpcSerializable.isRpcSerializable(Address.class);
 		} catch (Exception x) {
 			ex = x;
 		}
