@@ -5,7 +5,7 @@ import org.adligo.tests.client.I_Test;
 public class PhoneNumberAssertions {
 
 	public static void assertMutators(I_Test test, String prefix) throws Exception {
-		PhoneNumberMutant mutant = new PhoneNumberMutant();
+		PhoneNumber mutant = new PhoneNumber();
 		
 		InvalidParameterException ex = null;
 		try {
@@ -14,7 +14,7 @@ public class PhoneNumberAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(PhoneNumber.SET_NUMBER, ex.getMethodName());
+		test.assertIsEquals(PhoneNumberMutant.SET_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -26,7 +26,7 @@ public class PhoneNumberAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(PhoneNumber.SET_NUMBER, ex.getMethodName());
+		test.assertIsEquals(PhoneNumberMutant.SET_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -39,7 +39,7 @@ public class PhoneNumberAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(PhoneNumber.SET_NUMBER, ex.getMethodName());
+		test.assertIsEquals(PhoneNumberMutant.SET_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.PHONE_NUMBER_MAY_ONLY_HAVE_ARABIC_NUMERALS,
 				ex.getMessage());
@@ -48,32 +48,7 @@ public class PhoneNumberAssertions {
 		test.assertIsEquals("123456", mutant.getNumber());
 		
 
-		ex = null;
-		try {
-			mutant.setId(null);
-		} catch (Exception e) {
-			ex = GwtParameterExceptionAsserter.isIPE(e);
-		}
-		test.assertIsNotNull(ex);
-		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
-		test.assertIsEquals(
-				CommonModel.ID_NULL,
-				ex.getMessage());
 		
-		ex = null;
-		try {
-			mutant.setId(new StringIdentifier());
-		} catch (Exception e) {
-			ex = GwtParameterExceptionAsserter.isIPE(e);
-		}
-		test.assertIsNotNull(ex);
-		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
-		test.assertIsEquals(
-				CommonModel.ID_EMPTY,
-				ex.getMessage());
-		
-		mutant.setId(new StringIdentifier("key"));
-		test.assertIsEquals(new StringIdentifier("key"), mutant.getId());
 	}
 	
 	public static void assertConstructors(I_Test test, String prefix) throws Exception {
@@ -83,18 +58,18 @@ public class PhoneNumberAssertions {
 		
 		InvalidParameterException ex = null;
 		try {
-			new PhoneNumber(mutant);
+			new PhoneNumberMutant(mutant);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(PhoneNumber.PHONE_NUMBER, ex.getMethodName());
+		test.assertIsEquals(PhoneNumberMutant.PHONE_NUMBER, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setNumber("123456");
-		I_PhoneNumber nbr = new PhoneNumber(mutant);
+		I_PhoneNumber nbr = new PhoneNumberMutant(mutant);
 		test.assertIsTrue(mutant.isValid());
 		test.assertIsTrue(hashCode != mutant.hashCode());
 		
@@ -103,7 +78,7 @@ public class PhoneNumberAssertions {
 		test.assertIsEquals(mutant, nbr);
 		test.assertIsEquals(mutant.hashCode(), nbr.hashCode());
 		
-		test.assertIsEquals("PhoneNumber [number=123456,id=null]", nbr.toString());
-		test.assertIsEquals("PhoneNumberMutant [number=123456,id=null]", mutant.toString());
+		test.assertIsEquals("PhoneNumber [number=123456]", new PhoneNumber(nbr).toString());
+		test.assertIsEquals("PhoneNumberMutant [number=123456]", mutant.toString());
 	}
 }

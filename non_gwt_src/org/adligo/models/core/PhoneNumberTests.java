@@ -2,9 +2,9 @@ package org.adligo.models.core;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
-import org.adligo.models.core.client.PhoneNumber;
-import org.adligo.models.core.client.PhoneNumberAssertions;
 import org.adligo.models.core.client.PhoneNumberMutant;
+import org.adligo.models.core.client.PhoneNumberAssertions;
+import org.adligo.models.core.client.PhoneNumber;
 import org.adligo.tests.ATest;
 
 public class PhoneNumberTests extends ATest {
@@ -25,13 +25,13 @@ public class PhoneNumberTests extends ATest {
 	}
 	
 	public void testSerialization() throws Exception {
-		IsGwtRpcSerializable.isRpcSerializable(PhoneNumber.class);
+		IsGwtRpcSerializable.isRpcSerializable(PhoneNumberMutant.class);
 	}
 	
 	public void testMutantSeralizable() {
 		Exception ex = null;
 		try {
-			IsGwtRpcSerializable.isRpcSerializable(PhoneNumberMutant.class);
+			IsGwtRpcSerializable.isRpcSerializable(PhoneNumber.class);
 		} catch (Exception x) {
 			ex = x;
 		}

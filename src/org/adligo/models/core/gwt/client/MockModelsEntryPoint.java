@@ -26,6 +26,7 @@ import org.adligo.models.core.client.I_NamedIdMutant;
 import org.adligo.models.core.client.I_Org;
 import org.adligo.models.core.client.I_Person;
 import org.adligo.models.core.client.I_PhoneNumber;
+import org.adligo.models.core.client.I_PhoneNumberMutant;
 import org.adligo.models.core.client.I_Storable;
 import org.adligo.models.core.client.I_StorageIdGenerator;
 import org.adligo.models.core.client.I_StorageIdentifier;
@@ -116,6 +117,8 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_Org.class);
 			holder.addUsed(I_Person.class);
 			holder.addUsed(I_PhoneNumber.class);
+			holder.addUsed(I_PhoneNumberMutant.class);
+			
 			holder.addUsed(I_Storable.class);
 			holder.addUsed(I_StorageMutant.class);
 			holder.addUsed(I_StorageIdentifier.class);
@@ -138,8 +141,8 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new OrganizationMutant());
 			holder.addUsed(new Person());
 			holder.addUsed(new PersonMutant());
-			holder.addUsed(new PhoneNumber());
 			holder.addUsed(new PhoneNumberMutant());
+			holder.addUsed(new PhoneNumber());
 			holder.addUsed(new StringIdentifier());
 			holder.addUsed(new StringIdentifierMutant());
 			holder.addUsed(new UserMutant());
