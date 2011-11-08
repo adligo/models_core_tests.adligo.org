@@ -23,8 +23,10 @@ import org.adligo.models.core.client.I_ModelsCoreConstants;
 import org.adligo.models.core.client.I_Mutable;
 import org.adligo.models.core.client.I_NamedId;
 import org.adligo.models.core.client.I_NamedIdMutant;
-import org.adligo.models.core.client.I_Org;
+import org.adligo.models.core.client.I_Organization;
+import org.adligo.models.core.client.I_OrganizationMutant;
 import org.adligo.models.core.client.I_Person;
+import org.adligo.models.core.client.I_PersonMutant;
 import org.adligo.models.core.client.I_PhoneNumber;
 import org.adligo.models.core.client.I_PhoneNumberMutant;
 import org.adligo.models.core.client.I_Storable;
@@ -114,8 +116,10 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_Mutable.class);
 			holder.addUsed(I_NamedId.class);
 			holder.addUsed(I_NamedIdMutant.class);
-			holder.addUsed(I_Org.class);
+			holder.addUsed(I_Organization.class);
+			holder.addUsed(I_OrganizationMutant.class);
 			holder.addUsed(I_Person.class);
+			holder.addUsed(I_PersonMutant.class);
 			holder.addUsed(I_PhoneNumber.class);
 			holder.addUsed(I_PhoneNumberMutant.class);
 			
