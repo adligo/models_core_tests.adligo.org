@@ -3,8 +3,6 @@ package org.adligo.models.core.client;
 import java.util.HashSet;
 import java.util.Set;
 
-import org.adligo.models.core.relations.client.I_UserRelations;
-import org.adligo.models.core.relations.client.UserRelations;
 import org.adligo.models.core.relations.client.UserRelationsMutant;
 import org.adligo.tests.client.I_Test;
 
@@ -19,12 +17,12 @@ public class UserRelationsAssertions {
 		Set<String> roles = new HashSet<String>();
 		roles.add("");
 		try {
-			mutant.addAllRoles(roles);
+			mutant.addRoles(roles);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.ADD_ALL_ROLES, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.ADD_ROLE, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_RELATIONS_EMPTY_ROLE,
 				ex.getMessage());
@@ -32,12 +30,12 @@ public class UserRelationsAssertions {
 		roles = new HashSet<String>();
 		roles.add(null);
 		try {
-			mutant.addAllRoles(roles);
+			mutant.addRoles(roles);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.ADD_ALL_ROLES, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.ADD_ROLE, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_RELATIONS_EMPTY_ROLE,
 				ex.getMessage());
@@ -48,7 +46,7 @@ public class UserRelationsAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.ADD_ROLE, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.ADD_ROLE, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_RELATIONS_EMPTY_ROLE,
 				ex.getMessage());
@@ -59,7 +57,7 @@ public class UserRelationsAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.ADD_ROLE, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.ADD_ROLE, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_RELATIONS_EMPTY_ROLE,
 				ex.getMessage());
@@ -67,9 +65,9 @@ public class UserRelationsAssertions {
 		mutant.addRole("admin");
 		roles = new HashSet<String>();
 		roles.add("bartender");
-		mutant.addAllRoles(roles);
+		mutant.addRoles(roles);
 		
-		test.assertIsTrue(mutant.isUserInRole("admin"));
+		test.assertIsFalse(mutant.isUserInRole("admin"));
 		test.assertIsTrue(mutant.isUserInRole("bartender"));
 		test.assertIsFalse(mutant.isUserInRole(""));
 		test.assertIsFalse(mutant.isUserInRole(null));
@@ -79,12 +77,12 @@ public class UserRelationsAssertions {
 		Set<String> groups = new HashSet<String>();
 		groups.add("");
 		try {
-			mutant.addAllGroups(groups);
+			mutant.addGroups(groups);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.ADD_ALL_GROUPS, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.ADD_GROUP, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_RELATIONS_EMPTY_GROUP,
 				ex.getMessage());
@@ -92,12 +90,12 @@ public class UserRelationsAssertions {
 		groups = new HashSet<String>();
 		groups.add(null);
 		try {
-			mutant.addAllGroups(groups);
+			mutant.addGroups(groups);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.ADD_ALL_GROUPS, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.ADD_GROUP, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_RELATIONS_EMPTY_GROUP,
 				ex.getMessage());
@@ -108,7 +106,7 @@ public class UserRelationsAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.ADD_GROUP, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.ADD_GROUP, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_RELATIONS_EMPTY_GROUP,
 				ex.getMessage());
@@ -119,7 +117,7 @@ public class UserRelationsAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.ADD_GROUP, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.ADD_GROUP, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_RELATIONS_EMPTY_GROUP,
 				ex.getMessage());
@@ -128,10 +126,10 @@ public class UserRelationsAssertions {
 		mutant.addGroup("admins_group");
 		groups = new HashSet<String>();
 		groups.add("bartenders_group");
-		mutant.addAllGroups(groups);
+		mutant.addGroups(groups);
 		
 		Set<String> groupsFromMutant = mutant.getGroups();
-		test.assertIsTrue(groupsFromMutant.contains("admins_group"));
+		test.assertIsFalse(groupsFromMutant.contains("admins_group"));
 		test.assertIsTrue(groupsFromMutant.contains("bartenders_group"));
 		test.assertIsFalse(groupsFromMutant.contains(""));
 		test.assertIsFalse(groupsFromMutant.contains(null));
@@ -140,12 +138,10 @@ public class UserRelationsAssertions {
 		test.assertIsEquals("john", mutant.getName());
 		mutant.setPassword("psw");
 		test.assertIsEquals("psw", mutant.getPassword());
-		mutant.setEmail("john@psw.net");
+		mutant.setEmail(new EMailAddress("john@psw.net"));
 		test.assertIsEquals(new EMailAddress("john@psw.net"), mutant.getEmail());
-		mutant.setDomain("go.net");
+		mutant.setDomain(new DomainName("go.net"));
 		test.assertIsEquals(new DomainName("go.net"), mutant.getDomain());
-		mutant.setId(new StringIdentifier("key"));
-		test.assertIsEquals(new StringIdentifier("key"), mutant.getId());
 	}
 	
 	public static void assertConstructors(I_Test test, String prefix) throws Exception {
@@ -159,12 +155,12 @@ public class UserRelationsAssertions {
 		
 		InvalidParameterException ex = null;
 		try {
-			new UserRelations(mutant);
+			new UserRelationsMutant(mutant);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.USER_RELATIONS, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.CONSTRUCTOR, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -176,14 +172,14 @@ public class UserRelationsAssertions {
 		user.setPassword("123");
 		
 		mutant = new UserRelationsMutant(user);
-		UserRelations ur = new UserRelations(mutant);
+		UserRelationsMutant ur = new UserRelationsMutant(mutant);
 		test.assertIsEquals(new DomainName("bo.com"), ur.getDomain());
 		test.assertIsEquals(new EMailAddress("bo@bo.com"), ur.getEmail());
 		test.assertIsEquals("bo", ur.getName());
 		test.assertIsEquals("123", ur.getPassword());
 		
 		mutant.addGroup("somegroup");
-		ur = new UserRelations(mutant);
+		ur = new UserRelationsMutant(mutant);
 		test.assertIsEquals(new DomainName("bo.com"), ur.getDomain());
 		test.assertIsEquals(new EMailAddress("bo@bo.com"), ur.getEmail());
 		test.assertIsEquals("bo", ur.getName());
@@ -201,12 +197,12 @@ public class UserRelationsAssertions {
 		mutant.setPerson(pm);
 		
 		try {
-			new UserRelations(mutant);
+			new UserRelationsMutant(mutant);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.USER_RELATIONS, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.CONSTRUCTOR, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -220,12 +216,12 @@ public class UserRelationsAssertions {
 		
 		InvalidParameterException ex = null;
 		try {
-			new UserRelations(mutant);
+			new UserRelationsMutant(mutant);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.USER_RELATIONS, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.CONSTRUCTOR, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -235,7 +231,7 @@ public class UserRelationsAssertions {
 		mutant.setPassword("123");
 		
 		UserMutant user = new UserMutant(mutant);
-		UserRelations rel = new UserRelations(user);
+		UserRelationsMutant rel = new UserRelationsMutant(user);
 		
 		test.assertIsEquals(new DomainName("bo.com"), rel.getDomain());
 		test.assertIsEquals("bo", rel.getName());
@@ -247,24 +243,24 @@ public class UserRelationsAssertions {
 	public static void assertNameAndDomainConstructor(I_Test test, String prefix) throws Exception {
 		InvalidParameterException ex = null;
 		try {
-			new UserRelations(null, null, null);
+			new UserRelationsMutant(null, null, null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.USER_RELATIONS, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.CONSTRUCTOR, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
 		try {
-			new UserRelations("", null, null);
+			new UserRelationsMutant("", null, null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.USER_RELATIONS, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.CONSTRUCTOR, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
 				ex.getMessage());
@@ -272,12 +268,12 @@ public class UserRelationsAssertions {
 		
 		ex = null;
 		try {
-			new UserRelations("bo.com", null, null);
+			new UserRelationsMutant("bo.com", null, null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.USER_RELATIONS, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.CONSTRUCTOR, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
@@ -285,17 +281,17 @@ public class UserRelationsAssertions {
 		
 		ex = null;
 		try {
-			new UserRelations("bo.com", "", null);
+			new UserRelationsMutant("bo.com", "", null);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserRelations.USER_RELATIONS, ex.getMethodName());
+		test.assertIsEquals(UserRelationsMutant.CONSTRUCTOR, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_NAME_CANT_BE_SET_TO_EMPTY,
 				ex.getMessage());
 		
-		UserRelations user = new UserRelations("bo.com", "bo", null);
+		UserRelationsMutant user = new UserRelationsMutant("bo.com", "bo", null);
 		
 		test.assertIsEquals(new DomainName("bo.com"), user.getDomain());
 		test.assertIsEquals("bo", user.getName());
@@ -305,7 +301,7 @@ public class UserRelationsAssertions {
 		
 		Set<String> roles = new HashSet<String>();
 		roles.add("admin");
-		user = new UserRelations("bo2.com", "bo2", roles);
+		user = new UserRelationsMutant("bo2.com", "bo2", roles);
 		
 		test.assertIsEquals(new DomainName("bo2.com"), user.getDomain());
 		test.assertIsEquals("bo2", user.getName());

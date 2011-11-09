@@ -5,7 +5,7 @@ import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.UserGroupAssertions;
 import org.adligo.models.core.relations.client.UserGroup;
 import org.adligo.models.core.relations.client.UserGroupMutant;
-import org.adligo.models.core.relations.client.UserRelationsMutant;
+import org.adligo.models.core.relations.client.UserRelations;
 import org.adligo.tests.ATest;
 
 public class UserGroupTests extends ATest {
