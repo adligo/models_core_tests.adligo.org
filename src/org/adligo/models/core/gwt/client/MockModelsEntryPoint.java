@@ -19,6 +19,8 @@ import org.adligo.models.core.client.I_DomainName;
 import org.adligo.models.core.client.I_DomainNameMutant;
 import org.adligo.models.core.client.I_EMailAddress;
 import org.adligo.models.core.client.I_EMailAddressMutant;
+import org.adligo.models.core.client.I_LongIdentifier;
+import org.adligo.models.core.client.I_LongIdentifierMutant;
 import org.adligo.models.core.client.I_ModelsCoreConstants;
 import org.adligo.models.core.client.I_Mutable;
 import org.adligo.models.core.client.I_NamedId;
@@ -42,6 +44,8 @@ import org.adligo.models.core.client.I_Validateable;
 import org.adligo.models.core.client.I_VersionedIdentifier;
 import org.adligo.models.core.client.I_VersionedIdentifierMutant;
 import org.adligo.models.core.client.InvalidParameterException;
+import org.adligo.models.core.client.LongIdentifier;
+import org.adligo.models.core.client.LongIdentifierMutant;
 import org.adligo.models.core.client.ModelsCoreCheckedInvokerNames;
 import org.adligo.models.core.client.ModelsCoreConstantsObtainer;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
@@ -105,6 +109,10 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new DefaultStorageIdentifierFactory());
 			holder.addUsed(new EMailAddress("support@adligo.com"));
 			holder.addUsed(new EMailAddressMutant());
+			
+			holder.addUsed(LongIdentifier.class);
+			holder.addUsed(LongIdentifierMutant.class);
+			
 			holder.addUsed(I_Address.class);
 			holder.addUsed(I_AddressMutant.class);
 			holder.addUsed(I_DomainName.class);
@@ -112,6 +120,9 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_DomainNameMutant.class);
 			holder.addUsed(I_EMailAddress.class);
 			holder.addUsed(I_EMailAddressMutant.class);
+			
+			holder.addUsed(I_LongIdentifier.class);
+			holder.addUsed(I_LongIdentifierMutant.class);
 			
 			holder.addUsed(I_Mutable.class);
 			holder.addUsed(I_NamedId.class);
