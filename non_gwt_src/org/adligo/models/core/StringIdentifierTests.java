@@ -18,7 +18,7 @@ public class StringIdentifierTests extends ATest {
 			x = g;
 		}
 		assertNotNull(x);
-		assertEquals(StringIdentifier.CLAZZ_SIMPLE_NAME, x.getMethodName());
+		assertEquals(StringIdentifier.TYPE, x.getMethodName());
 		assertEquals(StringIdentifier.NO_KEY_OR_A_ID, x.getMessage());
 		
 	}

@@ -5,7 +5,7 @@
 <hibernate-mapping>
 
     <class name="org.adligo.models.core.client.PersonMutant" table="persons">
-        <composite-id name="id" class="org.adligo.models.core.client.VersionedIdentifier">
+        <composite-id name="id" class="org.adligo.models.core.client.ids.VersionedIdentifier">
 	        <key-property name="id" column="tid"/>
 	        <key-property name="version"/>
 	    </composite-id>
