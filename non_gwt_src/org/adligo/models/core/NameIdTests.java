@@ -3,6 +3,7 @@ package org.adligo.models.core;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
+import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.NamedIdMutant;
 import org.adligo.models.core.client.ids.StringIdentifier;
@@ -58,7 +59,7 @@ public class NameIdTests extends ATest {
 		assertEquals(sid, id.getId());
 		
 		assertEquals(id, mutant);
-		assertEquals("NamedIdMutant [name=mutant name,id=StringIdentifier [key=sid]]", mutant.toString());
+		assertEquals("NamedIdMutant [name=mutant name,id=StringIdentifierMutant [key=sid]]", mutant.toString());
 		assertEquals("NamedId [name=mutant name,id=StringIdentifier [key=sid]]", id.toString());
 	}
 	
@@ -95,5 +96,6 @@ public class NameIdTests extends ATest {
 	protected void setUp() throws Exception {
 		super.setUp();
 		ModelsMockSetup.setUp();
+		ModelsCoreRegistry.setup();
 	}
 }

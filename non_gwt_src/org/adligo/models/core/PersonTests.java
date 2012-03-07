@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
+import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.Person;
 import org.adligo.models.core.client.PersonAssertions;
@@ -26,6 +27,8 @@ public class PersonTests extends ATest {
 		super.setUp();
 		new ModelsCoreEnglishConstantsFactory();
 		ModelsMockSetup.setUp();
+		ModelsCoreRegistry.setup();
+		
 		templates.parseResource("/org/adligo/tests/xml/parsers/template/jdbc/Persons2_0_SQL.xml");
 	}
 	

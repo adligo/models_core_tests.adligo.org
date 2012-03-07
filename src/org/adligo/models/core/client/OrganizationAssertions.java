@@ -15,7 +15,7 @@ public class OrganizationAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(Organization.SET_NAME, ex.getMethodName());
+		test.assertIsEquals(OrganizationMutant.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_NAME,
 				ex.getMessage());
@@ -27,7 +27,7 @@ public class OrganizationAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(Organization.SET_NAME, ex.getMethodName());
+		test.assertIsEquals(OrganizationMutant.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_NAME,
 				ex.getMessage());
@@ -39,7 +39,7 @@ public class OrganizationAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(Organization.SET_TYPE, ex.getMethodName());
+		test.assertIsEquals(OrganizationMutant.SET_TYPE, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_TYPE,
 				ex.getMessage());
@@ -51,7 +51,7 @@ public class OrganizationAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(Organization.SET_TYPE, ex.getMethodName());
+		test.assertIsEquals(OrganizationMutant.SET_TYPE, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_TYPE,
 				ex.getMessage());
@@ -63,7 +63,7 @@ public class OrganizationAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(Organization.SET_TYPE, ex.getMethodName());
+		test.assertIsEquals(OrganizationMutant.SET_TYPE, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_TYPE,
 				ex.getMessage());
@@ -87,7 +87,7 @@ public class OrganizationAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(Organization.ORGANIZAITION, ex.getMethodName());
+		test.assertIsEquals(OrganizationMutant.ORGANIZAITION, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_NAME,
 				ex.getMessage());
@@ -100,7 +100,7 @@ public class OrganizationAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(Organization.ORGANIZAITION, ex.getMethodName());
+		test.assertIsEquals(OrganizationMutant.ORGANIZAITION, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_TYPE,
 				ex.getMessage());
@@ -122,6 +122,6 @@ public class OrganizationAssertions {
 		test.assertIsEquals("Organization [name=someName,type=NamedId " +
 				"[name=someType,id=null],id=StringIdentifier [key=sid]]", org.toString());
 		test.assertIsEquals("OrganizationMutant [name=someName,type=NamedId " +
-				"[name=someType,id=null],id=StringIdentifier [key=sid]]", mutant.toString());
+				"[name=someType,id=null],id=StringIdentifierMutant [key=sid]]", mutant.toString());
 	}
 }

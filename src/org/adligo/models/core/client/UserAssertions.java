@@ -310,7 +310,7 @@ public class UserAssertions {
 		
 		test.assertIsEquals("User [name=userName,id=StringIdentifier [key=sid],email=support@adligo.com,domain=adligo.org]",
 				user.toString());
-		test.assertIsEquals("UserMutant [name=userName,id=StringIdentifier [key=sid],email=support@adligo.com,domain=adligo.org]",
+		test.assertIsEquals("UserMutant [name=userName,id=StringIdentifierMutant [key=sid],email=support@adligo.com,domain=adligo.org]",
 				mutant.toString());
 		
 		 assertNameEmailDomainConstructors(test, prefix);
