@@ -61,10 +61,13 @@ import org.adligo.models.core.client.ids.I_StringIdentifierMutant;
 import org.adligo.models.core.client.ids.I_VersionedIdentifier;
 import org.adligo.models.core.client.ids.I_VersionedIdentifierMutant;
 import org.adligo.models.core.client.ids.LongIdentifier;
+import org.adligo.models.core.client.ids.LongIdentifierFactory;
 import org.adligo.models.core.client.ids.LongIdentifierMutant;
 import org.adligo.models.core.client.ids.StringIdentifier;
+import org.adligo.models.core.client.ids.StringIdentifierFactory;
 import org.adligo.models.core.client.ids.StringIdentifierMutant;
 import org.adligo.models.core.client.ids.VersionedIdentifier;
+import org.adligo.models.core.client.ids.VersionedIdentifierFactory;
 import org.adligo.models.core.client.ids.VersionedIdentifierMutant;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -109,10 +112,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new DefaultStorageIdentifierFactory());
 			holder.addUsed(new EMailAddress("support@adligo.com"));
 			holder.addUsed(new EMailAddressMutant());
-			
-			holder.addUsed(LongIdentifier.class);
-			holder.addUsed(LongIdentifierMutant.class);
-			
+
 			holder.addUsed(I_Address.class);
 			holder.addUsed(I_AddressMutant.class);
 			holder.addUsed(I_DomainName.class);
@@ -136,17 +136,12 @@ public class MockModelsEntryPoint implements EntryPoint {
 			
 			holder.addUsed(I_Storable.class);
 			holder.addUsed(I_StorageMutant.class);
-			holder.addUsed(I_StorageIdentifier.class);
-			holder.addUsed(I_StorageIdGenerator.class);
-			holder.addUsed(I_StringIdentifier.class);
-			holder.addUsed(I_StringIdentifierMutant.class);
 			
 			holder.addUsed(I_Subject.class);
 			holder.addUsed(I_User.class);
 			holder.addUsed(I_UserMutant.class);
 			holder.addUsed(I_Validateable.class);
-			holder.addUsed(I_VersionedIdentifier.class);
-			holder.addUsed(I_VersionedIdentifierMutant.class);
+
 			
 			holder.addUsed(new InvalidParameterException("", ""));
 			holder.addUsed(ModelsCoreRegistry.class);
@@ -158,8 +153,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new PersonMutant());
 			holder.addUsed(new PhoneNumberMutant());
 			holder.addUsed(new PhoneNumber());
-			holder.addUsed(new StringIdentifier());
-			holder.addUsed(new StringIdentifierMutant());
+			
 			holder.addUsed(new UserMutant());
 			holder.addUsed(new User());
 			
@@ -168,13 +162,34 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new ModelsCoreConstantsObtainer());
 			holder.addUsed(ModelsCoreEnglishConstantsFactory.class);
 			holder.addUsed(ValidationException.class);
-			holder.addUsed(VersionedIdentifier.class);
-			holder.addUsed(VersionedIdentifierMutant.class);
+		
 			holder.addUsed(I_ModelsCoreConstants.class);
 			
+			addIdClasses();
 		} catch (Exception x) {
 			x.printStackTrace();
 		}
 	}
 
+	private void addIdClasses() {
+		
+		holder.addUsed(LongIdentifier.class);
+		holder.addUsed(LongIdentifierFactory.class);
+		holder.addUsed(LongIdentifierMutant.class);
+		
+		holder.addUsed(I_StorageIdentifier.class);
+		holder.addUsed(I_StorageIdGenerator.class);
+		holder.addUsed(I_StringIdentifier.class);
+		holder.addUsed(I_StringIdentifierMutant.class);
+		holder.addUsed(I_VersionedIdentifier.class);
+		holder.addUsed(I_VersionedIdentifierMutant.class);
+		
+		holder.addUsed(VersionedIdentifier.class);
+		holder.addUsed(VersionedIdentifierFactory.class);
+		holder.addUsed(VersionedIdentifierMutant.class);
+		
+		holder.addUsed(new StringIdentifier());
+		holder.addUsed(new StringIdentifierFactory());
+		holder.addUsed(new StringIdentifierMutant());
+	}
 }
