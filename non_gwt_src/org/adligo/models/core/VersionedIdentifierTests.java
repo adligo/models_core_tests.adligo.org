@@ -26,8 +26,8 @@ public class VersionedIdentifierTests extends ATest {
 			x = g;
 		}
 		assertNotNull(x);
-		assertEquals(VersionedIdentifier.CLAZZ_SIMPLE_NAME, x.getMethodName());
-		assertEquals(VersionedIdentifier.NO_VERSION_OR_A_ID, x.getMessage());
+		assertEquals(VersionedIdentifierMutant.CLAZZ_SIMPLE_NAME, x.getMethodName());
+		assertEquals(VersionedIdentifierMutant.NO_VERSION_OR_A_ID, x.getMessage());
 		
 	}
 
