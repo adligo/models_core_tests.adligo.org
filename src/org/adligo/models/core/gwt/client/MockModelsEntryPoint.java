@@ -52,6 +52,7 @@ import org.adligo.models.core.client.User;
 import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.ValidationException;
 import org.adligo.models.core.client.ids.DefaultStorageIdentifierFactory;
+import org.adligo.models.core.client.ids.DefaultStorageIdentifierMutantFactory;
 import org.adligo.models.core.client.ids.I_LongIdentifier;
 import org.adligo.models.core.client.ids.I_LongIdentifierMutant;
 import org.adligo.models.core.client.ids.I_StorageIdGenerator;
@@ -63,12 +64,14 @@ import org.adligo.models.core.client.ids.I_VersionedIdentifierMutant;
 import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.client.ids.LongIdentifierFactory;
 import org.adligo.models.core.client.ids.LongIdentifierMutant;
+import org.adligo.models.core.client.ids.LongIdentifierMutantFactory;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.client.ids.StringIdentifierFactory;
 import org.adligo.models.core.client.ids.StringIdentifierMutant;
 import org.adligo.models.core.client.ids.VersionedIdentifier;
 import org.adligo.models.core.client.ids.VersionedIdentifierFactory;
 import org.adligo.models.core.client.ids.VersionedIdentifierMutant;
+import org.adligo.models.core.client.ids.VersionedIdentifierMutantFactory;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -109,7 +112,6 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(CommonModel.class);
 			holder.addUsed(new DomainName());
 			holder.addUsed(new DomainNameMutant());
-			holder.addUsed(new DefaultStorageIdentifierFactory());
 			holder.addUsed(new EMailAddress("support@adligo.com"));
 			holder.addUsed(new EMailAddressMutant());
 
@@ -172,10 +174,14 @@ public class MockModelsEntryPoint implements EntryPoint {
 	}
 
 	private void addIdClasses() {
+
+		holder.addUsed(new DefaultStorageIdentifierFactory());
+		holder.addUsed(new DefaultStorageIdentifierMutantFactory());
 		
-		holder.addUsed(LongIdentifier.class);
-		holder.addUsed(LongIdentifierFactory.class);
-		holder.addUsed(LongIdentifierMutant.class);
+		holder.addUsed(new LongIdentifier());
+		holder.addUsed(new LongIdentifierFactory());
+		holder.addUsed(new LongIdentifierMutant());
+		holder.addUsed(new LongIdentifierMutantFactory());
 		
 		holder.addUsed(I_StorageIdentifier.class);
 		holder.addUsed(I_StorageIdGenerator.class);
@@ -184,9 +190,10 @@ public class MockModelsEntryPoint implements EntryPoint {
 		holder.addUsed(I_VersionedIdentifier.class);
 		holder.addUsed(I_VersionedIdentifierMutant.class);
 		
-		holder.addUsed(VersionedIdentifier.class);
-		holder.addUsed(VersionedIdentifierFactory.class);
-		holder.addUsed(VersionedIdentifierMutant.class);
+		holder.addUsed(new VersionedIdentifier());
+		holder.addUsed(new VersionedIdentifierFactory());
+		holder.addUsed(new VersionedIdentifierMutant());
+		holder.addUsed(new VersionedIdentifierMutantFactory());
 		
 		holder.addUsed(new StringIdentifier());
 		holder.addUsed(new StringIdentifierFactory());
