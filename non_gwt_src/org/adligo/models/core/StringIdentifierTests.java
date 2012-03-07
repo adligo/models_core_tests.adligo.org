@@ -18,8 +18,8 @@ public class StringIdentifierTests extends ATest {
 			x = g;
 		}
 		assertNotNull(x);
-		assertEquals(StringIdentifier.TYPE, x.getMethodName());
-		assertEquals(StringIdentifier.NO_KEY_OR_A_ID, x.getMessage());
+		assertEquals(StringIdentifierMutant.CONSTRUCTOR, x.getMethodName());
+		assertEquals(StringIdentifierMutant.KEY_CANT_BE_SET_TO_EMPTY, x.getMessage());
 		
 	}
 
@@ -33,7 +33,7 @@ public class StringIdentifierTests extends ATest {
 			x = g;
 		}
 		assertNotNull(x);
-		assertEquals("setKey", x.getMethodName());
+		assertEquals(StringIdentifierMutant.CONSTRUCTOR, x.getMethodName());
 		
 		x = null;
 		try {
@@ -42,7 +42,7 @@ public class StringIdentifierTests extends ATest {
 			x = g;
 		}
 		assertNotNull(x);
-		assertEquals("setKey", x.getMethodName());
+		assertEquals(StringIdentifierMutant.CONSTRUCTOR, x.getMethodName());
 		
 		StringIdentifier id = new StringIdentifier("you");
 		assertEquals("you", id.getKey());
