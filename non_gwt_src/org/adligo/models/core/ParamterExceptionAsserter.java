@@ -4,10 +4,10 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
-import org.adligo.models.core.client.I_StorageIdentifier;
 import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.StringIdentifier;
-import org.adligo.models.core.client.StringIdentifierMutant;
+import org.adligo.models.core.client.ids.I_StorageIdentifier;
+import org.adligo.models.core.client.ids.StringIdentifier;
+import org.adligo.models.core.client.ids.StringIdentifierMutant;
 import org.adligo.tests.ATest;
 
 public class ParamterExceptionAsserter {

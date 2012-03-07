@@ -6,7 +6,7 @@ import org.adligo.models.core.client.AddressAssertions;
 import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.I_Address;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
-import org.adligo.models.core.client.StringIdentifierMutant;
+import org.adligo.models.core.client.ids.StringIdentifierMutant;
 import org.adligo.tests.ATest;
 
 public class AddressTests extends ATest {

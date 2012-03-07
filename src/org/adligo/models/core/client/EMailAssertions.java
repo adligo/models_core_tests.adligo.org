@@ -3,6 +3,8 @@ package org.adligo.models.core.client;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.adligo.models.core.client.ids.I_StorageIdentifier;
+import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.relations.client.EMail;
 import org.adligo.models.core.relations.client.EMailMutant;
 import org.adligo.tests.client.I_Test;

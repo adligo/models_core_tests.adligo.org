@@ -5,7 +5,7 @@ import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.NamedIdMutant;
-import org.adligo.models.core.client.StringIdentifier;
+import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.ATest;
 
 public class NameIdTests extends ATest {

@@ -1,6 +1,8 @@
 package org.adligo.models.core.client;
 
 import org.adligo.i.adi.client.Registry;
+import org.adligo.models.core.client.ids.DefaultStorageIdentifierFactory;
+import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.client.I_Test;
 
 public class PersonAssertions {

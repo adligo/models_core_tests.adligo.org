@@ -5,11 +5,11 @@ import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMailAddress;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
-import org.adligo.models.core.client.StringIdentifier;
-import org.adligo.models.core.client.StringIdentifierMutant;
 import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.UserAssertions;
 import org.adligo.models.core.client.User;
+import org.adligo.models.core.client.ids.StringIdentifier;
+import org.adligo.models.core.client.ids.StringIdentifierMutant;
 import org.adligo.tests.ATest;
 
 public class UserTests extends ATest {

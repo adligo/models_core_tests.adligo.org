@@ -1,5 +1,6 @@
 package org.adligo.models.core.client;
 
+import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.client.I_Test;
 
 public class UserAssertions {

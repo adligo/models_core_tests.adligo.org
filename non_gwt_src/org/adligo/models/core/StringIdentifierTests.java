@@ -2,8 +2,8 @@ package org.adligo.models.core;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.StringIdentifier;
-import org.adligo.models.core.client.StringIdentifierMutant;
+import org.adligo.models.core.client.ids.StringIdentifier;
+import org.adligo.models.core.client.ids.StringIdentifierMutant;
 import org.adligo.tests.ATest;
 
 public class StringIdentifierTests extends ATest {

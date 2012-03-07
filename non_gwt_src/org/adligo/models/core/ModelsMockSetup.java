@@ -4,8 +4,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import org.adligo.i.adi.client.Registry;
-import org.adligo.models.core.client.DefaultStorageIdentifierFactory;
 import org.adligo.models.core.client.ModelsCoreCheckedInvokerNames;
+import org.adligo.models.core.client.ids.DefaultStorageIdentifierFactory;
 import org.adligo.tests.xml.parsers.template.jdbc.MockDatabase;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

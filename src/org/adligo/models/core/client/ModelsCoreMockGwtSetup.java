@@ -2,6 +2,7 @@ package org.adligo.models.core.client;
 
 import org.adligo.i.adi.client.Registry;
 import org.adligo.models.core.client.i18n.ModelsCoreConstantsSetup;
+import org.adligo.models.core.client.ids.DefaultStorageIdentifierFactory;
 
 /**
  * may contain GWT.creates
