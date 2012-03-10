@@ -129,10 +129,10 @@ public class PersonAssertions {
 		test.assertIsEquals(person, mutant);
 		
 		test.assertIsEquals("Person [first_name=someFirstName,middle_name=someMiddleName,last_name=someName," +
-				"nick_name=null,id=null,birthday=12/31/69 6:00 PM 003,deceased=12/31/69 6:00 PM 004," +
+				"nick_name=null,id=null,birthday=12/31/1969 06:00 PM 003,deceased=12/31/1969 06:00 PM 004," +
 				"gender=null,height=null]", person.toString());
 		test.assertIsEquals("PersonMutant [first_name=someFirstName,middle_name=someMiddleName,last_name=someName," +
-				"nick_name=null,id=null,birthday=12/31/69 6:00 PM 003,deceased=12/31/69 6:00 PM 004," +
+				"nick_name=null,id=null,birthday=12/31/1969 06:00 PM 003,deceased=12/31/1969 06:00 PM 004," +
 				"gender=null,height=null]", mutant.toString());
 		
 		
