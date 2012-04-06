@@ -7,3 +7,4 @@ tomcat
 .gwt-tmp
 test_failure.properties
 gwt_test_reports
+emma_dir
