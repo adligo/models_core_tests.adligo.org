@@ -6,6 +6,7 @@ import org.adligo.i.util.client.ClassUsageView;
 import org.adligo.i.util.client.I_UsageHolder;
 import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.AddressMutant;
+import org.adligo.models.core.client.ChainedFieldException;
 import org.adligo.models.core.client.CommonModel;
 import org.adligo.models.core.client.CoreRoles;
 import org.adligo.models.core.client.DomainName;
@@ -14,11 +15,16 @@ import org.adligo.models.core.client.EMailAddress;
 import org.adligo.models.core.client.EMailAddressMutant;
 import org.adligo.models.core.client.I_Address;
 import org.adligo.models.core.client.I_AddressMutant;
+import org.adligo.models.core.client.I_Changeable;
+import org.adligo.models.core.client.I_ChangeableMutant;
+import org.adligo.models.core.client.I_CustomInfo;
 import org.adligo.models.core.client.I_DomainName;
 import org.adligo.models.core.client.I_DomainNameMutant;
 import org.adligo.models.core.client.I_EMailAddress;
 import org.adligo.models.core.client.I_EMailAddressMutant;
 import org.adligo.models.core.client.I_ModelsCoreConstants;
+import org.adligo.models.core.client.I_ModifyEMailList;
+import org.adligo.models.core.client.I_ModifyEMailListMutant;
 import org.adligo.models.core.client.I_Mutable;
 import org.adligo.models.core.client.I_NamedId;
 import org.adligo.models.core.client.I_NamedIdMutant;
@@ -40,6 +46,7 @@ import org.adligo.models.core.client.ModelsCoreConstantsObtainer;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
 import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.ModelsCoreRegistry;
+import org.adligo.models.core.client.ModifyEMailListMutant;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.NamedIdMutant;
 import org.adligo.models.core.client.Organization;
@@ -59,8 +66,6 @@ import org.adligo.models.core.client.ids.I_StorageIdGenerator;
 import org.adligo.models.core.client.ids.I_StorageIdentifier;
 import org.adligo.models.core.client.ids.I_StringIdentifier;
 import org.adligo.models.core.client.ids.I_StringIdentifierMutant;
-import org.adligo.models.core.client.ids.I_VersionedIdentifier;
-import org.adligo.models.core.client.ids.I_VersionedIdentifierMutant;
 import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.client.ids.LongIdentifierFactory;
 import org.adligo.models.core.client.ids.LongIdentifierMutant;
@@ -68,10 +73,7 @@ import org.adligo.models.core.client.ids.LongIdentifierMutantFactory;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.client.ids.StringIdentifierFactory;
 import org.adligo.models.core.client.ids.StringIdentifierMutant;
-import org.adligo.models.core.client.ids.VersionedIdentifier;
-import org.adligo.models.core.client.ids.VersionedIdentifierFactory;
-import org.adligo.models.core.client.ids.VersionedIdentifierMutant;
-import org.adligo.models.core.client.ids.VersionedIdentifierMutantFactory;
+import org.adligo.models.core.client.ids.StringIdentifierMutantFactory;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -110,6 +112,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new Address());
 			holder.addUsed(CoreRoles.class);
 			holder.addUsed(CommonModel.class);
+			holder.addUsed(new ChainedFieldException("ye","foo"));
 			holder.addUsed(new DomainName());
 			holder.addUsed(new DomainNameMutant());
 			holder.addUsed(new EMailAddress("support@adligo.com"));
@@ -117,6 +120,9 @@ public class MockModelsEntryPoint implements EntryPoint {
 
 			holder.addUsed(I_Address.class);
 			holder.addUsed(I_AddressMutant.class);
+			holder.addUsed(I_Changeable.class);
+			holder.addUsed(I_ChangeableMutant.class);
+			holder.addUsed(I_CustomInfo.class);
 			holder.addUsed(I_DomainName.class);
 			
 			holder.addUsed(I_DomainNameMutant.class);
@@ -126,7 +132,11 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_LongIdentifier.class);
 			holder.addUsed(I_LongIdentifierMutant.class);
 			
+			holder.addUsed(I_ModifyEMailList.class);
+			holder.addUsed(I_ModifyEMailListMutant.class);
+			
 			holder.addUsed(I_Mutable.class);
+			
 			holder.addUsed(I_NamedId.class);
 			holder.addUsed(I_NamedIdMutant.class);
 			holder.addUsed(I_Organization.class);
@@ -159,6 +169,10 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new UserMutant());
 			holder.addUsed(new User());
 			
+			holder.addUsed(new StringIdentifierMutantFactory());
+			
+			holder.addUsed(new ModifyEMailListMutant());
+			
 			holder.addUsed(new ModelsCoreCheckedInvokerNames());
 			holder.addUsed(new ModelsCoreEnglishConstants());
 			holder.addUsed(new ModelsCoreConstantsObtainer());
@@ -187,13 +201,6 @@ public class MockModelsEntryPoint implements EntryPoint {
 		holder.addUsed(I_StorageIdGenerator.class);
 		holder.addUsed(I_StringIdentifier.class);
 		holder.addUsed(I_StringIdentifierMutant.class);
-		holder.addUsed(I_VersionedIdentifier.class);
-		holder.addUsed(I_VersionedIdentifierMutant.class);
-		
-		holder.addUsed(new VersionedIdentifier());
-		holder.addUsed(new VersionedIdentifierFactory());
-		holder.addUsed(new VersionedIdentifierMutant());
-		holder.addUsed(new VersionedIdentifierMutantFactory());
 		
 		holder.addUsed(new StringIdentifier());
 		holder.addUsed(new StringIdentifierFactory());

@@ -23,11 +23,21 @@ public class PersonAssertions {
 		test.assertIsNotNull(vx);
 		int hashCode = mutant.hashCode();
 		
-		mutant.setLast_name(null);
+		InvalidParameterException ipx = null;
+		try {
+			mutant.setLast_name(null);
+		} catch (Exception x) {
+			test.assertIsTrue(x instanceof InvalidParameterException);
+			ipx  = (InvalidParameterException) x;
+		}
+		test.assertIsEquals(ModelsCoreEnglishConstants.PERSON_A_LAST_NAME_IS_REQUIRED,
+				ipx.getMessage());
+		test.assertIsEquals(PersonMutant.SET_LAST_NAME,
+				ipx.getMethodName());
 		test.assertIsNull(mutant.getLast_name());
 		
 		mutant.setLast_name("");
-		test.assertIsNull(mutant.getLast_name());
+		test.assertIsEquals("", mutant.getLast_name());
 		
 		InvalidParameterException ex = null;
 		try {
@@ -107,7 +117,7 @@ public class PersonAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(Person.PERSON, ex.getMethodName());
+		test.assertIsEquals(PersonMutant.PERSON, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.PERSON_A_NAME_IS_REQUIRED,
 				ex.getMessage());
@@ -129,11 +139,11 @@ public class PersonAssertions {
 		test.assertIsEquals(person, mutant);
 		
 		test.assertIsEquals("Person [first_name=someFirstName,middle_name=someMiddleName,last_name=someName," +
-				"nick_name=null,id=null,birthday=12/31/1969 06:00 PM 003,deceased=12/31/1969 06:00 PM 004," +
-				"gender=null,height=null]", person.toString());
+				"nick_name=null,id=null,version=null,birthday=12/31/1969 06:00 PM 003,deceased=12/31/1969 06:00 PM 004," +
+				"gender=null,height=null,customInfo=null]", person.toString());
 		test.assertIsEquals("PersonMutant [first_name=someFirstName,middle_name=someMiddleName,last_name=someName," +
-				"nick_name=null,id=null,birthday=12/31/1969 06:00 PM 003,deceased=12/31/1969 06:00 PM 004," +
-				"gender=null,height=null]", mutant.toString());
+				"nick_name=null,id=null,version=null,birthday=12/31/1969 06:00 PM 003,deceased=12/31/1969 06:00 PM 004," +
+				"gender=null,height=null,customInfo=null]", mutant.toString());
 		
 		
 		mutant.setId(new StringIdentifier("sid"));

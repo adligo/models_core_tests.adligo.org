@@ -7,9 +7,6 @@ import org.adligo.i.adi.client.Registry;
 import org.adligo.models.core.client.ModelsCoreCheckedInvokerNames;
 import org.adligo.models.core.client.ids.DefaultStorageIdentifierFactory;
 import org.adligo.tests.xml.parsers.template.jdbc.MockDatabase;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 /**
 * may NOT contain GWT.creates
@@ -23,11 +20,5 @@ public class ModelsMockSetup {
 				new DefaultStorageIdentifierFactory());
 		MockDatabase.createTestDb();
 	}
-	
-	public static Session createSession() {
-		Configuration config = new Configuration();
-		config.configure();
-		SessionFactory factory = config.buildSessionFactory();  
-		return factory.openSession();
-	}
+
 }

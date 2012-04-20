@@ -5,10 +5,10 @@
 <hibernate-mapping>
 
     <class name="org.adligo.models.core.client.PersonMutant" table="persons">
-        <composite-id name="id" class="org.adligo.models.core.client.ids.VersionedIdentifierMutant">
+        <composite-id name="id" class="org.adligo.models.core.client.ids.LongIdentifierMutant">
 	        <key-property name="id" column="tid"/>
-	        <key-property name="version"/>
 	    </composite-id>
+	    <version name="version" type="integer" />
         <property name="first_name" column="fname" />
         <property name="middle_name" column="mname" />
         <property name="last_name" column="lname" />
