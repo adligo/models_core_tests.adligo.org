@@ -30,7 +30,7 @@ public class PersonAssertions {
 			test.assertIsTrue(x instanceof InvalidParameterException);
 			ipx  = (InvalidParameterException) x;
 		}
-		test.assertIsEquals(ModelsCoreEnglishConstants.PERSON_A_LAST_NAME_IS_REQUIRED,
+		test.assertIsEquals(prefix + ModelsCoreEnglishConstants.PERSON_A_LAST_NAME_IS_REQUIRED,
 				ipx.getMessage());
 		test.assertIsEquals(PersonMutant.SET_LAST_NAME,
 				ipx.getMethodName());
