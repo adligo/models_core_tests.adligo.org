@@ -3,6 +3,7 @@ package org.adligo.models.core.client;
 import org.adligo.i.adi.client.Registry;
 import org.adligo.models.core.client.i18n.ModelsCoreConstantsSetup;
 import org.adligo.models.core.client.ids.DefaultStorageIdentifierFactory;
+import org.adligo.models.core.client.ids.DefaultStorageIdentifierMutantFactory;
 
 /**
  * may contain GWT.creates
@@ -21,6 +22,8 @@ public class ModelsCoreMockGwtSetup {
 			isInit = true;
 			Registry.addCheckedInvoker(ModelsCoreCheckedInvokerNames.STORAGE_IDENTIFIER_FACTORY, 
 					new DefaultStorageIdentifierFactory());
+			Registry.addCheckedInvoker(ModelsCoreCheckedInvokerNames.STORAGE_IDENTIFIER_MUTANT_FACTORY, 
+					new DefaultStorageIdentifierMutantFactory());
 		}
 	}
 }
