@@ -4,6 +4,7 @@ import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
+import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.NamedIdMutant;
@@ -12,6 +13,7 @@ import org.adligo.tests.ATest;
 
 public class NameIdTests extends ATest {
 
+	
 	public void testSetters() throws Exception {
 		NamedIdMutant mutant = new NamedIdMutant();
 		InvalidParameterException ex = null;
@@ -98,5 +100,7 @@ public class NameIdTests extends ATest {
 		super.setUp();
 		ModelsMockSetup.setUp();
 		ModelsCoreRegistry.setup();
+
+		new ModelsCoreEnglishConstantsFactory();
 	}
 }
