@@ -14,7 +14,6 @@ public class PhoneNumberGwtTests extends AGwtTest {
 	
 	public void testStringConstructorAndValidateVsPropertyfile() throws Exception {
 		PhoneNumberAssertions.assertConstructors(this, "");
-		PhoneNumberAssertions.assertMutators(this, "");
 	}
 
 

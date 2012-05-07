@@ -3,9 +3,6 @@ package org.adligo.models.core;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import org.adligo.i.adi.client.Registry;
-import org.adligo.models.core.client.ModelsCoreCheckedInvokerNames;
-import org.adligo.models.core.client.ids.DefaultStorageIdentifierFactory;
 import org.adligo.tests.xml.parsers.template.jdbc.MockDatabase;
 
 /**
@@ -16,8 +13,6 @@ import org.adligo.tests.xml.parsers.template.jdbc.MockDatabase;
 public class ModelsMockSetup {
 
 	public static void setUp() throws SQLException, IOException {
-		Registry.addCheckedInvoker(ModelsCoreCheckedInvokerNames.STORAGE_IDENTIFIER_FACTORY, 
-				new DefaultStorageIdentifierFactory());
 		MockDatabase.createTestDb();
 	}
 

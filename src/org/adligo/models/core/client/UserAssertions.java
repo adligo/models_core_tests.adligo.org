@@ -83,7 +83,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				CommonModel.ID_NULL,
+				ModelsCoreEnglishConstants.STORAGE_IDENTIFIER_REQUIRED,
 				ex.getMessage());
 		
 		ex = null;
@@ -95,7 +95,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				CommonModel.ID_EMPTY,
+				ModelsCoreEnglishConstants.STORAGE_IDENTIFIER_REQUIRED,
 				ex.getMessage());
 		
 		mutant.setName("userName");

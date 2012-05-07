@@ -31,7 +31,7 @@ public class DomainNameAssertions  {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(DomainNameMutant.DOMAIN_NAME, x.getMethodName());
+		test.assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
 		test.assertIsEquals( pre+ ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
 		
 		x = null;
@@ -41,7 +41,7 @@ public class DomainNameAssertions  {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(DomainNameMutant.DOMAIN_NAME, x.getMethodName());
+		test.assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
 		test.assertIsEquals(pre+ ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY, x.getMessage());
 	}
 	
@@ -52,23 +52,23 @@ public class DomainNameAssertions  {
 		InvalidParameterException x = null;
 	
 		try {
-			DomainNameMutant.validate(domain);
+			DomainName.validate(domain);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(DomainNameMutant.DOMAIN_NAME, x.getMethodName());
+		test.assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
 		test.assertIsEquals(expectedError, x.getMessage());
 		
 		x = null;
 		
 		try {
-			DomainNameMutant.toDn(domain);
+			DomainName.toDn(domain);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(DomainNameMutant.DOMAIN_NAME, x.getMethodName());
+		test.assertIsEquals(DomainName.DOMAIN_NAME, x.getMethodName());
 		test.assertIsEquals(expectedError, x.getMessage());
 	}
 

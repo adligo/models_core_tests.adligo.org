@@ -1,16 +1,10 @@
 package org.adligo.models.core.client;
 
-import org.adligo.i.adi.client.Registry;
-import org.adligo.models.core.client.ids.DefaultStorageIdentifierFactory;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.client.I_Test;
 
 public class PersonAssertions {
 
-	public void setUp() {
-		Registry.addCheckedInvoker(ModelsCoreCheckedInvokerNames.STORAGE_IDENTIFIER_FACTORY, 
-				new DefaultStorageIdentifierFactory());
-	}
 	public static void assertMutators(I_Test test, String prefix) throws Exception {
 		PersonMutant mutant = new PersonMutant();
 		ValidationException vx = null;
@@ -48,7 +42,7 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				CommonModel.ID_NULL,
+				ModelsCoreEnglishConstants.STORAGE_IDENTIFIER_REQUIRED,
 				ex.getMessage());
 		
 		ex = null;
@@ -60,7 +54,7 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				CommonModel.ID_EMPTY,
+				ModelsCoreEnglishConstants.STORAGE_IDENTIFIER_REQUIRED,
 				ex.getMessage());
 		
 		

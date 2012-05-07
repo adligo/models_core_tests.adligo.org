@@ -53,13 +53,13 @@ public class EmailAddressAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMailAddressMutant.EMAIL, x.getMethodName());
+		test.assertIsEquals(EMailAddress.EMAIL, x.getMethodName());
 		test.assertIsEquals(expectedError, x.getMessage());
 		
 		if (expectedNestedError != null) {
 			Exception cause = (Exception) x.getCause();
 			InvalidParameterException root = GwtParameterExceptionAsserter.isIPE(cause);
-			test.assertIsEquals(DomainNameMutant.DOMAIN_NAME, root.getMethodName());
+			test.assertIsEquals(DomainName.DOMAIN_NAME, root.getMethodName());
 			test.assertIsEquals(expectedNestedError, root.getMessage());
 		}
 		
@@ -71,13 +71,13 @@ public class EmailAddressAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMailAddressMutant.EMAIL, x.getMethodName());
+		test.assertIsEquals(EMailAddress.EMAIL, x.getMethodName());
 		test.assertIsEquals(expectedError, x.getMessage());
 		
 		if (expectedNestedError != null) {
 			Exception cause = (Exception) x.getCause();
 			InvalidParameterException root = GwtParameterExceptionAsserter.isIPE(cause);
-			test.assertIsEquals(DomainNameMutant.DOMAIN_NAME, root.getMethodName());
+			test.assertIsEquals(DomainName.DOMAIN_NAME, root.getMethodName());
 			test.assertIsEquals(expectedNestedError, root.getMessage());
 		}
 	}

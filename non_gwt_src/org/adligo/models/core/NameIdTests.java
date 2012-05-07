@@ -3,6 +3,7 @@ package org.adligo.models.core;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
+import org.adligo.models.core.client.ModelsCoreEnglishConstants;
 import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.NamedIdMutant;
@@ -20,7 +21,7 @@ public class NameIdTests extends ATest {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		assertNotNull(ex);
-		assertEquals("You set the id to null?", ex.getMessage());
+		assertEquals(ModelsCoreEnglishConstants.STORAGE_IDENTIFIER_REQUIRED, ex.getMessage());
 		
 		assertNull(mutant.getId());
 		mutant.setName(null);

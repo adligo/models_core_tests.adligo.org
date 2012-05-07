@@ -14,7 +14,6 @@ public class FrPhoneNumberGwtTests extends AGwtTest {
 	
 	public void testStringConstructorAndValidateVsPropertyfile() throws Exception {
 		PhoneNumberAssertions.assertConstructors(this, "fr ");
-		PhoneNumberAssertions.assertMutators(this, "fr ");
 	}
 
 
