@@ -62,7 +62,7 @@ public class NameIdTests extends ATest {
 		assertEquals(sid, id.getId());
 		
 		assertEquals(id, mutant);
-		assertEquals("NamedIdMutant [name=mutant name,id=StringIdentifierMutant [key=sid]]", mutant.toString());
+		assertEquals("NamedIdMutant [name=mutant name,id=StringIdentifier [key=sid]]", mutant.toString());
 		assertEquals("NamedId [name=mutant name,id=StringIdentifier [key=sid]]", id.toString());
 	}
 	
