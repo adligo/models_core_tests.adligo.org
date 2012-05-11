@@ -3,6 +3,7 @@ package org.adligo.models.core.client;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.relations.client.UserGroup;
 import org.adligo.models.core.relations.client.UserGroupMutant;
 import org.adligo.tests.client.I_Test;
@@ -103,9 +104,15 @@ public class UserGroupAssertions {
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_NAME,
 				ex.getMessage());
 		
+		OrganizationMutant org = new OrganizationMutant();
+		org.setName("funPeople");
+		NamedIdMutant type = new NamedIdMutant();
+		type.setId(new LongIdentifier(1L));
+		type.setName("orgorg");
+		org.setType(type);
+		mutant.setOrg(org);		
 		new UserGroup(mutant);
-		Organization org = new Organization();
-		mutant.setOrg(org);
+
 		
 		mutant.addRole("admin");
 		new UserGroup(mutant);
