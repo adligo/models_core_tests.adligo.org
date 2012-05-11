@@ -133,15 +133,6 @@ public class UserRelationsAssertions {
 		test.assertIsTrue(groupsFromMutant.contains("bartenders_group"));
 		test.assertIsFalse(groupsFromMutant.contains(""));
 		test.assertIsFalse(groupsFromMutant.contains(null));
-		
-		mutant.setName("john");
-		test.assertIsEquals("john", mutant.getName());
-		mutant.setPassword("psw");
-		test.assertIsEquals("psw", mutant.getPassword());
-		mutant.setEmail(new EMailAddress("john@psw.net"));
-		test.assertIsEquals(new EMailAddress("john@psw.net"), mutant.getEmail());
-		mutant.setDomain(new DomainName("go.net"));
-		test.assertIsEquals(new DomainName("go.net"), mutant.getDomain());
 	}
 	
 	public static void assertConstructors(I_Test test, String prefix) throws Exception {
