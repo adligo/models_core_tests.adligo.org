@@ -149,7 +149,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(UserMutant.SET_DOMAIN, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.USER_DOMAIN_NAME_CANT_BE_EMPTY,
 				ex.getMessage());
 		
 		ex = null;
@@ -161,7 +161,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(UserMutant.SET_DOMAIN, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.USER_DOMAIN_NAME_CANT_BE_EMPTY,
 				ex.getMessage());
 	}
 
@@ -232,7 +232,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(UserMutant.USER, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.USER_DOMAIN_NAME_CANT_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setDomain("adligo.org");

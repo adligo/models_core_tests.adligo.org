@@ -28,7 +28,7 @@ public class EmailAddressTests extends ATest {
 		
 		InvalidParameterException x = null;
 		try {
-			new EMailAddress(new EMailAddress());
+			new EMailAddress("");
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
@@ -36,22 +36,7 @@ public class EmailAddressTests extends ATest {
 		assertIsEquals(EMailAddress.EMAIL, x.getMethodName());
 		assertIsEquals(ModelsCoreEnglishConstants.EMAIL_ADDRESS_E_MAIL_CAN_NOT_BE_EMPTY, x.getMessage());
 	}
-	
-	public void testCopyConstructor() throws Exception {
-		EMailAddress a = new EMailAddress("support@adligo.org");
-		EMailAddress b = new EMailAddress("support@adligo.com");
-		
-		assertNotSame(a, b);
-		EMailAddress a1 = new EMailAddress(a);
-		assertEquals(a, a1);
-		assertEquals("support@adligo.org", a1.toString());
-		assertEquals("support", a1.getUserName());
-		assertEquals(new DomainName("adligo.org"), a1.getDomainName());
-		
-		
-		
-	}
-	
+
 	public void testSerialization() throws Exception {
 		IsGwtRpcSerializable.isRpcSerializable(EMailAddress.class);
 	}

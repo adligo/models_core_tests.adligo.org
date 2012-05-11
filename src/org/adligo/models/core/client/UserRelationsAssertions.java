@@ -162,7 +162,7 @@ public class UserRelationsAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(UserRelationsMutant.CONSTRUCTOR, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.USER_DOMAIN_NAME_CANT_BE_EMPTY,
 				ex.getMessage());
 		
 		UserMutant user = new UserMutant();
@@ -204,7 +204,7 @@ public class UserRelationsAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(UserRelationsMutant.CONSTRUCTOR, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.USER_DOMAIN_NAME_CANT_BE_EMPTY,
 				ex.getMessage());
 		
 		
@@ -223,7 +223,7 @@ public class UserRelationsAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(UserRelationsMutant.CONSTRUCTOR, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.DOMAIN_CAN_NOT_BE_EMPTY,
+				prefix + ModelsCoreEnglishConstants.USER_DOMAIN_NAME_CANT_BE_EMPTY,
 				ex.getMessage());
 		
 		mutant.setEmail("bo@bo.com");

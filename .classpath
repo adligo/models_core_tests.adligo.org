@@ -18,18 +18,7 @@
 	<classpathentry kind="var" path="HSQLDB_HOME/lib/hsqldb.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/xmlt-tests"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/xmlt"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/xmlt4hibernate"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/params"/>
-	<classpathentry kind="lib" path="/Users/scott/java/eclipse_jee/plugins/com.google.gwt.eclipse.sdkbundle.2.0.4_2.0.4.v201006301309/gwt-2.0.4/gwt-user.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/Users/scott/java/eclipse_jee/plugins/com.google.gwt.eclipse.sdkbundle.2.0.4_2.0.4.v201006301309/gwt-2.0.4/doc/javadoc/"/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="/Users/scott/java/eclipse_jee/plugins/com.google.gwt.eclipse.sdkbundle.2.0.4_2.0.4.v201006301309/gwt-2.0.4/gwt-dev.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="file:/Users/scott/java/eclipse_jee/plugins/com.google.gwt.eclipse.sdkbundle.2.0.4_2.0.4.v201006301309/gwt-2.0.4/doc/javadoc/"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/jse_util"/>
 	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/antlr-2.7.7.jar"/>
 	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/dom4j-1.6.1.jar"/>
@@ -39,7 +28,12 @@
 	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/javassist-3.15.0-GA.jar"/>
 	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/jboss-logging-3.1.0.GA.jar"/>
 	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
-	<classpathentry kind="var" path="GWT_2_HOME/gwt-user.jar"/>
-	<classpathentry kind="var" path="GWT_2_HOME/gwt-dev.jar"/>
-	<classpathentry kind="output" path="war/WEB-INF/classes"/>
+	<classpathentry kind="var" path="EXTERNAL_LIB_HOME/commons-dbcp-1.4/commons-dbcp-1.4.jar"/>
+	<classpathentry kind="var" path="EXTERNAL_LIB_HOME/commons-pool-1.6/commons-pool-1.6.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/xmlt4jpa"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/xmlt4jpa_tests"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/i_storage"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/i_storage_tests"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/hibernate_storage"/>
+	<classpathentry kind="output" path="classes2"/>
 </classpath>

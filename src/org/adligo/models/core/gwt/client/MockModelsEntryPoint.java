@@ -15,8 +15,6 @@ import org.adligo.models.core.client.I_AddressMutant;
 import org.adligo.models.core.client.I_Changeable;
 import org.adligo.models.core.client.I_ChangeableMutant;
 import org.adligo.models.core.client.I_CustomInfo;
-import org.adligo.models.core.client.I_DomainName;
-import org.adligo.models.core.client.I_EMailAddress;
 import org.adligo.models.core.client.I_ModelsCoreConstants;
 import org.adligo.models.core.client.I_ModifyEMailList;
 import org.adligo.models.core.client.I_ModifyEMailListMutant;
@@ -106,9 +104,6 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_Changeable.class);
 			holder.addUsed(I_ChangeableMutant.class);
 			holder.addUsed(I_CustomInfo.class);
-			holder.addUsed(I_DomainName.class);
-			
-			holder.addUsed(I_EMailAddress.class);
 			
 			holder.addUsed(I_LongIdentifier.class);
 			holder.addUsed(I_LongIdentifierMutant.class);

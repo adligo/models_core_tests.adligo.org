@@ -38,7 +38,7 @@ public class DomainTests extends ATest {
 		
 		InvalidParameterException x = null;
 		try {
-			new DomainName(new DomainName());
+			new DomainName("");
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}

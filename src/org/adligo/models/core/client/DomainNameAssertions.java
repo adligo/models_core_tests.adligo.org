@@ -26,7 +26,7 @@ public class DomainNameAssertions  {
 		InvalidParameterException x = null;
 		
 		try {
-			new DomainName((DomainName) null);
+			new DomainName(null);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
