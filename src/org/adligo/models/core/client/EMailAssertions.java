@@ -8,7 +8,6 @@ import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.relations.client.EMail;
 import org.adligo.models.core.relations.client.EMailMutant;
 import org.adligo.tests.client.I_Test;
-import org.apache.tools.ant.taskdefs.email.EmailAddress;
 
 public class EMailAssertions {
 
@@ -23,7 +22,7 @@ public class EMailAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.E_MAIL, x.getMethodName());
+		test.assertIsEquals(EMailMutant.E_MAIL, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_REQUIRES_A_FROM_ADDRESS, x.getMessage());
 		
 		mutant.setFrom(new EMailAddress("support@adligo.com"));
@@ -35,7 +34,7 @@ public class EMailAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.E_MAIL, x.getMethodName());
+		test.assertIsEquals(EMailMutant.E_MAIL, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_REQUIRES_A_DESTINATION_ADDRESS, x.getMessage());
 		
 	}
@@ -51,7 +50,7 @@ public class EMailAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.SET_FROM, x.getMethodName());
+		test.assertIsEquals(EMailMutant.SET_FROM, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_REQUIRES_A_FROM_ADDRESS, x.getMessage());
 		
 		x = null;
@@ -61,7 +60,7 @@ public class EMailAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.SET_FROM, x.getMethodName());
+		test.assertIsEquals(EMailMutant.SET_FROM, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_REQUIRES_A_VALID_FROM_ADDRESS, x.getMessage());
 		
 		x = null;
@@ -71,7 +70,7 @@ public class EMailAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_ATTACHMENT, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_ATTACHMENT, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ATTACHEMNT_MAY_NOT_BE_NULL, x.getMessage());
 		
 		x = null;
@@ -81,31 +80,31 @@ public class EMailAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_ATTACHMENT, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_ATTACHMENT, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ATTACHMENT_MAY_NOT_BE_EMPTY, x.getMessage());
 		
 		Set<I_StorageIdentifier> set = new HashSet<I_StorageIdentifier>();
 		set.add(null);
 		
 		try {
-			mutant.addAllAttachments(set);
+			mutant.setAttachments(set);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_ATTACHMENT, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_ATTACHMENT, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ATTACHEMNT_MAY_NOT_BE_NULL, x.getMessage());
 		
 		set.clear();
 		set.add(new StringIdentifier());
 		
 		try {
-			mutant.addAllAttachments(set);
+			mutant.setAttachments(set);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_ATTACHMENT, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_ATTACHMENT, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ATTACHMENT_MAY_NOT_BE_EMPTY, x.getMessage());
 		
 		
@@ -116,7 +115,7 @@ public class EMailAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_TO, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_TO, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 		
 		x = null;
@@ -126,76 +125,76 @@ public class EMailAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_TO, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_TO, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 		
 		Set<EMailAddress> emailSet = new HashSet<EMailAddress>();
 		emailSet.add(null);
 		x = null;
 		try {
-			mutant.addAllTo(emailSet);
+			mutant.setToAddresses(emailSet);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_TO, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_TO, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 		
 		emailSet.clear();
 		emailSet.add(new EMailAddress());
 		x = null;
 		try {
-			mutant.addAllTo(emailSet);
+			mutant.setToAddresses(emailSet);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_TO, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_TO, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 		
 		//CC
 		x = null;
 		try {
-			mutant.addCc(null);
+			mutant.setCcAddresses(null);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_CC, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_CC, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 		
 		x = null;
 		try {
-			mutant.addCc(new EMailAddress());
+			mutant.addCcAddresses(new EMailAddress());
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_CC, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_CC, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 		
 		emailSet.clear();
 		emailSet.add(null);
 		x = null;
 		try {
-			mutant.addAllCc(emailSet);
+			mutant.setCcAddresses(emailSet);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_CC, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_CC, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 		
 		emailSet.clear();
 		emailSet.add(new EMailAddress());
 		x = null;
 		try {
-			mutant.addAllCc(emailSet);
+			mutant.setCcAddresses(emailSet);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_CC, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_CC, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 		
 		//BCC
@@ -206,7 +205,7 @@ public class EMailAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_BCC, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_BCC, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 		
 		x = null;
@@ -216,31 +215,31 @@ public class EMailAssertions {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_BCC, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_BCC, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 		
 		emailSet.clear();
 		emailSet.add(null);
 		x = null;
 		try {
-			mutant.addAllBcc(emailSet);
+			mutant.setBccAddresses(emailSet);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_BCC, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_BCC, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 		
 		emailSet.clear();
 		emailSet.add(new EMailAddress());
 		x = null;
 		try {
-			mutant.addAllBcc(emailSet);
+			mutant.setBccAddresses(emailSet);
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
 		test.assertIsNotNull(x);
-		test.assertIsEquals(EMail.ADD_BCC, x.getMethodName());
+		test.assertIsEquals(EMailMutant.ADD_BCC, x.getMethodName());
 		test.assertIsEquals(pre + ModelsCoreEnglishConstants.EMAIL_ADDRESS_IS_NOT_VALID, x.getMessage());
 	}
 	
@@ -258,65 +257,65 @@ public class EMailAssertions {
 		
 		//tos
 		test.assertIsTrue(mutant.addTo(new EMailAddress("to@adligo.com")));
-		Set<EMailAddress> tos = mutant.getTOs();
+		Set<EMailAddress> tos = mutant.getToAddresses();
 		test.assertIsEquals(1, tos.size());
 		test.assertIsTrue(tos.contains(new EMailAddress("to@adligo.com")));
 		test.assertIsTrue(mutant.removeTo(new EMailAddress("to@adligo.com")));
-		tos = mutant.getTOs();
+		tos = mutant.getToAddresses();
 		test.assertIsEquals(0, tos.size());
 		
 		Set<EMailAddress> newTos = new HashSet<EMailAddress>();
 		test.assertIsTrue(newTos.add(new EMailAddress("to1@adligo.com")));
 		test.assertIsTrue(newTos.add(new EMailAddress("to2@adligo.com")));
-		test.assertIsTrue(mutant.addAllTo(newTos));
-		tos = mutant.getTOs();
+		test.assertIsTrue(mutant.setToAddresses(newTos));
+		tos = mutant.getToAddresses();
 		test.assertIsEquals(2, tos.size());
 		test.assertIsTrue(tos.contains(new EMailAddress("to1@adligo.com")));
 		test.assertIsTrue(tos.contains(new EMailAddress("to2@adligo.com")));
 		test.assertIsTrue(mutant.removeAllTo(newTos));
-		tos = mutant.getTOs();
+		tos = mutant.getToAddresses();
 		test.assertIsEquals(0, tos.size());
 		
 		//ccs
-		test.assertIsTrue(mutant.addCc(new EMailAddress("cc@adligo.com")));
-		Set<EMailAddress> ccs = mutant.getCCs();
+		test.assertIsTrue(mutant.addCcAddresses(new EMailAddress("cc@adligo.com")));
+		Set<EMailAddress> ccs = mutant.getCcAddresses();
 		test.assertIsEquals(1, ccs.size());
 		test.assertIsTrue(ccs.contains(new EMailAddress("cc@adligo.com")));
 		test.assertIsTrue(mutant.removeCc(new EMailAddress("cc@adligo.com")));
-		ccs = mutant.getCCs();
+		ccs = mutant.getCcAddresses();
 		test.assertIsEquals(0, ccs.size());
 		
 		Set<EMailAddress> newCcs = new HashSet<EMailAddress>();
 		test.assertIsTrue(newCcs.add(new EMailAddress("cc1@adligo.com")));
 		test.assertIsTrue(newCcs.add(new EMailAddress("cc2@adligo.com")));
-		test.assertIsTrue(mutant.addAllCc(newCcs));
-		ccs = mutant.getCCs();
+		test.assertIsTrue(mutant.setCcAddresses(newCcs));
+		ccs = mutant.getCcAddresses();
 		test.assertIsEquals(2, ccs.size());
 		test.assertIsTrue(ccs.contains(new EMailAddress("cc1@adligo.com")));
 		test.assertIsTrue(ccs.contains(new EMailAddress("cc2@adligo.com")));
 		test.assertIsTrue(mutant.removeAllCc(newCcs));
-		ccs = mutant.getCCs();
+		ccs = mutant.getCcAddresses();
 		test.assertIsEquals(0, ccs.size());
 		
 		//bccs
 		test.assertIsTrue(mutant.addBcc(new EMailAddress("bcc@adligo.com")));
-		Set<EMailAddress> bccs = mutant.getBCCs();
+		Set<EMailAddress> bccs = mutant.getBccAddresses();
 		test.assertIsEquals(1, bccs.size());
 		test.assertIsTrue(bccs.contains(new EMailAddress("bcc@adligo.com")));
 		test.assertIsTrue(mutant.removeBcc(new EMailAddress("bcc@adligo.com")));
-		bccs = mutant.getBCCs();
+		bccs = mutant.getBccAddresses();
 		test.assertIsEquals(0, bccs.size());
 		
 		Set<EMailAddress> newBccs = new HashSet<EMailAddress>();
 		test.assertIsTrue(newBccs.add(new EMailAddress("bcc1@adligo.com")));
 		test.assertIsTrue(newBccs.add(new EMailAddress("bcc2@adligo.com")));
-		test.assertIsTrue(mutant.addAllBcc(newBccs));
-		bccs = mutant.getBCCs();
+		test.assertIsTrue(mutant.setBccAddresses(newBccs));
+		bccs = mutant.getBccAddresses();
 		test.assertIsEquals(2, bccs.size());
 		test.assertIsTrue(bccs.contains(new EMailAddress("bcc1@adligo.com")));
 		test.assertIsTrue(bccs.contains(new EMailAddress("bcc2@adligo.com")));
 		test.assertIsTrue(mutant.removeAllBcc(newBccs));
-		bccs = mutant.getBCCs();
+		bccs = mutant.getBccAddresses();
 		test.assertIsEquals(0, bccs.size());
 		
 		//attachments
@@ -331,7 +330,7 @@ public class EMailAssertions {
 		Set<I_StorageIdentifier> newAttachemnts = new HashSet<I_StorageIdentifier>();
 		test.assertIsTrue(newAttachemnts.add(new StringIdentifier("file1")));
 		test.assertIsTrue(newAttachemnts.add(new StringIdentifier("file2")));
-		test.assertIsTrue(mutant.addAllAttachments(newAttachemnts));
+		test.assertIsTrue(mutant.setAttachments(newAttachemnts));
 		attachments = mutant.getAttachments();
 		test.assertIsEquals(2, attachments.size());
 		test.assertIsTrue(attachments.contains(new StringIdentifier("file1")));
@@ -348,7 +347,7 @@ public class EMailAssertions {
 		mutant.setSubject("subject");
 		mutant.setBody("body");
 		test.assertIsTrue(mutant.addTo(new EMailAddress("to@adligo.com")));
-		test.assertIsTrue(mutant.addCc(new EMailAddress("cc@adligo.com")));
+		test.assertIsTrue(mutant.addCcAddresses(new EMailAddress("cc@adligo.com")));
 		test.assertIsTrue(mutant.addBcc(new EMailAddress("bcc@adligo.com")));
 		test.assertIsTrue(mutant.addAttachment(new StringIdentifier("some_file")));
 		
@@ -357,15 +356,15 @@ public class EMailAssertions {
 		test.assertIsEquals("subject", email.getSubject());
 		test.assertIsEquals("body", email.getBody());
 		
-		Set<EMailAddress> tos = mutant.getTOs();
+		Set<EMailAddress> tos = mutant.getToAddresses();
 		test.assertIsEquals(1, tos.size());
 		test.assertIsTrue(tos.contains(new EMailAddress("to@adligo.com")));
 		
-		Set<EMailAddress> ccs = mutant.getCCs();
+		Set<EMailAddress> ccs = mutant.getCcAddresses();
 		test.assertIsEquals(1, ccs.size());
 		test.assertIsTrue(ccs.contains(new EMailAddress("cc@adligo.com")));
 		
-		Set<EMailAddress> bccs = mutant.getBCCs();
+		Set<EMailAddress> bccs = mutant.getBccAddresses();
 		test.assertIsEquals(1, bccs.size());
 		test.assertIsTrue(bccs.contains(new EMailAddress("bcc@adligo.com")));
 		

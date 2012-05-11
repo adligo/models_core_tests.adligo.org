@@ -11,10 +11,6 @@ public class UserGroupAssertions {
 
 	public static void assertMutators(I_Test test, String prefix) throws Exception {
 		UserGroupMutant mutant = new UserGroupMutant();
-		mutant.setType(new NamedId("department"));
-		test.assertIsEquals(new NamedId("department"),mutant.getType());
-		mutant.setName("bartenders");
-		test.assertIsEquals("bartenders",mutant.getName());
 		
 		InvalidParameterException ex = null;
 		try {
@@ -23,7 +19,7 @@ public class UserGroupAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserGroup.ADD_ROLE, ex.getMethodName());
+		test.assertIsEquals(UserGroupMutant.ADD_ROLE, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_GROUP_EMPTY_ROLE_TO_USER_GROUP,
 				ex.getMessage());
@@ -35,7 +31,7 @@ public class UserGroupAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserGroup.ADD_ROLE, ex.getMethodName());
+		test.assertIsEquals(UserGroupMutant.ADD_ROLE, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_GROUP_EMPTY_ROLE_TO_USER_GROUP,
 				ex.getMessage());
@@ -47,12 +43,12 @@ public class UserGroupAssertions {
 		
 		ex = null;
 		try {
-			mutant.addRoles(roles);
+			mutant.setRoles(roles);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserGroup.ADD_ALL_ROLES, ex.getMethodName());
+		test.assertIsEquals(UserGroupMutant.ADD_ALL_ROLES, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_GROUP_EMPTY_ROLE_TO_USER_GROUP,
 				ex.getMessage());
@@ -62,19 +58,19 @@ public class UserGroupAssertions {
 		
 		ex = null;
 		try {
-			mutant.addRoles(roles);
+			mutant.setRoles(roles);
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserGroup.ADD_ALL_ROLES, ex.getMethodName());
+		test.assertIsEquals(UserGroupMutant.ADD_ALL_ROLES, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.USER_GROUP_EMPTY_ROLE_TO_USER_GROUP,
 				ex.getMessage());
 		
 		roles = new HashSet<String>();
 		roles.add("savers");
-		mutant.addRoles(roles);
+		mutant.setRoles(roles);
 		
 		test.assertIsTrue(mutant.getRoles().contains("savers"));
 	}
@@ -89,12 +85,11 @@ public class UserGroupAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserGroup.USER_GROUP, ex.getMethodName());
+		test.assertIsEquals(UserGroupMutant.USER_GROUP, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_NAME,
 				ex.getMessage());
 		
-		mutant.setType(new NamedId("department"));
 		
 		ex = null;
 		try {
@@ -103,13 +98,14 @@ public class UserGroupAssertions {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(UserGroup.USER_GROUP, ex.getMethodName());
+		test.assertIsEquals(UserGroupMutant.USER_GROUP, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_NAME,
 				ex.getMessage());
 		
-		mutant.setName("admins");
 		new UserGroup(mutant);
+		Organization org = new Organization();
+		mutant.setOrg(org);
 		
 		mutant.addRole("admin");
 		new UserGroup(mutant);
