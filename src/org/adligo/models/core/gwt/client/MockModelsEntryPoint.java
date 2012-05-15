@@ -7,6 +7,8 @@ import org.adligo.i.util.client.I_UsageHolder;
 import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.AddressMutant;
 import org.adligo.models.core.client.ChainedFieldException;
+import org.adligo.models.core.client.CommandToken;
+import org.adligo.models.core.client.CommandTokenMutant;
 import org.adligo.models.core.client.CoreRoles;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMailAddress;
@@ -14,6 +16,7 @@ import org.adligo.models.core.client.I_Address;
 import org.adligo.models.core.client.I_AddressMutant;
 import org.adligo.models.core.client.I_Changeable;
 import org.adligo.models.core.client.I_ChangeableMutant;
+import org.adligo.models.core.client.I_CommandToken;
 import org.adligo.models.core.client.I_CustomInfo;
 import org.adligo.models.core.client.I_ModelsCoreConstants;
 import org.adligo.models.core.client.I_ModifyEMailList;
@@ -27,6 +30,7 @@ import org.adligo.models.core.client.I_Person;
 import org.adligo.models.core.client.I_PersonMutant;
 import org.adligo.models.core.client.I_PhoneNumber;
 import org.adligo.models.core.client.I_Storable;
+import org.adligo.models.core.client.I_StorageInfo;
 import org.adligo.models.core.client.I_StorageMutant;
 import org.adligo.models.core.client.I_Subject;
 import org.adligo.models.core.client.I_User;
@@ -50,7 +54,6 @@ import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.ValidationException;
 import org.adligo.models.core.client.ids.I_LongIdentifier;
 import org.adligo.models.core.client.ids.I_LongIdentifierMutant;
-import org.adligo.models.core.client.ids.I_StorageIdGenerator;
 import org.adligo.models.core.client.ids.I_StorageIdentifier;
 import org.adligo.models.core.client.ids.I_StringIdentifier;
 import org.adligo.models.core.client.ids.I_StringIdentifierMutant;
@@ -94,6 +97,10 @@ public class MockModelsEntryPoint implements EntryPoint {
 			
 			holder.addUsed(new AddressMutant());
 			holder.addUsed(new Address());
+			
+			holder.addUsed(CommandToken.class);
+			holder.addUsed(CommandTokenMutant.class);
+			
 			holder.addUsed(CoreRoles.class);
 			holder.addUsed(new ChainedFieldException("ye","foo"));
 			holder.addUsed(new DomainName());
@@ -101,6 +108,8 @@ public class MockModelsEntryPoint implements EntryPoint {
 
 			holder.addUsed(I_Address.class);
 			holder.addUsed(I_AddressMutant.class);
+			holder.addUsed(I_CommandToken.class);
+			
 			holder.addUsed(I_Changeable.class);
 			holder.addUsed(I_ChangeableMutant.class);
 			holder.addUsed(I_CustomInfo.class);
@@ -123,6 +132,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			
 			holder.addUsed(I_Storable.class);
 			holder.addUsed(I_StorageMutant.class);
+			holder.addUsed(I_StorageInfo.class);
 			
 			holder.addUsed(I_Subject.class);
 			holder.addUsed(I_User.class);
@@ -166,7 +176,6 @@ public class MockModelsEntryPoint implements EntryPoint {
 		holder.addUsed(new LongIdentifierMutant());
 		
 		holder.addUsed(I_StorageIdentifier.class);
-		holder.addUsed(I_StorageIdGenerator.class);
 		holder.addUsed(I_StringIdentifier.class);
 		holder.addUsed(I_StringIdentifierMutant.class);
 		
