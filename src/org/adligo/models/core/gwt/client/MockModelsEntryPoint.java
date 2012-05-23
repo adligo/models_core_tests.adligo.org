@@ -53,6 +53,7 @@ import org.adligo.models.core.client.OrganizationMutant;
 import org.adligo.models.core.client.Person;
 import org.adligo.models.core.client.PersonMutant;
 import org.adligo.models.core.client.PhoneNumber;
+import org.adligo.models.core.client.SimpleStorageInfo;
 import org.adligo.models.core.client.User;
 import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.ValidationException;
@@ -165,6 +166,8 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(ModelsCoreEnglishConstantsFactory.class);
 			holder.addUsed(ValidationException.class);
 		
+			holder.addUsed(new SimpleStorageInfo());
+			
 			holder.addUsed(I_ModelsCoreConstants.class);
 			
 			addIdClasses();
