@@ -3,7 +3,7 @@ package org.adligo.models.core;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ids.StringIdentifier;
-import org.adligo.models.core.client.ids.StringIdentifierMutant;
+import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.ATest;
 
 public class StringIdentifierTests extends ATest {
@@ -13,13 +13,13 @@ public class StringIdentifierTests extends ATest {
 		InvalidParameterException x;
 		x = null;
 		try {
-			new StringIdentifier(new StringIdentifierMutant());
+			new StringIdentifier(new StringIdentifier());
 		} catch (InvalidParameterException g) {
 			x = g;
 		}
 		assertNotNull(x);
-		assertEquals(StringIdentifierMutant.CONSTRUCTOR, x.getMethodName());
-		assertEquals(StringIdentifierMutant.KEY_CANT_BE_SET_TO_EMPTY, x.getMessage());
+		assertEquals(StringIdentifier.CONSTRUCTOR, x.getMethodName());
+		assertEquals(StringIdentifier.KEY_CANT_BE_SET_TO_EMPTY, x.getMessage());
 		
 	}
 
@@ -33,7 +33,7 @@ public class StringIdentifierTests extends ATest {
 			x = g;
 		}
 		assertNotNull(x);
-		assertEquals(StringIdentifierMutant.CONSTRUCTOR, x.getMethodName());
+		assertEquals(StringIdentifier.CONSTRUCTOR, x.getMethodName());
 		
 		x = null;
 		try {
@@ -42,27 +42,17 @@ public class StringIdentifierTests extends ATest {
 			x = g;
 		}
 		assertNotNull(x);
-		assertEquals(StringIdentifierMutant.CONSTRUCTOR, x.getMethodName());
+		assertEquals(StringIdentifier.CONSTRUCTOR, x.getMethodName());
 		
 		StringIdentifier id = new StringIdentifier("you");
 		assertEquals("you", id.getKey());
 	}
-
-	
-	public void testMutators() throws Exception {
-		StringIdentifierMutant mutant = new StringIdentifierMutant();
-		ParamterExceptionAsserter.assertInvalidParamterExceptionStringMutator(mutant, "setKey");
-		
-		mutant.setKey("key");
-		assertEquals("key", mutant.getKey());
-		
-	}
 	
 	public void testToString() throws Exception {
-		StringIdentifierMutant mutant = new StringIdentifierMutant();
-		assertEquals("StringIdentifierMutant [key=null]", mutant.toString());
-		mutant.setKey("keyVal");
-		assertEquals("StringIdentifierMutant [key=keyVal]", mutant.toString());
+		StringIdentifier mutant = new StringIdentifier();
+		assertEquals("StringIdentifier [key=null]", mutant.toString());
+		mutant = new StringIdentifier("keyVal");
+		assertEquals("StringIdentifier [key=keyVal]", mutant.toString());
 		
 		StringIdentifier id = new StringIdentifier(mutant);
 		assertEquals("StringIdentifier [key=keyVal]", id.toString());
@@ -70,11 +60,10 @@ public class StringIdentifierTests extends ATest {
 	
 	public void testEquals() throws Exception {
 		StringIdentifier a = new StringIdentifier();
-		StringIdentifierMutant b = new StringIdentifierMutant();
+		StringIdentifier b = new StringIdentifier();
 		
 		assertEquals(a, b);
-		b = new StringIdentifierMutant();
-		b.setKey("some_key");
+		b = new StringIdentifier("some_key");
 		
 		a = new StringIdentifier(b);
 		assertEquals(a, b);

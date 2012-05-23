@@ -122,6 +122,6 @@ public class OrganizationAssertions {
 		test.assertIsEquals("Organization [name=someName,type=NamedId " +
 				"[name=someType,id=null],id=StringIdentifier [key=sid]]", org.toString());
 		test.assertIsEquals("OrganizationMutant [name=someName,type=NamedId " +
-				"[name=someType,id=null],id=StringIdentifierMutant [key=sid]]", mutant.toString());
+				"[name=someType,id=null],id=StringIdentifier [key=sid]]", mutant.toString());
 	}
 }

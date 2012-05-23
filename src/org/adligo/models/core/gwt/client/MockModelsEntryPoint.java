@@ -53,14 +53,10 @@ import org.adligo.models.core.client.User;
 import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.ValidationException;
 import org.adligo.models.core.client.ids.I_LongIdentifier;
-import org.adligo.models.core.client.ids.I_LongIdentifierMutant;
 import org.adligo.models.core.client.ids.I_StorageIdentifier;
 import org.adligo.models.core.client.ids.I_StringIdentifier;
-import org.adligo.models.core.client.ids.I_StringIdentifierMutant;
 import org.adligo.models.core.client.ids.LongIdentifier;
-import org.adligo.models.core.client.ids.LongIdentifierMutant;
 import org.adligo.models.core.client.ids.StringIdentifier;
-import org.adligo.models.core.client.ids.StringIdentifierMutant;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -115,7 +111,6 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_CustomInfo.class);
 			
 			holder.addUsed(I_LongIdentifier.class);
-			holder.addUsed(I_LongIdentifierMutant.class);
 			
 			holder.addUsed(I_ModifyEMailList.class);
 			holder.addUsed(I_ModifyEMailListMutant.class);
@@ -173,13 +168,12 @@ public class MockModelsEntryPoint implements EntryPoint {
 
 		
 		holder.addUsed(new LongIdentifier());
-		holder.addUsed(new LongIdentifierMutant());
+		holder.addUsed(new LongIdentifier());
 		
 		holder.addUsed(I_StorageIdentifier.class);
 		holder.addUsed(I_StringIdentifier.class);
-		holder.addUsed(I_StringIdentifierMutant.class);
 		
 		holder.addUsed(new StringIdentifier());
-		holder.addUsed(new StringIdentifierMutant());
+		holder.addUsed(new StringIdentifier());
 	}
 }

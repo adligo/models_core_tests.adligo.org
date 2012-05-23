@@ -10,7 +10,7 @@ import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.UserAssertions;
 import org.adligo.models.core.client.User;
 import org.adligo.models.core.client.ids.StringIdentifier;
-import org.adligo.models.core.client.ids.StringIdentifierMutant;
+import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.ATest;
 
 public class UserTests extends ATest {
@@ -70,8 +70,7 @@ public class UserTests extends ATest {
 		mutant.setName("george");
 		assertEquals("george", mutant.getName());
 		
-		StringIdentifierMutant id = new StringIdentifierMutant();
-		id.setKey("sid");
+		StringIdentifier id = new StringIdentifier("sid");
 		mutant.setId(id);
 		
 		assertEquals(id, mutant.getId());

@@ -7,7 +7,7 @@ import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ids.I_StorageIdentifier;
 import org.adligo.models.core.client.ids.StringIdentifier;
-import org.adligo.models.core.client.ids.StringIdentifierMutant;
+import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.ATest;
 
 public class ParamterExceptionAsserter {
@@ -110,7 +110,7 @@ public class ParamterExceptionAsserter {
 		
 		x = null;
 		try {
-			method.invoke(obj, new Object[] {new StringIdentifierMutant()});
+			method.invoke(obj, new Object[] {new StringIdentifier()});
 		} catch (Exception g) {
 			x = GwtParameterExceptionAsserter.isIPE(g);
 		}
