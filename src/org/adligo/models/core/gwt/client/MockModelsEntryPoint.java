@@ -60,8 +60,11 @@ import org.adligo.models.core.client.ValidationException;
 import org.adligo.models.core.client.ids.I_LongIdentifier;
 import org.adligo.models.core.client.ids.I_StorageIdentifier;
 import org.adligo.models.core.client.ids.I_StringIdentifier;
+import org.adligo.models.core.client.ids.I_VersionedLongIdentifier;
+import org.adligo.models.core.client.ids.I_VersionedLongIdentifierMutant;
 import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.client.ids.StringIdentifier;
+import org.adligo.models.core.client.ids.VersionedLongIdentifierMutant;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -144,6 +147,8 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_UserMutant.class);
 			holder.addUsed(I_Validateable.class);
 
+			holder.addUsed(I_VersionedLongIdentifier.class);
+			holder.addUsed(I_VersionedLongIdentifierMutant.class);
 			
 			holder.addUsed(new InvalidParameterException("", ""));
 			holder.addUsed(ModelsCoreRegistry.class);
@@ -165,7 +170,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new ModelsCoreConstantsObtainer());
 			holder.addUsed(ModelsCoreEnglishConstantsFactory.class);
 			holder.addUsed(ValidationException.class);
-		
+			holder.addUsed(new VersionedLongIdentifierMutant());
 			holder.addUsed(new SimpleStorageInfo());
 			
 			holder.addUsed(I_ModelsCoreConstants.class);
