@@ -3,11 +3,10 @@ package org.adligo.models.core;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.DomainNameAssertions;
-import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
-import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
+import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.tests.ATest;
 
 public class DomainTests extends ATest {
@@ -109,7 +108,7 @@ public class DomainTests extends ATest {
 	protected void setUp() throws Exception {
 		// TODO Auto-generated method stub
 		super.setUp();
-		new ModelsCoreEnglishConstantsFactory();
+		ModelsCoreRegistry.setup();
 	}
 	
 	public void testSerialization() throws Exception {

@@ -7,9 +7,7 @@ import javax.persistence.Query;
 
 import org.adligo.i.storage.entities.MockJpaDb;
 import org.adligo.i.util.IsGwtRpcSerializable;
-import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.ModelsCoreRegistry;
-import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.Person;
 import org.adligo.models.core.client.PersonAssertions;
 import org.adligo.models.core.client.PersonMutant;
@@ -28,7 +26,6 @@ public class PersonTests extends ATest {
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
-		new ModelsCoreEnglishConstantsFactory();
 		MockJpaDb.commonSetup(new MockHibernateModelsCoreMappings());
 		ModelsMockSetup.setUp();
 		ModelsCoreRegistry.setup();

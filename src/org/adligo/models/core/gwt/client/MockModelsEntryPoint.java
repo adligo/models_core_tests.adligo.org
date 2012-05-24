@@ -43,7 +43,6 @@ import org.adligo.models.core.client.I_Validateable;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreConstantsObtainer;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
-import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.ModifyEMailListMutant;
 import org.adligo.models.core.client.NamedId;
@@ -89,7 +88,6 @@ public class MockModelsEntryPoint implements EntryPoint {
 			try {
 				GwtPlatform.init();
 				GwtLogFactory.init();
-				new ModelsCoreEnglishConstantsFactory();
 			} catch (Exception x) {
 				x.printStackTrace();
 			}
@@ -166,7 +164,6 @@ public class MockModelsEntryPoint implements EntryPoint {
 			
 			holder.addUsed(new ModelsCoreEnglishConstants());
 			holder.addUsed(new ModelsCoreConstantsObtainer());
-			holder.addUsed(ModelsCoreEnglishConstantsFactory.class);
 			holder.addUsed(ValidationException.class);
 			holder.addUsed(new VersionedLongIdentifierMutant());
 			holder.addUsed(new SimpleStorageInfo());

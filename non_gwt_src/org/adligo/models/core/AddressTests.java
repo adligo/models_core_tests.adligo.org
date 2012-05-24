@@ -1,12 +1,11 @@
 package org.adligo.models.core;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
-import org.adligo.models.core.client.AddressMutant;
-import org.adligo.models.core.client.AddressAssertions;
 import org.adligo.models.core.client.Address;
+import org.adligo.models.core.client.AddressAssertions;
+import org.adligo.models.core.client.AddressMutant;
 import org.adligo.models.core.client.I_Address;
-import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
-import org.adligo.models.core.client.ids.StringIdentifier;
+import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.tests.ATest;
 
 public class AddressTests extends ATest {
@@ -21,7 +20,7 @@ public class AddressTests extends ATest {
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
-		new ModelsCoreEnglishConstantsFactory();
+		ModelsCoreRegistry.setup();
 		ModelsMockSetup.setUp();
 	}
 	

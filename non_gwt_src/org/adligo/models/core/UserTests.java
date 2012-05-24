@@ -4,12 +4,10 @@ import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.DomainName;
 import org.adligo.models.core.client.EMailAddress;
 import org.adligo.models.core.client.InvalidParameterException;
-import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.ModelsCoreRegistry;
-import org.adligo.models.core.client.UserMutant;
-import org.adligo.models.core.client.UserAssertions;
 import org.adligo.models.core.client.User;
-import org.adligo.models.core.client.ids.StringIdentifier;
+import org.adligo.models.core.client.UserAssertions;
+import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.ATest;
 
@@ -18,7 +16,6 @@ public class UserTests extends ATest {
 	@Override
 	protected void setUp() throws Exception {
 		super.setUp();
-		new ModelsCoreEnglishConstantsFactory();
 		ModelsMockSetup.setUp();
 		ModelsCoreRegistry.setup();
 	}

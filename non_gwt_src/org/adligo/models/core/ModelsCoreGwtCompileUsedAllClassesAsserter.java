@@ -12,8 +12,8 @@ import org.adligo.models.core.client.DomainNameAssertions;
 import org.adligo.models.core.client.EMailAssertions;
 import org.adligo.models.core.client.EmailAddressAssertions;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
-import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
 import org.adligo.models.core.client.ModelsCoreMockGwtSetup;
+import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.OrganizationAssertions;
 import org.adligo.models.core.client.PersonAssertions;
 import org.adligo.models.core.client.PhoneNumberAssertions;
@@ -67,11 +67,11 @@ public class ModelsCoreGwtCompileUsedAllClassesAsserter  extends ATest {
 				GwtCompileUsedAllClassesAsserter.getClasses("org.adligo.models.core.client.english", 
 						ignore));
 		
-		new ModelsCoreEnglishConstantsFactory();
+		ModelsCoreRegistry.setup();
 		MockModelsEntryPoint entryPoint = new MockModelsEntryPoint(usageHolder);
 		entryPoint.onModuleLoad();
 		
-		assertEquals(61, usageHolder.getUsedClasses().size());
+		assertEquals(59, usageHolder.getUsedClasses().size());
 		
 		assertCollectionEquals(classes, usageHolder.getUsedClasses());
 		

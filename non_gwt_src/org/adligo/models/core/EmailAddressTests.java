@@ -7,7 +7,7 @@ import org.adligo.models.core.client.EmailAddressAssertions;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
-import org.adligo.models.core.client.ModelsCoreEnglishConstantsFactory;
+import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.tests.ATest;
 
 public class EmailAddressTests extends ATest {
@@ -15,7 +15,7 @@ public class EmailAddressTests extends ATest {
 	protected void setUp() throws Exception {
 		// TODO Auto-generated method stub
 		super.setUp();
-		new ModelsCoreEnglishConstantsFactory();
+		ModelsCoreRegistry.setup();
 	}
 	
 	public void testStringConstructorAndValidateExceptions() throws Exception {
