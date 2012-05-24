@@ -61,7 +61,6 @@ import org.adligo.models.core.client.ids.I_LongIdentifier;
 import org.adligo.models.core.client.ids.I_StorageIdentifier;
 import org.adligo.models.core.client.ids.I_StringIdentifier;
 import org.adligo.models.core.client.ids.I_VersionedLongIdentifier;
-import org.adligo.models.core.client.ids.I_VersionedLongIdentifierMutant;
 import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.client.ids.VersionedLongIdentifierMutant;
@@ -148,7 +147,6 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_Validateable.class);
 
 			holder.addUsed(I_VersionedLongIdentifier.class);
-			holder.addUsed(I_VersionedLongIdentifierMutant.class);
 			
 			holder.addUsed(new InvalidParameterException("", ""));
 			holder.addUsed(ModelsCoreRegistry.class);
