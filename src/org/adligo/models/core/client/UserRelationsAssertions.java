@@ -3,6 +3,7 @@ package org.adligo.models.core.client;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.relations.client.UserRelationsMutant;
 import org.adligo.tests.client.I_Test;
 
@@ -179,7 +180,7 @@ public class UserRelationsAssertions {
 		test.assertIsTrue(ur.getGroups().contains("somegroup"));
 		OrganizationMutant orgMutant = new OrganizationMutant();
 		orgMutant.setName("admins");
-		orgMutant.setType(new NamedId("department"));
+		orgMutant.setType(new LongIdentifier(321L));
 		
 		mutant.setOrg(orgMutant);
 		

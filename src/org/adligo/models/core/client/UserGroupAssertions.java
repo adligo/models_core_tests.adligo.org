@@ -106,10 +106,8 @@ public class UserGroupAssertions {
 		
 		OrganizationMutant org = new OrganizationMutant();
 		org.setName("funPeople");
-		NamedIdMutant type = new NamedIdMutant();
-		type.setId(new LongIdentifier(1L));
-		type.setName("orgorg");
-		org.setType(type);
+		
+		org.setType(new LongIdentifier(321L));
 		mutant.setOrg(org);		
 		new UserGroup(mutant);
 

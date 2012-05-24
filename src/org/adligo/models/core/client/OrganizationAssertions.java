@@ -1,5 +1,6 @@
 package org.adligo.models.core.client;
 
+import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.client.I_Test;
 
@@ -46,7 +47,7 @@ public class OrganizationAssertions {
 		
 		ex = null;
 		try {
-			mutant.setType(new NamedId());
+			mutant.setType(new LongIdentifier());
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
@@ -58,21 +59,18 @@ public class OrganizationAssertions {
 		
 		ex = null;
 		try {
-			mutant.setType(new NamedId(""));
+			mutant.setType(new LongIdentifier(1L));
 		} catch (Exception e) {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
-		test.assertIsNotNull(ex);
-		test.assertIsEquals(OrganizationMutant.SET_TYPE, ex.getMethodName());
-		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_TYPE,
-				ex.getMessage());
+		test.assertIsNull(ex);
+		
 		
 		mutant.setName("someName");
 		test.assertIsEquals("someName", mutant.getName());
 		
-		mutant.setType(new NamedId("someType"));
-		test.assertIsEquals(new NamedId("someType"), mutant.getType());
+		mutant.setType(new LongIdentifier(132L));
+		test.assertIsEquals(new LongIdentifier(132L), mutant.getType());
 		
 	}
 	
@@ -105,23 +103,23 @@ public class OrganizationAssertions {
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_TYPE,
 				ex.getMessage());
 		
-		mutant.setType(new NamedId("someType"));
+		mutant.setType(new LongIdentifier(132L));
 		Organization org = new Organization(mutant);
 		test.assertIsEquals("someName", org.getName());
-		test.assertIsEquals(new NamedId("someType"), org.getType());
+		test.assertIsEquals(new LongIdentifier(132L), org.getType());
 		test.assertIsNull(org.getId());
 		
 		mutant.setId(new StringIdentifier("sid"));
 		
 		org = new Organization(mutant);
 		test.assertIsEquals("someName", org.getName());
-		test.assertIsEquals(new NamedId("someType"), org.getType());
+		test.assertIsEquals(new LongIdentifier(132L), org.getType());
 		test.assertIsEquals(new StringIdentifier("sid") , org.getId());
 		
 		test.assertIsEquals(mutant, org);
-		test.assertIsEquals("Organization [name=someName,type=NamedId " +
-				"[name=someType,id=null],id=StringIdentifier [key=sid],customInfo=null,storageInfo=null]", org.toString());
-		test.assertIsEquals("OrganizationMutant [name=someName,type=NamedId " +
-				"[name=someType,id=null],id=StringIdentifier [key=sid],customInfo=null,storageInfo=null]", mutant.toString());
+		test.assertIsEquals("Organization [name=someName,type=LongIdentifier [id=132]" +
+				",id=StringIdentifier [key=sid],customInfo=null,storageInfo=null]", org.toString());
+		test.assertIsEquals("OrganizationMutant [name=someName,type=LongIdentifier [id=132]" +
+				",id=StringIdentifier [key=sid],customInfo=null,storageInfo=null]", mutant.toString());
 	}
 }
