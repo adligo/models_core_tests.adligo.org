@@ -144,6 +144,8 @@ public class PersonAssertions {
 		
 		
 		mutant.setId(new StringIdentifier("sid"));
+		mutant.setVersion(123);
+		
 		person = new Person(mutant);
 		test.assertIsEquals(person, mutant);
 		test.assertIsEquals(new StringIdentifier("sid"), person.getId());

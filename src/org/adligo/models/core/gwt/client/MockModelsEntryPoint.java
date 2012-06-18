@@ -53,6 +53,7 @@ import org.adligo.models.core.client.Person;
 import org.adligo.models.core.client.PersonMutant;
 import org.adligo.models.core.client.PhoneNumber;
 import org.adligo.models.core.client.SimpleStorageInfo;
+import org.adligo.models.core.client.StorableValidator;
 import org.adligo.models.core.client.User;
 import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.ValidationException;
@@ -61,6 +62,7 @@ import org.adligo.models.core.client.ids.I_StorageIdentifier;
 import org.adligo.models.core.client.ids.I_StringIdentifier;
 import org.adligo.models.core.client.ids.I_VersionedLongIdentifier;
 import org.adligo.models.core.client.ids.LongIdentifier;
+import org.adligo.models.core.client.ids.StorageIdentifierValidator;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.client.ids.VersionedLongIdentifierMutant;
 
@@ -167,6 +169,9 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(ValidationException.class);
 			holder.addUsed(new VersionedLongIdentifierMutant());
 			holder.addUsed(new SimpleStorageInfo());
+			
+			holder.addUsed(StorageIdentifierValidator.class);
+			holder.addUsed(StorableValidator.class);
 			
 			holder.addUsed(I_ModelsCoreConstants.class);
 			

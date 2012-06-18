@@ -97,7 +97,7 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				"UserMutant" + StorageIdentifierValidator.REQUIRES_A_NON_NULL_ID_IN +
+				"UserMutant" + StorageIdentifierValidator.REQUIRES_A_ID_WITH_A_VALUE_IN +
 				I_IdentifiableMutant.SET_ID,
 				ex.getMessage());
 		
@@ -223,8 +223,8 @@ public class UserAssertions {
 	
 	public static void assertConstructors(I_Test test, String prefix) throws Exception {
 		UserMutant mutant = new UserMutant();
-		//TODO assert exception
-		mutant.isValid();
+		
+		
 		int hashCode = mutant.hashCode();
 		
 		InvalidParameterException ex = null;
@@ -240,8 +240,8 @@ public class UserAssertions {
 				ex.getMessage());
 		
 		mutant.setDomain("adligo.org");
-		//TODO assert exception
-		mutant.isValid();
+		
+		
 		test.assertIsTrue(hashCode != mutant.hashCode());
 		hashCode = mutant.hashCode();
 		
@@ -258,8 +258,7 @@ public class UserAssertions {
 				ex.getMessage());
 		
 		mutant.setPassword("password");
-		//TODO assert exception
-		mutant.isValid();
+		
 		test.assertIsTrue(hashCode != mutant.hashCode());
 		hashCode = mutant.hashCode();
 		
@@ -276,8 +275,7 @@ public class UserAssertions {
 				ex.getMessage());
 		
 		mutant.setName("userName");
-		//TODO assert exception
-		mutant.isValid();
+		
 		test.assertIsTrue(hashCode != mutant.hashCode());
 		hashCode = mutant.hashCode();
 		
@@ -311,7 +309,6 @@ public class UserAssertions {
 		mutant.setId(new StringIdentifier("sid"));
 		user = new User(mutant);
 		test.assertIsEquals(new StringIdentifier("sid"), user.getId());
-		user.isValid();
 		test.assertIsEquals(mutant, user);
 		test.assertIsEquals(mutant.hashCode(), user.hashCode());
 		
