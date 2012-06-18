@@ -1,5 +1,6 @@
 package org.adligo.models.core.client;
 
+import org.adligo.models.core.client.ids.StorageIdentifierValidator;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.client.I_Test;
 
@@ -83,7 +84,8 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.STORAGE_IDENTIFIER_REQUIRED,
+				"UserMutant" + StorageIdentifierValidator.REQUIRES_A_NON_NULL_ID_IN +
+				I_IdentifiableMutant.SET_ID,
 				ex.getMessage());
 		
 		ex = null;
@@ -95,7 +97,8 @@ public class UserAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.STORAGE_IDENTIFIER_REQUIRED,
+				"UserMutant" + StorageIdentifierValidator.REQUIRES_A_NON_NULL_ID_IN +
+				I_IdentifiableMutant.SET_ID,
 				ex.getMessage());
 		
 		mutant.setName("userName");
@@ -220,7 +223,8 @@ public class UserAssertions {
 	
 	public static void assertConstructors(I_Test test, String prefix) throws Exception {
 		UserMutant mutant = new UserMutant();
-		test.assertIsFalse(mutant.isValid());
+		//TODO assert exception
+		mutant.isValid();
 		int hashCode = mutant.hashCode();
 		
 		InvalidParameterException ex = null;
@@ -236,7 +240,8 @@ public class UserAssertions {
 				ex.getMessage());
 		
 		mutant.setDomain("adligo.org");
-		test.assertIsFalse(mutant.isValid());
+		//TODO assert exception
+		mutant.isValid();
 		test.assertIsTrue(hashCode != mutant.hashCode());
 		hashCode = mutant.hashCode();
 		
@@ -253,7 +258,8 @@ public class UserAssertions {
 				ex.getMessage());
 		
 		mutant.setPassword("password");
-		test.assertIsFalse(mutant.isValid());
+		//TODO assert exception
+		mutant.isValid();
 		test.assertIsTrue(hashCode != mutant.hashCode());
 		hashCode = mutant.hashCode();
 		
@@ -270,7 +276,8 @@ public class UserAssertions {
 				ex.getMessage());
 		
 		mutant.setName("userName");
-		test.assertIsFalse(mutant.isValid());
+		//TODO assert exception
+		mutant.isValid();
 		test.assertIsTrue(hashCode != mutant.hashCode());
 		hashCode = mutant.hashCode();
 		
@@ -287,7 +294,7 @@ public class UserAssertions {
 				ex.getMessage());
 		
 		mutant.setEmail("support@adligo.com");
-		test.assertIsTrue(mutant.isValid());
+		mutant.isValid();
 		test.assertIsTrue(hashCode != mutant.hashCode());
 		hashCode = mutant.hashCode();
 		
@@ -297,14 +304,14 @@ public class UserAssertions {
 		test.assertIsEquals("password", user.getPassword());
 		test.assertIsEquals(new EMailAddress("support@adligo.com"), user.getEmail());
 		test.assertIsNull(user.getId());
-		test.assertIsTrue(user.isValid());
+		user.isValid();
 		test.assertIsEquals(mutant, user);
 		test.assertIsEquals(mutant.hashCode(), user.hashCode());
 		
 		mutant.setId(new StringIdentifier("sid"));
 		user = new User(mutant);
 		test.assertIsEquals(new StringIdentifier("sid"), user.getId());
-		test.assertIsTrue(user.isValid());
+		user.isValid();
 		test.assertIsEquals(mutant, user);
 		test.assertIsEquals(mutant.hashCode(), user.hashCode());
 		

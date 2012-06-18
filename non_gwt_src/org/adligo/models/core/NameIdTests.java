@@ -2,11 +2,13 @@ package org.adligo.models.core;
 
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.GwtParameterExceptionAsserter;
+import org.adligo.models.core.client.I_IdentifiableMutant;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
 import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.NamedId;
 import org.adligo.models.core.client.NamedIdMutant;
+import org.adligo.models.core.client.ids.StorageIdentifierValidator;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.ATest;
 
@@ -22,7 +24,8 @@ public class NameIdTests extends ATest {
 			ex = GwtParameterExceptionAsserter.isIPE(e);
 		}
 		assertNotNull(ex);
-		assertEquals(ModelsCoreEnglishConstants.STORAGE_IDENTIFIER_REQUIRED, ex.getMessage());
+		assertEquals("NamedIdMutant" + StorageIdentifierValidator.REQUIRES_A_NON_NULL_ID_IN + 
+				I_IdentifiableMutant.SET_ID, ex.getMessage());
 		
 		assertNull(mutant.getId());
 		mutant.setName(null);

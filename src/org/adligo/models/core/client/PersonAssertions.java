@@ -1,5 +1,6 @@
 package org.adligo.models.core.client;
 
+import org.adligo.models.core.client.ids.StorageIdentifierValidator;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.tests.client.I_Test;
 
@@ -9,7 +10,7 @@ public class PersonAssertions {
 		PersonMutant mutant = new PersonMutant();
 		ValidationException vx = null;
 		try {
-			test.assertIsFalse(mutant.isValid());
+			mutant.isValid();
 		} catch (Exception x) {
 			test.assertIsTrue(x instanceof ValidationException);
 			vx = (ValidationException) x;
@@ -42,7 +43,8 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.STORAGE_IDENTIFIER_REQUIRED,
+				"PersonMutant" + StorageIdentifierValidator.REQUIRES_A_NON_NULL_ID_IN + 
+				I_IdentifiableMutant.SET_ID,
 				ex.getMessage());
 		
 		ex = null;
@@ -54,44 +56,45 @@ public class PersonAssertions {
 		test.assertIsNotNull(ex);
 		test.assertIsEquals(I_StorageMutant.SET_ID, ex.getMethodName());
 		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.STORAGE_IDENTIFIER_REQUIRED,
+				"PersonMutant" + StorageIdentifierValidator.REQUIRES_A_ID_WITH_A_VALUE_IN + 
+				I_IdentifiableMutant.SET_ID,
 				ex.getMessage());
 		
 		
 		
 		mutant.setFirst_name("someFirstName");
 		test.assertIsEquals("someFirstName", mutant.getFirst_name());
-		test.assertIsTrue(mutant.isValid());
+		mutant.isValid();
 		test.assertIsFalse(hashCode == mutant.hashCode());
 	    hashCode = mutant.hashCode();
 		
 		mutant.setMiddle_name("someMiddleName");
 		test.assertIsEquals("someMiddleName", mutant.getMiddle_name());
-		test.assertIsTrue(mutant.isValid());
+		mutant.isValid();
 		test.assertIsFalse(hashCode == mutant.hashCode());
 	    hashCode = mutant.hashCode();
 	    
 	    mutant.setNickname("someNickName");
 		test.assertIsEquals("someNickName", mutant.getNickname());
-		test.assertIsTrue(mutant.isValid());
+		mutant.isValid();
 		test.assertIsFalse(hashCode == mutant.hashCode());
 	    hashCode = mutant.hashCode();
 	    
 		mutant.setLast_name("someName");
 		test.assertIsEquals("someName", mutant.getLast_name());
-		test.assertIsTrue(mutant.isValid());
+		mutant.isValid();
 		test.assertIsFalse(hashCode == mutant.hashCode());
 	    hashCode = mutant.hashCode();
 	    
 	    mutant.setBirthday(new Long( 1));
 		test.assertIsEquals(new Long(1), mutant.getBirthday());
-		test.assertIsTrue(mutant.isValid());
+		mutant.isValid();
 		test.assertIsFalse(hashCode == mutant.hashCode());
 	    hashCode = mutant.hashCode();
 	    
 	    mutant.setDeceased(new Long( 2));
 		test.assertIsEquals(new Long(2), mutant.getDeceased());
-		test.assertIsTrue(mutant.isValid());
+		mutant.isValid();
 		test.assertIsFalse(hashCode == mutant.hashCode());
 	    hashCode = mutant.hashCode();
 	    

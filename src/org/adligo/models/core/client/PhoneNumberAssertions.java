@@ -7,7 +7,16 @@ public class PhoneNumberAssertions {
 	
 	public static void assertConstructors(I_Test test, String prefix) throws Exception {
 		PhoneNumber number = new PhoneNumber();
-		test.assertIsFalse(number.isValid());
+		ValidationException caught = null;
+		try {
+			number.isValid();
+		} catch (ValidationException ve) {
+			caught = ve;
+		}
+		test.assertIsNotNull(caught);
+		test.assertIsEquals("", caught.getMessage());
+		test.assertIsEquals(I_Validateable.IS_VALID, caught.getMethodName());
+		
 		int hashCode = number.hashCode();
 		
 		InvalidParameterException ex = null;
@@ -24,7 +33,7 @@ public class PhoneNumberAssertions {
 		
 		number = new PhoneNumber("123456");
 		I_PhoneNumber nbr = new PhoneNumber(number);
-		test.assertIsTrue(number.isValid());
+		number.isValid();
 		test.assertIsTrue(hashCode != number.hashCode());
 		
 		test.assertIsEquals("123456", nbr.getNumber());
