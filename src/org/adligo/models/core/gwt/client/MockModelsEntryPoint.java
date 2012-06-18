@@ -64,6 +64,7 @@ import org.adligo.models.core.client.ids.I_VersionedLongIdentifier;
 import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.client.ids.StorageIdentifierValidator;
 import org.adligo.models.core.client.ids.StringIdentifier;
+import org.adligo.models.core.client.ids.VersionValidator;
 import org.adligo.models.core.client.ids.VersionedLongIdentifierMutant;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -174,6 +175,8 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(StorableValidator.class);
 			
 			holder.addUsed(I_ModelsCoreConstants.class);
+			
+			holder.addUsed(VersionValidator.class);
 			
 			addIdClasses();
 		} catch (Exception x) {
