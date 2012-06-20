@@ -14,7 +14,8 @@ public class PhoneNumberAssertions {
 			caught = ve;
 		}
 		test.assertIsNotNull(caught);
-		test.assertIsEquals(ModelsCoreEnglishConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY, caught.getMessage());
+		test.assertIsEquals(
+				prefix + ModelsCoreEnglishConstants.PHONE_NUMBER_CAN_NOT_BE_EMPTY, caught.getMessage());
 		test.assertIsEquals(I_Validateable.IS_VALID, caught.getMethodName());
 		
 		int hashCode = number.hashCode();
