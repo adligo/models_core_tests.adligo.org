@@ -7,6 +7,7 @@ import org.adligo.i.util.client.I_UsageHolder;
 import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.AddressMutant;
 import org.adligo.models.core.client.ChainedFieldException;
+import org.adligo.models.core.client.ChangeableMutant;
 import org.adligo.models.core.client.CommandToken;
 import org.adligo.models.core.client.CommandTokenMutant;
 import org.adligo.models.core.client.CoreRoles;
@@ -101,6 +102,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			
 			holder.addUsed(new AddressMutant());
 			holder.addUsed(new Address());
+			holder.addUsed(ChangeableMutant.class);
 			
 			holder.addUsed(CommandToken.class);
 			holder.addUsed(CommandTokenMutant.class);
