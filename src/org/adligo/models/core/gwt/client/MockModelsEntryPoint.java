@@ -8,6 +8,7 @@ import org.adligo.models.core.client.Address;
 import org.adligo.models.core.client.AddressMutant;
 import org.adligo.models.core.client.ChainedFieldException;
 import org.adligo.models.core.client.ChangeableMutant;
+import org.adligo.models.core.client.ChangeableValidator;
 import org.adligo.models.core.client.CommandToken;
 import org.adligo.models.core.client.CommandTokenMutant;
 import org.adligo.models.core.client.CoreRoles;
@@ -41,6 +42,7 @@ import org.adligo.models.core.client.I_Subject;
 import org.adligo.models.core.client.I_User;
 import org.adligo.models.core.client.I_UserMutant;
 import org.adligo.models.core.client.I_Validateable;
+import org.adligo.models.core.client.IdentifiableValidator;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreConstantsObtainer;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
@@ -103,6 +105,8 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new AddressMutant());
 			holder.addUsed(new Address());
 			holder.addUsed(ChangeableMutant.class);
+			holder.addUsed(ChangeableValidator.class);
+			
 			
 			holder.addUsed(CommandToken.class);
 			holder.addUsed(CommandTokenMutant.class);
@@ -150,6 +154,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_Validateable.class);
 
 			holder.addUsed(I_VersionedLongIdentifier.class);
+			holder.addUsed(IdentifiableValidator.class);
 			
 			holder.addUsed(new InvalidParameterException("", ""));
 			holder.addUsed(ModelsCoreRegistry.class);
