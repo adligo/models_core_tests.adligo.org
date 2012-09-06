@@ -110,6 +110,8 @@ public class OrganizationAssertions {
 		test.assertIsNull(org.getId());
 		
 		mutant.setId(new StringIdentifier("sid"));
+		mutant.setVersion(0);
+		mutant.setStorageInfo(new SimpleStorageInfo("bar"));
 		
 		org = new Organization(mutant);
 		test.assertIsEquals("someName", org.getName());
@@ -118,8 +120,8 @@ public class OrganizationAssertions {
 		
 		test.assertIsEquals(mutant, org);
 		test.assertIsEquals("Organization [name=someName,type=LongIdentifier [id=132]" +
-				",id=StringIdentifier [key=sid],customInfo=null,storageInfo=null]", org.toString());
+				",id=StringIdentifier [key=sid],customInfo=null,storageInfo=SimpleStorageInfo[bar]]", org.toString());
 		test.assertIsEquals("OrganizationMutant [name=someName,type=LongIdentifier [id=132]" +
-				",id=StringIdentifier [key=sid],customInfo=null,storageInfo=null]", mutant.toString());
+				",id=StringIdentifier [key=sid],customInfo=null,storageInfo=SimpleStorageInfo[bar]]", mutant.toString());
 	}
 }
