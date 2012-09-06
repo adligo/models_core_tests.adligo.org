@@ -21,4 +21,8 @@ public class DateRangeTests extends ATest {
 	public void testConstructors() throws Exception {
 		DateRangeAssertions.assertConstructors("", this);
 	}
+	
+	public void testIsValidWithoutNulls() throws Exception {
+		DateRangeAssertions.assertIsValidWithoutNulls("", this);
+	}
 }

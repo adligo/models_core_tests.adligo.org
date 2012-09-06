@@ -21,4 +21,8 @@ public class FrDateRangeGwtTests extends AGwtTest {
 		DateRangeAssertions.assertMutations("fr ", this);
 		DateRangeAssertions.assertConstructors("fr ", this);
 	}
+	
+	public void testIsValidWithoutNulls() throws Exception {
+		DateRangeAssertions.assertIsValidWithoutNulls("fr ", this);
+	}
 }
