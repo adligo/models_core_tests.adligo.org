@@ -63,12 +63,14 @@ import org.adligo.models.core.client.ValidationException;
 import org.adligo.models.core.client.ids.I_LongIdentifier;
 import org.adligo.models.core.client.ids.I_StorageIdentifier;
 import org.adligo.models.core.client.ids.I_StringIdentifier;
-import org.adligo.models.core.client.ids.I_VersionedLongIdentifier;
 import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.client.ids.StorageIdentifierValidator;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.client.ids.VersionValidator;
-import org.adligo.models.core.client.ids.VersionedLongIdentifierMutant;
+import org.adligo.models.core.client.util.DateRange;
+import org.adligo.models.core.client.util.DateRangeMutant;
+import org.adligo.models.core.client.util.I_DateRange;
+import org.adligo.models.core.client.util.I_DateRangeMutant;
 
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.user.client.ui.RootPanel;
@@ -153,7 +155,6 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(I_UserMutant.class);
 			holder.addUsed(I_Validateable.class);
 
-			holder.addUsed(I_VersionedLongIdentifier.class);
 			holder.addUsed(IdentifiableValidator.class);
 			
 			holder.addUsed(new InvalidParameterException("", ""));
@@ -175,10 +176,8 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(new ModelsCoreEnglishConstants());
 			holder.addUsed(new ModelsCoreConstantsObtainer());
 			holder.addUsed(ValidationException.class);
-			holder.addUsed(new VersionedLongIdentifierMutant());
 			holder.addUsed(new SimpleStorageInfo());
 			
-			holder.addUsed(StorageIdentifierValidator.class);
 			holder.addUsed(StorableValidator.class);
 			
 			holder.addUsed(I_ModelsCoreConstants.class);
@@ -186,6 +185,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 			holder.addUsed(VersionValidator.class);
 			
 			addIdClasses();
+			addUtilClasses();
 		} catch (Exception x) {
 			x.printStackTrace();
 		}
@@ -194,13 +194,28 @@ public class MockModelsEntryPoint implements EntryPoint {
 	private void addIdClasses() {
 
 		
-		holder.addUsed(new LongIdentifier());
-		holder.addUsed(new LongIdentifier());
+		holder.addUsed(I_LongIdentifier.class);
 		
 		holder.addUsed(I_StorageIdentifier.class);
 		holder.addUsed(I_StringIdentifier.class);
 		
+		holder.addUsed(new LongIdentifier());
+		holder.addUsed(new StorageIdentifierValidator());
+		
 		holder.addUsed(new StringIdentifier());
-		holder.addUsed(new StringIdentifier());
+		holder.addUsed(new VersionValidator());
 	}
+	
+	private void addUtilClasses() {
+
+		
+		holder.addUsed(new DateRange());
+		holder.addUsed(new DateRangeMutant());
+		
+		holder.addUsed(I_DateRange.class);
+		holder.addUsed(I_DateRangeMutant.class);
+		
+	}
+	
+	
 }
