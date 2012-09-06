@@ -22,6 +22,7 @@ import org.adligo.models.core.client.UserGroupAssertions;
 import org.adligo.models.core.client.UserRelationsAssertions;
 import org.adligo.models.core.client.i18n.I_GwtModelsCoreConstants;
 import org.adligo.models.core.client.i18n.ModelsCoreConstantsSetup;
+import org.adligo.models.core.client.util.DateRangeAssertions;
 import org.adligo.models.core.gwt.client.MockModelsEntryPoint;
 import org.adligo.tests.ATest;
 
@@ -46,6 +47,8 @@ public class ModelsCoreGwtCompileUsedAllClassesAsserter  extends ATest {
 		ignore.add(ClassUtils.getClassName(ModelsMockSetup.class));
 		ignore.add(ClassUtils.getClassName(UserRelationsAssertions.class));
 		ignore.add(ClassUtils.getClassName(UserGroupAssertions.class));
+		
+		ignore.add(ClassUtils.getClassName(DateRangeAssertions.class));
 		//ignore from the models_core_relations project
 		ignore.add(ClassUtils.getClassName(I_GwtModelsCoreConstants.class));
 		String modelsCoreSetupClassName = ClassUtils.getClassName(ModelsCoreConstantsSetup.class);
@@ -71,7 +74,7 @@ public class ModelsCoreGwtCompileUsedAllClassesAsserter  extends ATest {
 		MockModelsEntryPoint entryPoint = new MockModelsEntryPoint(usageHolder);
 		entryPoint.onModuleLoad();
 		
-		assertEquals(67, usageHolder.getUsedClasses().size());
+		assertEquals(69, usageHolder.getUsedClasses().size());
 		
 		assertCollectionEquals(classes, usageHolder.getUsedClasses());
 		
