@@ -73,7 +73,7 @@ public class DateRangeAssertions {
 			caught = ve;
 		}
 		test.assertIsNotNull(caught);
-		test.assertIsEquals(ModelsCoreEnglishConstants.A_START_VALUE_OF_THE_DATE_RANGE_IS_REQUIRED, 
+		test.assertIsEquals(prefix + ModelsCoreEnglishConstants.A_START_VALUE_OF_THE_DATE_RANGE_IS_REQUIRED, 
 				caught.getMessage());
 		
 		mutant.setStart(1L);
@@ -84,7 +84,7 @@ public class DateRangeAssertions {
 			caught = ve;
 		}
 		test.assertIsNotNull(caught);
-		test.assertIsEquals(ModelsCoreEnglishConstants.A_END_VALUE_OF_THE_DATE_RANGE_IS_REQUIRED, 
+		test.assertIsEquals(prefix + ModelsCoreEnglishConstants.A_END_VALUE_OF_THE_DATE_RANGE_IS_REQUIRED, 
 				caught.getMessage());
 		mutant.setEnd(2L);
 		mutant.isValidWithoutNulls();
