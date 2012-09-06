@@ -69,6 +69,7 @@ import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.client.ids.StorageIdentifierValidator;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.client.ids.VersionValidator;
+import org.adligo.models.core.client.ids.VersionedLongIdentifier;
 import org.adligo.models.core.client.ids.VersionedLongIdentifierMutant;
 import org.adligo.models.core.client.util.DateRange;
 import org.adligo.models.core.client.util.DateRangeMutant;
@@ -205,6 +206,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 		holder.addUsed(new StorageIdentifierValidator());
 		
 		holder.addUsed(new StringIdentifier());
+		holder.addUsed(new VersionedLongIdentifier());
 		holder.addUsed(new VersionedLongIdentifierMutant());
 		holder.addUsed(new VersionValidator());
 	}
