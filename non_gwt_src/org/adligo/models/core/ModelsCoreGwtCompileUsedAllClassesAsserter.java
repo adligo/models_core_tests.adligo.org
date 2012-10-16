@@ -74,7 +74,7 @@ public class ModelsCoreGwtCompileUsedAllClassesAsserter  extends ATest {
 		MockModelsEntryPoint entryPoint = new MockModelsEntryPoint(usageHolder);
 		entryPoint.onModuleLoad();
 		
-		assertEquals(71, usageHolder.getUsedClasses().size());
+		assertEquals(72, usageHolder.getUsedClasses().size());
 		
 		assertCollectionEquals(classes, usageHolder.getUsedClasses());
 		
