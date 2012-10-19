@@ -27,9 +27,7 @@ public class SIDParamFactoryTests extends ATest {
 		assertEquals(new Long(123L), vals[0]);
 		
 		I_Operators ops =  whereParams.getOperators();
-		String [] opsVals = ops.getValues();
-		assertEquals(1, opsVals.length);
-		assertEquals(SqlOperators.EQUALS, opsVals[0]);
+		assertEquals(SqlOperators.EQUALS, ops);
 	}
 	
 	public void testStringIdentifier() throws Exception {
@@ -45,9 +43,7 @@ public class SIDParamFactoryTests extends ATest {
 		assertEquals("123L", vals[0]);
 		
 		I_Operators ops =  whereParams.getOperators();
-		String [] opsVals = ops.getValues();
-		assertEquals(1, opsVals.length);
-		assertEquals(SqlOperators.EQUALS, opsVals[0]);
+		assertEquals(SqlOperators.EQUALS, ops);
 	}
 	
 	public void testVersionedIdentifier() throws Exception {
@@ -68,9 +64,7 @@ public class SIDParamFactoryTests extends ATest {
 		assertEquals(123L, vals[0]);
 		
 		I_Operators ops =  whereParams.getOperators();
-		String [] opsVals = ops.getValues();
-		assertEquals(1, opsVals.length);
-		assertEquals(SqlOperators.EQUALS, opsVals[0]);
+		assertEquals(SqlOperators.EQUALS, ops);
 		
 		assertTrue(whereParams.getNextParam(SIDParamFactory.VERSION));
 		vals = whereParams.getValues();
@@ -78,8 +72,6 @@ public class SIDParamFactoryTests extends ATest {
 		assertEquals(987, vals[0]);
 		
 		ops =  whereParams.getOperators();
-		opsVals = ops.getValues();
-		assertEquals(1, opsVals.length);
-		assertEquals(SqlOperators.EQUALS, opsVals[0]);
+		assertEquals(SqlOperators.EQUALS, ops);
 	}
 }
