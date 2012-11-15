@@ -1,3 +1,5 @@
-Date,Package,Coverage
-11/14/2012,org.adligo.i.log.client,70.5%
-11/14/2012,org.adligo.i.log.client.models,61.0%
+Date,Package,Coverage,Instructions
+11/14/2012,org.adligo.models.core.client,67.6%,4628
+11/14/2012,org.adligo.models.core.client.ids,46.4%,789
+11/14/2012,org.adligo.models.core.client.util,27.4%,507
+11/14/2012,org.adligo.models.core.relations.client,44.6%,1871
