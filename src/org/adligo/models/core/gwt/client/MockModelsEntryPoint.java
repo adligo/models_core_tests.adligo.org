@@ -74,6 +74,7 @@ import org.adligo.models.core.client.ids.VersionedLongIdentifier;
 import org.adligo.models.core.client.ids.VersionedLongIdentifierMutant;
 import org.adligo.models.core.client.util.DateRange;
 import org.adligo.models.core.client.util.DateRangeMutant;
+import org.adligo.models.core.client.util.DateRangeParamsFactory;
 import org.adligo.models.core.client.util.I_DateRange;
 import org.adligo.models.core.client.util.I_DateRangeMutant;
 
@@ -221,6 +222,7 @@ public class MockModelsEntryPoint implements EntryPoint {
 		
 		holder.addUsed(I_DateRange.class);
 		holder.addUsed(I_DateRangeMutant.class);
+		holder.addUsed(DateRangeParamsFactory.class);
 		
 	}
 	
