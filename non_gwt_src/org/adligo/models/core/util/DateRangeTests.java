@@ -29,4 +29,7 @@ public class DateRangeTests extends ATest {
 		DateRangeAssertions.assertIsValidWithoutNulls("", this);
 	}
 	
+	public void testContainsAndOverlaps() throws Exception {
+		DateRangeAssertions.assertContainsAndOverlaps("", this);
+	}
 }
