@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="com.google.gwt.eclipse.core.GWT_CONTAINER"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="non_gwt_src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/adi"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/adig"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/i_log"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/i_util"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/models_core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tests"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/i_util_tests"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/adi"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/gwt_util"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/i_log"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/models_core_relations"/>
-	<classpathentry kind="lib" path="/models_core/src"/>
-	<classpathentry kind="lib" path="/models_core_relations/src"/>
-	<classpathentry kind="var" path="HSQLDB_HOME/lib/hsqldb.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/xmlt-tests"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/xmlt"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/params"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/jse_util"/>
-	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/antlr-2.7.7.jar"/>
-	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/dom4j-1.6.1.jar"/>
-	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/hibernate-commons-annotations-4.0.1.Final.jar"/>
-	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/hibernate-core-4.1.1.Final.jar" sourcepath="/HIBERNATE_4_HOME/project/hibernate-core"/>
-	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
-	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/javassist-3.15.0-GA.jar"/>
-	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/jboss-logging-3.1.0.GA.jar"/>
-	<classpathentry kind="var" path="HIBERNATE_4_HOME/lib/required/jboss-transaction-api_1.1_spec-1.0.0.Final.jar"/>
-	<classpathentry kind="var" path="EXTERNAL_LIB_HOME/commons-dbcp-1.4/commons-dbcp-1.4.jar"/>
-	<classpathentry kind="var" path="EXTERNAL_LIB_HOME/commons-pool-1.6/commons-pool-1.6.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/tests"/>
+	<classpathentry kind="var" path="MVN_REPO/javax/javaee-api/6.0/javaee-api-6.0.jar"/>
+	<classpathentry kind="var" path="MVN_REPO/com/google/gwt/gwt-user/2.4.0/gwt-user-2.4.0.jar"/>
+	<classpathentry kind="var" path="MVN_REPO/com/google/gwt/gwt-dev/2.4.0/gwt-dev-2.4.0.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/i_storage"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/xmlt"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/i_util_tests"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/gwt_util"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/i_storage_tests"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/xmlt4jpa"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/xmlt4jpa_tests"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/i_storage"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/i_storage_tests"/>
+	<classpathentry kind="var" path="MVN_REPO/antlr/antlr/2.7.7/antlr-2.7.7.jar"/>
+	<classpathentry kind="var" path="MVN_REPO/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar"/>
+	<classpathentry kind="var" path="MVN_REPO/org/hibernate/common/hibernate-commons-annotations/4.0.1.Final/hibernate-commons-annotations-4.0.1.Final.jar"/>
+	<classpathentry kind="var" path="MVN_REPO/org/hibernate/hibernate-core/4.1.9.Final/hibernate-core-4.1.9.Final.jar"/>
+	<classpathentry kind="var" path="MVN_REPO/org/hibernate/javax/persistence/hibernate-jpa-2.0-api/1.0.1.Final/hibernate-jpa-2.0-api-1.0.1.Final.jar"/>
+	<classpathentry kind="var" path="MVN_REPO/org/hibernate/hibernate-entitymanager/4.1.9.Final/hibernate-entitymanager-4.1.9.Final.jar"/>
+	<classpathentry kind="var" path="MVN_REPO/org/javassist/javassist/3.17.1-GA/javassist-3.17.1-GA.jar"/>
+	<classpathentry kind="var" path="MVN_REPO/org/jboss/logging/jboss-logging/3.1.2.GA/jboss-logging-3.1.2.GA.jar"/>
+	<classpathentry kind="var" path="MVN_REPO/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.1.Final/jboss-transaction-api_1.1_spec-1.0.1.Final.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/hibernate_storage"/>
-	<classpathentry kind="output" path="classes2"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/xml_schemas"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/xmlt-tests"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>
