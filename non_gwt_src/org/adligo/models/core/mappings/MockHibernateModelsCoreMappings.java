@@ -2,7 +2,7 @@ package org.adligo.models.core.mappings;
 
 import java.io.InputStream;
 
-import org.adligo.hibernate.storage.I_HibernateMappingProvider;
+import org.adligo.hibernate.db.I_HibernateMappingProvider;
 
 public class MockHibernateModelsCoreMappings implements I_HibernateMappingProvider {
 

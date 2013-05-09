@@ -5,7 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import org.adligo.i.storage.entities.MockJpaDb;
+import org.adligo.i.db.entities.MockJpaDb;
 import org.adligo.i.util.IsGwtRpcSerializable;
 import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.Person;
