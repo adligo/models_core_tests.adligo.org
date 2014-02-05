@@ -2,11 +2,11 @@ package org.adligo.models.core.client.util;
 
 import java.util.Date;
 
-import org.adligo.models.core.client.GwtParameterExceptionAsserter;
 import org.adligo.models.core.client.InvalidParameterException;
 import org.adligo.models.core.client.ModelsCoreEnglishConstants;
 import org.adligo.models.core.client.ValidationException;
-import org.adligo.tests.client.I_Test;
+import org.adligo.models.core.client.assertions.IPEExceptionAsserter;
+import org.adligo.tests.I_Test;
 
 public class DateRangeAssertions {
 	public static void assertMutations(String prefix, I_Test test) throws Exception {
@@ -38,7 +38,7 @@ public class DateRangeAssertions {
 		try  {
 			mutant.setEnd(9L);
 		} catch (Exception x) {
-			ipe = GwtParameterExceptionAsserter.isIPE(x);
+			ipe = IPEExceptionAsserter.isIPE(x, test);
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
@@ -55,7 +55,7 @@ public class DateRangeAssertions {
 		try  {
 			mutant.setStart(13L);
 		} catch (Exception x) {
-			ipe = GwtParameterExceptionAsserter.isIPE(x);
+			ipe = IPEExceptionAsserter.isIPE(x, test);
 		}
 		test.assertIsNotNull(ipe);
 		test.assertIsEquals(
