@@ -13,7 +13,7 @@ import org.adligo.models.params.client.Params;
 import org.adligo.models.params.client.SqlOperators;
 import org.adligo.tests.ATest;
 
-public class DateRangesParamsFactoryTests extends ATest {
+public class DateRangeParamsFactoryTests extends ATest {
 
 	public void testDateTimeMethods() throws Exception {
 		DateRangeMutant drm = new DateRangeMutant();

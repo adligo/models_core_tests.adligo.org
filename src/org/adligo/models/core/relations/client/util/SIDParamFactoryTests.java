@@ -1,4 +1,4 @@
-package org.adligo.models.core.util;
+package org.adligo.models.core.relations.client.util;
 
 import org.adligo.models.core.client.ids.LongIdentifier;
 import org.adligo.models.core.client.ids.StringIdentifier;
