@@ -4,7 +4,7 @@ import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.relations.client.EMail;
 import org.adligo.models.core.tests.client.assertions.EMailAssertions;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.client.IsXmlIoSerializable;
+import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
 
 public class EMailTests extends ATest {
 

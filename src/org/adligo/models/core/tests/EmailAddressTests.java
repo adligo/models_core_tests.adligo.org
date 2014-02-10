@@ -8,7 +8,7 @@ import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.tests.client.assertions.EmailAddressAssertions;
 import org.adligo.models.core.tests.client.assertions.IPEExceptionAsserter;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.client.IsXmlIoSerializable;
+import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
 
 public class EmailAddressTests extends ATest {
 	@Override

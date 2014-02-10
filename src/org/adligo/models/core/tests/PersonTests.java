@@ -4,7 +4,7 @@ import org.adligo.models.core.client.Person;
 import org.adligo.models.core.client.PersonMutant;
 import org.adligo.models.core.tests.client.assertions.PersonAssertions;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.client.IsXmlIoSerializable;
+import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
 
 public class PersonTests extends ATest {
 	

@@ -8,7 +8,7 @@ import org.adligo.models.core.tests.client.assertions.DomainNameAssertions;
 import org.adligo.models.core.tests.client.assertions.IPEExceptionAsserter;
 import org.adligo.tests.ATest;
 import org.adligo.tests.I_Test;
-import org.adligo.xml_io.client.IsXmlIoSerializable;
+import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
 
 public class DomainTests extends ATest {
 

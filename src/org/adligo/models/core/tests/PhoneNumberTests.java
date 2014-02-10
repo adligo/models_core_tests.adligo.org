@@ -4,7 +4,7 @@ import org.adligo.models.core.client.ModelsCoreRegistry;
 import org.adligo.models.core.client.PhoneNumber;
 import org.adligo.models.core.tests.client.assertions.PhoneNumberAssertions;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.client.IsXmlIoSerializable;
+import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
 
 public class PhoneNumberTests extends ATest {
 

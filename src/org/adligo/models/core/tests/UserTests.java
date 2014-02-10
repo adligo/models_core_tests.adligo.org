@@ -9,7 +9,7 @@ import org.adligo.models.core.client.UserMutant;
 import org.adligo.models.core.client.ids.StringIdentifier;
 import org.adligo.models.core.tests.client.assertions.UserAssertions;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.client.IsXmlIoSerializable;
+import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
 
 public class UserTests extends ATest {
 
