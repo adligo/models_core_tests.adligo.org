@@ -27,5 +27,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/xml_io"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/xml_io_tests"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/i_util_tests"/>
+	<classpathentry kind="lib" path="/models_core/src"/>
+	<classpathentry kind="lib" path="/models_core_relations/src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -13,3 +13,9 @@ Date,Package,Coverage,Instructions
 2/4/2014,org.adligo.models.core.client.util,63.1%,504
 2/4/2014,org.adligo.models.core.relations.client,43.8%,1905
 2/4/2014,org.adligo.models.core.relations.client.util,50.1%,611
+2/10/2014,org.adligo.models.core.client,66.0%,4641
+2/10/2014,org.adligo.models.core.client.ids,48.3%,596
+2/10/2014,org.adligo.models.core.client.util,63.1%,504
+2/10/2014,org.adligo.models.core.relations.client,43.8%,1905
+2/10/2014,org.adligo.models.core.relations.client.util,50.1%,611
+2/10/2014,org.adligo.models.core.relations.client.i18n,0.0%,31
