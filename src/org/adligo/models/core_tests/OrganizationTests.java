@@ -1,0 +1,30 @@
+package org.adligo.models.core_tests;
+
+import org.adligo.models.core.shared.ModelsCoreRegistry;
+import org.adligo.models.core.shared.Organization;
+import org.adligo.models.core_tests.shared.assertions.OrganizationAssertions;
+import org.adligo.tests.ATest;
+import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
+
+public class OrganizationTests extends ATest {
+
+	
+
+	@Override
+	protected void setUp() throws Exception {
+		super.setUp();
+		ModelsCoreRegistry.setup();
+	}
+	
+	public void testMutators() throws Exception {
+		OrganizationAssertions.assertMutators(this, "");
+	}
+	
+	public void testConstructors() throws Exception {
+		OrganizationAssertions.assertConstructors(this, "");
+	}
+	
+	public void testSerialization() throws Exception {
+		IsXmlIoSerializable.isXmlIoSerializable(Organization.class);
+	}
+}
