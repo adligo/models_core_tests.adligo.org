@@ -4,7 +4,7 @@ import org.adligo.models.core.shared.Person;
 import org.adligo.models.core.shared.PersonMutant;
 import org.adligo.models.core_tests.shared.assertions.PersonAssertions;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
+import org.adligo.xml_io_tests.shared.IsXmlIoSerializable;
 
 public class PersonTests extends ATest {
 	

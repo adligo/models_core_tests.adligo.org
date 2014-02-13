@@ -9,7 +9,7 @@ import org.adligo.models.core.shared.UserMutant;
 import org.adligo.models.core.shared.ids.StringIdentifier;
 import org.adligo.models.core_tests.shared.assertions.UserAssertions;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
+import org.adligo.xml_io_tests.shared.IsXmlIoSerializable;
 
 public class UserTests extends ATest {
 

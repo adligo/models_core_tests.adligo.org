@@ -3,7 +3,7 @@ package org.adligo.models.core_tests;
 import org.adligo.models.core.shared.InvalidParameterException;
 import org.adligo.models.core.shared.ids.StringIdentifier;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
+import org.adligo.xml_io_tests.shared.IsXmlIoSerializable;
 
 public class StringIdentifierTests extends ATest {
 

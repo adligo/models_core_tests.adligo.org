@@ -5,7 +5,7 @@ import org.adligo.models.core.relations.shared.UserGroupMutant;
 import org.adligo.models.core.shared.ModelsCoreRegistry;
 import org.adligo.models.core_tests.shared.assertions.UserGroupAssertions;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
+import org.adligo.xml_io_tests.shared.IsXmlIoSerializable;
 
 public class UserGroupTests extends ATest {
 

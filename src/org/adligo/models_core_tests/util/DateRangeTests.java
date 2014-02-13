@@ -1,4 +1,4 @@
-package org.adligo.models_core.tests.util;
+package org.adligo.models_core_tests.util;
 
 import org.adligo.models.core.shared.ModelsCoreRegistry;
 import org.adligo.models.core_tests.shared.util.DateRangeAssertions;

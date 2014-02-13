@@ -6,7 +6,7 @@ import org.adligo.models.core.shared.I_Address;
 import org.adligo.models.core.shared.ModelsCoreRegistry;
 import org.adligo.models.core_tests.shared.assertions.AddressAssertions;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
+import org.adligo.xml_io_tests.shared.IsXmlIoSerializable;
 
 public class AddressTests extends ATest {
 

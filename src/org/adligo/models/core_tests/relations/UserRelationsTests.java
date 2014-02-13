@@ -4,7 +4,7 @@ import org.adligo.models.core.relations.shared.UserRelations;
 import org.adligo.models.core.shared.ModelsCoreRegistry;
 import org.adligo.models.core_tests.shared.assertions.UserRelationsAssertions;
 import org.adligo.tests.ATest;
-import org.adligo.xml_io.tests.client.IsXmlIoSerializable;
+import org.adligo.xml_io_tests.shared.IsXmlIoSerializable;
 
 public class UserRelationsTests extends ATest {
 
