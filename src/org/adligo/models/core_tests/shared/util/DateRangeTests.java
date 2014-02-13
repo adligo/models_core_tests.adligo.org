@@ -1,7 +1,6 @@
-package org.adligo.models.core_tests.util;
+package org.adligo.models.core_tests.shared.util;
 
 import org.adligo.models.core.shared.ModelsCoreRegistry;
-import org.adligo.models.core_tests.shared.util.DateRangeAssertions;
 import org.adligo.tests.ATest;
 
 public class DateRangeTests extends ATest {

@@ -1,4 +1,4 @@
-package org.adligo.models.core_tests;
+package org.adligo.models.core_tests.shared;
 
 import org.adligo.models.core.shared.Person;
 import org.adligo.models.core.shared.PersonMutant;
