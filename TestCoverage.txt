@@ -12,6 +12,6 @@ Date,Package,Coverage,Instructions
 2/10/2014,org.adligo.models.core.client,66.0%,4641
 2/10/2014,org.adligo.models.core.client.ids,48.3%,596
 2/10/2014,org.adligo.models.core.client.util,63.1%,504
-2/11/2014,org.adligo.models.shared.client,66.0%,4641
-2/11/2014,org.adligo.models.shared.client.ids,48.3%,596
-2/11/2014,org.adligo.models.shared.client.util,63.1%,504
+2/12/2014,org.adligo.models.shared,65.4%,4641
+2/12/2014,org.adligo.models.shared.ids,40.1%,596
+2/12/2014,org.adligo.models.shared.util,63.1%,504
