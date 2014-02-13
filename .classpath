@@ -5,7 +5,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/i_log"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/i_util"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/models_core"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/models_core_relations"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/params"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/tests"/>
 	<classpathentry kind="var" path="MVN_REPO/org/apache/geronimo/specs/geronimo-ejb_3.1_spec/1.0/geronimo-ejb_3.1_spec-1.0.jar"/>
