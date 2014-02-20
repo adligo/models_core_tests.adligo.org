@@ -2,9 +2,8 @@ package org.adligo.models.core_tests.shared;
 
 import java.lang.reflect.Method;
 
+import org.adligo.models.core.shared.I_StorageIdentifier;
 import org.adligo.models.core.shared.InvalidParameterException;
-import org.adligo.models.core.shared.ids.I_StorageIdentifier;
-import org.adligo.models.core.shared.ids.StringIdentifier;
 import org.adligo.models.core_tests.shared.assertions.IPEExceptionAsserter;
 import org.adligo.tests.ATest;
 import org.adligo.tests.I_Test;
@@ -109,7 +108,7 @@ public class ParamterExceptionAsserter {
 		
 		x = null;
 		try {
-			method.invoke(obj, new Object[] {new StringIdentifier()});
+			method.invoke(obj, new Object[] {new MockId(null)});
 		} catch (Exception g) {
 			x = IPEExceptionAsserter.isIPE(g, test);
 		}

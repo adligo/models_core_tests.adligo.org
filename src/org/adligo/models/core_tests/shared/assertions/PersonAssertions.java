@@ -8,8 +8,8 @@ import org.adligo.models.core.shared.Person;
 import org.adligo.models.core.shared.PersonMutant;
 import org.adligo.models.core.shared.SimpleStorageInfo;
 import org.adligo.models.core.shared.ValidationException;
-import org.adligo.models.core.shared.ids.StorageIdentifierValidator;
-import org.adligo.models.core.shared.ids.StringIdentifier;
+import org.adligo.models.core.shared.util.StorageIdentifierValidator;
+import org.adligo.models.core_tests.shared.MockId;
 import org.adligo.tests.I_Test;
 
 public class PersonAssertions {
@@ -57,7 +57,7 @@ public class PersonAssertions {
 		
 		ex = null;
 		try {
-			mutant.setId(new StringIdentifier());
+			mutant.setId(new MockId(null));
 		} catch (Exception e) {
 			ex = IPEExceptionAsserter.isIPE(e, test);
 		}
@@ -106,8 +106,8 @@ public class PersonAssertions {
 		test.assertIsFalse(hashCode == mutant.hashCode());
 	    hashCode = mutant.hashCode();
 	    
-		mutant.setId(new StringIdentifier("sid"));
-		test.assertIsEquals(new StringIdentifier("sid"), mutant.getId());
+		mutant.setId(new MockId("sid"));
+		test.assertIsEquals(new MockId("sid"), mutant.getId());
 		test.assertIsFalse(hashCode == mutant.hashCode());
 		
 	}
@@ -151,13 +151,13 @@ public class PersonAssertions {
 				"gender=null,height=null,weight=null,customInfo=null,storageInfo=null]", mutant.toString());
 		
 		
-		mutant.setId(new StringIdentifier("sid"));
+		mutant.setId(new MockId("sid"));
 		mutant.setVersion(123);
 		mutant.setStorageInfo(new SimpleStorageInfo("foo"));
 		
 		person = new Person(mutant);
 		test.assertIsEquals(person, mutant);
-		test.assertIsEquals(new StringIdentifier("sid"), person.getId());
+		test.assertIsEquals(new MockId("sid"), person.getId());
 		
 		mutant.setFirst_name("john");
 		test.assertIsFalse(person.equals(mutant));

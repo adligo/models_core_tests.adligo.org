@@ -8,8 +8,8 @@ import org.adligo.models.core.shared.InvalidParameterException;
 import org.adligo.models.core.shared.ModelsCoreEnglishConstants;
 import org.adligo.models.core.shared.User;
 import org.adligo.models.core.shared.UserMutant;
-import org.adligo.models.core.shared.ids.StorageIdentifierValidator;
-import org.adligo.models.core.shared.ids.StringIdentifier;
+import org.adligo.models.core.shared.util.StorageIdentifierValidator;
+import org.adligo.models.core_tests.shared.MockId;
 import org.adligo.tests.I_Test;
 
 public class UserAssertions {
@@ -98,7 +98,7 @@ public class UserAssertions {
 		
 		ex = null;
 		try {
-			mutant.setId(new StringIdentifier());
+			mutant.setId(new MockId(null));
 		} catch (Exception e) {
 			ex = IPEExceptionAsserter.isIPE(e, test);
 		}
@@ -314,15 +314,15 @@ public class UserAssertions {
 		test.assertIsEquals(mutant, user);
 		test.assertIsEquals(mutant.hashCode(), user.hashCode());
 		
-		mutant.setId(new StringIdentifier("sid"));
+		mutant.setId(new MockId("sid"));
 		user = new User(mutant);
-		test.assertIsEquals(new StringIdentifier("sid"), user.getId());
+		test.assertIsEquals(new MockId("sid"), user.getId());
 		test.assertIsEquals(mutant, user);
 		test.assertIsEquals(mutant.hashCode(), user.hashCode());
 		
-		test.assertIsEquals("User [name=userName,id=StringIdentifier [key=sid],email=support@adligo.com,domain=adligo.org,storageInfo=null]",
+		test.assertIsEquals("User [name=userName,id=MockId [id=sid],email=support@adligo.com,domain=adligo.org,storageInfo=null]",
 				user.toString());
-		test.assertIsEquals("UserMutant [name=userName,id=StringIdentifier [key=sid],email=support@adligo.com,domain=adligo.org,storageInfo=null]",
+		test.assertIsEquals("UserMutant [name=userName,id=MockId [id=sid],email=support@adligo.com,domain=adligo.org,storageInfo=null]",
 				mutant.toString());
 		
 		 assertNameEmailDomainConstructors(test, prefix);

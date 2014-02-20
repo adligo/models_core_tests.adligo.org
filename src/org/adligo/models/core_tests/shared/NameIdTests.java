@@ -5,8 +5,7 @@ import org.adligo.models.core.shared.InvalidParameterException;
 import org.adligo.models.core.shared.ModelsCoreRegistry;
 import org.adligo.models.core.shared.NamedId;
 import org.adligo.models.core.shared.NamedIdMutant;
-import org.adligo.models.core.shared.ids.StorageIdentifierValidator;
-import org.adligo.models.core.shared.ids.StringIdentifier;
+import org.adligo.models.core.shared.util.StorageIdentifierValidator;
 import org.adligo.models.core_tests.shared.assertions.IPEExceptionAsserter;
 import org.adligo.tests.ATest;
 import org.adligo.xml_io_tests.shared.IsXmlIoSerializable;
@@ -30,7 +29,7 @@ public class NameIdTests extends ATest {
 		mutant.setName(null);
 		assertNull(mutant.getName());
 		
-		StringIdentifier id = new StringIdentifier("some_string");
+		MockId id = new MockId("some_string");
 		mutant.setId(id);
 		assertEquals(id, mutant.getId());
 		mutant.setName("name");
@@ -45,7 +44,7 @@ public class NameIdTests extends ATest {
 		assertNull(id.getName());
 		assertNull(id.getId());
 		
-		StringIdentifier sid = new StringIdentifier("sid");
+		MockId sid = new MockId("sid");
 		mutant.setId(sid);
 		id = new NamedId(mutant);
 		assertNull(id.getName());
@@ -63,8 +62,8 @@ public class NameIdTests extends ATest {
 		assertEquals(sid, id.getId());
 		
 		assertEquals(id, mutant);
-		assertEquals("NamedIdMutant [name=mutant name,id=StringIdentifier [key=sid]]", mutant.toString());
-		assertEquals("NamedId [name=mutant name,id=StringIdentifier [key=sid]]", id.toString());
+		assertEquals("NamedIdMutant [name=mutant name,id=MockId [id=sid]]", mutant.toString());
+		assertEquals("NamedId [name=mutant name,id=MockId [id=sid]]", id.toString());
 	}
 	
 	public void testEquals() throws Exception {
@@ -76,7 +75,7 @@ public class NameIdTests extends ATest {
 		a = new NamedId(b);
 		assertEquals(a, b);
 		
-		b.setId(new StringIdentifier("sid"));
+		b.setId(new MockId("sid"));
 		a = new NamedId(b);
 		assertEquals(a, b);
 		

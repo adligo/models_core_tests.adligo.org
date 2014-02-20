@@ -6,7 +6,6 @@ import org.adligo.models.core.shared.InvalidParameterException;
 import org.adligo.models.core.shared.ModelsCoreRegistry;
 import org.adligo.models.core.shared.User;
 import org.adligo.models.core.shared.UserMutant;
-import org.adligo.models.core.shared.ids.StringIdentifier;
 import org.adligo.models.core_tests.shared.assertions.UserAssertions;
 import org.adligo.tests.ATest;
 import org.adligo.xml_io_tests.shared.IsXmlIoSerializable;
@@ -66,7 +65,7 @@ public class UserTests extends ATest {
 		mutant.setName("george");
 		assertEquals("george", mutant.getName());
 		
-		StringIdentifier id = new StringIdentifier("sid");
+		MockId id = new MockId("sid");
 		mutant.setId(id);
 		
 		assertEquals(id, mutant.getId());
@@ -88,7 +87,7 @@ public class UserTests extends ATest {
 		assertEquals("password", user.getPassword());
 		assertEquals(new EMailAddress("support@adligo.com"), user.getEmail());
 		
-		StringIdentifier id = new StringIdentifier("sid");
+		MockId id = new MockId("sid");
 		mutant.setId(id);
 		
 		user = new UserMutant(mutant);

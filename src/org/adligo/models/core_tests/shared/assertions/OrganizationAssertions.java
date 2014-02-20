@@ -5,8 +5,7 @@ import org.adligo.models.core.shared.ModelsCoreEnglishConstants;
 import org.adligo.models.core.shared.Organization;
 import org.adligo.models.core.shared.OrganizationMutant;
 import org.adligo.models.core.shared.SimpleStorageInfo;
-import org.adligo.models.core.shared.ids.LongIdentifier;
-import org.adligo.models.core.shared.ids.StringIdentifier;
+import org.adligo.models.core_tests.shared.MockId;
 import org.adligo.tests.I_Test;
 
 public class OrganizationAssertions {
@@ -52,7 +51,7 @@ public class OrganizationAssertions {
 		
 		ex = null;
 		try {
-			mutant.setType(new LongIdentifier());
+			mutant.setType(new MockId(null));
 		} catch (Exception e) {
 			ex = IPEExceptionAsserter.isIPE(e, test);
 		}
@@ -64,7 +63,7 @@ public class OrganizationAssertions {
 		
 		ex = null;
 		try {
-			mutant.setType(new LongIdentifier(1L));
+			mutant.setType(new MockId("hey"));
 		} catch (Exception e) {
 			ex = IPEExceptionAsserter.isIPE(e, test);
 		}
@@ -74,8 +73,8 @@ public class OrganizationAssertions {
 		mutant.setName("someName");
 		test.assertIsEquals("someName", mutant.getName());
 		
-		mutant.setType(new LongIdentifier(132L));
-		test.assertIsEquals(new LongIdentifier(132L), mutant.getType());
+		mutant.setType(new MockId("hey"));
+		test.assertIsEquals(new MockId("hey"), mutant.getType());
 		
 	}
 	
@@ -108,25 +107,25 @@ public class OrganizationAssertions {
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_TYPE,
 				ex.getMessage());
 		
-		mutant.setType(new LongIdentifier(132L));
+		mutant.setType(new MockId("hey"));
 		Organization org = new Organization(mutant);
 		test.assertIsEquals("someName", org.getName());
-		test.assertIsEquals(new LongIdentifier(132L), org.getType());
+		test.assertIsEquals(new MockId("hey"), org.getType());
 		test.assertIsNull(org.getId());
 		
-		mutant.setId(new StringIdentifier("sid"));
+		mutant.setId(new MockId("sid"));
 		mutant.setVersion(0);
 		mutant.setStorageInfo(new SimpleStorageInfo("bar"));
 		
 		org = new Organization(mutant);
 		test.assertIsEquals("someName", org.getName());
-		test.assertIsEquals(new LongIdentifier(132L), org.getType());
-		test.assertIsEquals(new StringIdentifier("sid") , org.getId());
+		test.assertIsEquals(new MockId("hey"), org.getType());
+		test.assertIsEquals(new MockId("sid") , org.getId());
 		
 		test.assertIsEquals(mutant, org);
-		test.assertIsEquals("Organization [name=someName,type=LongIdentifier [id=132]" +
-				",id=StringIdentifier [key=sid],customInfo=null,storageInfo=SimpleStorageInfo[bar]]", org.toString());
-		test.assertIsEquals("OrganizationMutant [name=someName,type=LongIdentifier [id=132]" +
-				",id=StringIdentifier [key=sid],customInfo=null,storageInfo=SimpleStorageInfo[bar]]", mutant.toString());
+		test.assertIsEquals("Organization [name=someName,type=MockId [id=hey]" +
+				",id=MockId [id=sid],customInfo=null,storageInfo=SimpleStorageInfo[bar]]", org.toString());
+		test.assertIsEquals("OrganizationMutant [name=someName,type=MockId [id=hey]" +
+				",id=MockId [id=sid],customInfo=null,storageInfo=SimpleStorageInfo[bar]]", mutant.toString());
 	}
 }
