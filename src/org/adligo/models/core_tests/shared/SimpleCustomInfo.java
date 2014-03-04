@@ -13,6 +13,11 @@ public class SimpleCustomInfo implements I_CustomInfo {
 	}
 	
 	@Override
+	public String toString() {
+		return "SimpleCustomInfo [foo=" + foo + "]";
+	}
+
+	@Override
 	public void isValid() throws ValidationException {
 		if (StringUtils.isEmpty(foo)) {
 			throw new ValidationException(FOO_MAY_NOT_BE_EMPTY,I_CustomInfo.IS_VALID);
