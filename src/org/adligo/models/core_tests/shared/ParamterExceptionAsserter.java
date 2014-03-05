@@ -6,7 +6,7 @@ import org.adligo.models.core.shared.I_StorageIdentifier;
 import org.adligo.models.core.shared.InvalidParameterException;
 import org.adligo.models.core_tests.shared.assertions.IPEExceptionAsserter;
 import org.adligo.tests.ATest;
-import org.adligo.tests.I_Test;
+import org.adligo.tests.shared.I_Test;
 
 public class ParamterExceptionAsserter {
 

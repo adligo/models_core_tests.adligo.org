@@ -3,7 +3,7 @@ package org.adligo.models.core_tests.shared.assertions;
 import org.adligo.models.core.shared.AddressMutant;
 import org.adligo.models.core.shared.InvalidParameterException;
 import org.adligo.models.core.shared.ModelsCoreEnglishConstants;
-import org.adligo.tests.I_Test;
+import org.adligo.tests.shared.I_Test;
 
 public class AddressAssertions {
 

@@ -8,7 +8,7 @@ import org.adligo.models.core.shared.ValidationException;
 import org.adligo.models.core.shared.util.DateRange;
 import org.adligo.models.core.shared.util.DateRangeMutant;
 import org.adligo.models.core_tests.shared.assertions.IPEExceptionAsserter;
-import org.adligo.tests.I_Test;
+import org.adligo.tests.shared.I_Test;
 
 public class DateRangeAssertions {
 	public static void assertMutations(String prefix, I_Test test) throws Exception {

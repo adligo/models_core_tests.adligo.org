@@ -6,7 +6,7 @@ import org.adligo.models.core.shared.Organization;
 import org.adligo.models.core.shared.OrganizationMutant;
 import org.adligo.models.core.shared.SimpleStorageInfo;
 import org.adligo.models.core_tests.shared.MockId;
-import org.adligo.tests.I_Test;
+import org.adligo.tests.shared.I_Test;
 
 public class OrganizationAssertions {
 

@@ -10,7 +10,7 @@ import org.adligo.models.core.shared.User;
 import org.adligo.models.core.shared.UserMutant;
 import org.adligo.models.core.shared.util.StorageIdentifierValidator;
 import org.adligo.models.core_tests.shared.MockId;
-import org.adligo.tests.I_Test;
+import org.adligo.tests.shared.I_Test;
 
 public class UserAssertions {
 
