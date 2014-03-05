@@ -114,7 +114,6 @@ public class OrganizationAssertions {
 		test.assertIsNull(org.getId());
 		
 		mutant.setId(new MockId("sid"));
-		mutant.setVersion(0);
 		mutant.setStorageInfo(new SimpleStorageInfo("bar"));
 		
 		org = new Organization(mutant);
