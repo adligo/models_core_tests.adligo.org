@@ -17,3 +17,5 @@ Date,Package,Coverage,Instructions
 2/12/2014,org.adligo.models.shared.util,63.1%,504
 2/19/2014,org.adligo.models.shared,65.4%,4609
 2/19/2014,org.adligo.models.shared.util,62.1%,504
+3/5/2014,org.adligo.models.core.shared,61.5%,4761
+3/5/2014,org.adligo.models.core.shared.util,61.4%,607
