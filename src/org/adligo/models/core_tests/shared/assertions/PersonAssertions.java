@@ -115,19 +115,6 @@ public class PersonAssertions {
 	public static void assertConstructors(I_Test test, String prefix) throws Exception {
 		PersonMutant mutant = new PersonMutant();
 		
-		InvalidParameterException ex = null;
-		try {
-			new Person(mutant);
-		} catch (Exception e) {
-			ex = IPEExceptionAsserter.isIPE(e, test);
-		}
-		test.assertIsNotNull(ex);
-		test.assertIsEquals(PersonMutant.PERSON, ex.getMethodName());
-		test.assertIsEquals(
-				prefix + ModelsCoreEnglishConstants.PERSON_A_NAME_IS_REQUIRED,
-				ex.getMessage());
-		
-		
 		mutant.setLast_name("someName");
 		mutant.setFirst_name("someFirstName");
 		mutant.setMiddle_name("someMiddleName");
