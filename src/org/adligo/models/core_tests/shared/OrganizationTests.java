@@ -1,7 +1,7 @@
 package org.adligo.models.core_tests.shared;
 
 import org.adligo.models.core.shared.ModelsCoreRegistry;
-import org.adligo.models.core.shared.Organization;
+import org.adligo.models.core.shared.Org;
 import org.adligo.models.core_tests.shared.assertions.OrganizationAssertions;
 import org.adligo.tests.ATest;
 import org.adligo.xml_io_tests.shared.IsXmlIoSerializable;
@@ -25,6 +25,6 @@ public class OrganizationTests extends ATest {
 	}
 	
 	public void testSerialization() throws Exception {
-		IsXmlIoSerializable.isXmlIoSerializable(Organization.class);
+		IsXmlIoSerializable.isXmlIoSerializable(Org.class);
 	}
 }

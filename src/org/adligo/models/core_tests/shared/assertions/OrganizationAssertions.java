@@ -2,8 +2,8 @@ package org.adligo.models.core_tests.shared.assertions;
 
 import org.adligo.models.core.shared.InvalidParameterException;
 import org.adligo.models.core.shared.ModelsCoreEnglishConstants;
-import org.adligo.models.core.shared.Organization;
-import org.adligo.models.core.shared.OrganizationMutant;
+import org.adligo.models.core.shared.Org;
+import org.adligo.models.core.shared.OrgMutant;
 import org.adligo.models.core.shared.SimpleStorageInfo;
 import org.adligo.models.core_tests.shared.MockId;
 import org.adligo.tests.shared.I_Test;
@@ -11,7 +11,7 @@ import org.adligo.tests.shared.I_Test;
 public class OrganizationAssertions {
 
 	public static void assertMutators(I_Test test, String prefix) throws Exception {
-		OrganizationMutant mutant = new OrganizationMutant();
+		OrgMutant mutant = new OrgMutant();
 		
 		InvalidParameterException ex = null;
 		try {
@@ -20,7 +20,7 @@ public class OrganizationAssertions {
 			ex = IPEExceptionAsserter.isIPE(e, test);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(OrganizationMutant.SET_NAME, ex.getMethodName());
+		test.assertIsEquals(OrgMutant.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_NAME,
 				ex.getMessage());
@@ -32,7 +32,7 @@ public class OrganizationAssertions {
 			ex = IPEExceptionAsserter.isIPE(e, test);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(OrganizationMutant.SET_NAME, ex.getMethodName());
+		test.assertIsEquals(OrgMutant.SET_NAME, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_NAME,
 				ex.getMessage());
@@ -44,7 +44,7 @@ public class OrganizationAssertions {
 			ex = IPEExceptionAsserter.isIPE(e, test);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(OrganizationMutant.SET_TYPE, ex.getMethodName());
+		test.assertIsEquals(OrgMutant.SET_TYPE, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_TYPE,
 				ex.getMessage());
@@ -56,7 +56,7 @@ public class OrganizationAssertions {
 			ex = IPEExceptionAsserter.isIPE(e, test);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(OrganizationMutant.SET_TYPE, ex.getMethodName());
+		test.assertIsEquals(OrgMutant.SET_TYPE, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_TYPE,
 				ex.getMessage());
@@ -80,16 +80,16 @@ public class OrganizationAssertions {
 	
 	public static void assertConstructors(I_Test test, String prefix) throws Exception {
 		
-		OrganizationMutant mutant = new OrganizationMutant();
+		OrgMutant mutant = new OrgMutant();
 		
 		InvalidParameterException ex = null;
 		try {
-			new Organization(mutant);
+			new Org(mutant);
 		} catch (Exception e) {
 			ex = IPEExceptionAsserter.isIPE(e, test);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(OrganizationMutant.ORGANIZAITION, ex.getMethodName());
+		test.assertIsEquals(OrgMutant.ORGANIZAITION, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_NAME,
 				ex.getMessage());
@@ -97,18 +97,18 @@ public class OrganizationAssertions {
 		mutant.setName("someName");
 		ex = null;
 		try {
-			new Organization(mutant);
+			new Org(mutant);
 		} catch (Exception e) {
 			ex = IPEExceptionAsserter.isIPE(e, test);
 		}
 		test.assertIsNotNull(ex);
-		test.assertIsEquals(OrganizationMutant.ORGANIZAITION, ex.getMethodName());
+		test.assertIsEquals(OrgMutant.ORGANIZAITION, ex.getMethodName());
 		test.assertIsEquals(
 				prefix + ModelsCoreEnglishConstants.ORG_EMPTY_TYPE,
 				ex.getMessage());
 		
 		mutant.setType(new MockId("hey"));
-		Organization org = new Organization(mutant);
+		Org org = new Org(mutant);
 		test.assertIsEquals("someName", org.getName());
 		test.assertIsEquals(new MockId("hey"), org.getType());
 		test.assertIsNull(org.getId());
@@ -116,7 +116,7 @@ public class OrganizationAssertions {
 		mutant.setId(new MockId("sid"));
 		mutant.setStorageInfo(new SimpleStorageInfo("bar"));
 		
-		org = new Organization(mutant);
+		org = new Org(mutant);
 		test.assertIsEquals("someName", org.getName());
 		test.assertIsEquals(new MockId("hey"), org.getType());
 		test.assertIsEquals(new MockId("sid") , org.getId());
