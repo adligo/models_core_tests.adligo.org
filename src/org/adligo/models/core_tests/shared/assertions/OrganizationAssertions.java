@@ -122,9 +122,9 @@ public class OrganizationAssertions {
 		test.assertIsEquals(new MockId("sid") , org.getId());
 		
 		test.assertIsEquals(mutant, org);
-		test.assertIsEquals("Organization [name=someName,type=MockId [id=hey]" +
+		test.assertIsEquals("Org [name=someName,type=MockId [id=hey]" +
 				",id=MockId [id=sid],customInfo=null,storageInfo=SimpleStorageInfo[bar]]", org.toString());
-		test.assertIsEquals("OrganizationMutant [name=someName,type=MockId [id=hey]" +
+		test.assertIsEquals("OrgMutant [name=someName,type=MockId [id=hey]" +
 				",id=MockId [id=sid],customInfo=null,storageInfo=SimpleStorageInfo[bar]]", mutant.toString());
 	}
 }
