@@ -6,7 +6,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/i_util"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/models_core.adligo.org"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/params.adligo.org"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/tests"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/tests.adligo.org"/>
 	<classpathentry kind="var" path="MVN_REPO/org/apache/geronimo/specs/geronimo-ejb_3.1_spec/1.0/geronimo-ejb_3.1_spec-1.0.jar"/>
 	<classpathentry kind="var" path="MVN_REPO/org/apache/geronimo/specs/geronimo-jpa_2.0_spec/1.0/geronimo-jpa_2.0_spec-1.0.jar"/>
 	<classpathentry kind="var" path="MVN_REPO/com/google/gwt/gwt-user/2.5.0/gwt-user-2.5.0.jar"/>
@@ -21,8 +21,8 @@
 	<classpathentry kind="var" path="MVN_REPO/org/javassist/javassist/3.17.1-GA/javassist-3.17.1-GA.jar"/>
 	<classpathentry kind="var" path="MVN_REPO/org/jboss/logging/jboss-logging/3.1.2.GA/jboss-logging-3.1.2.GA.jar"/>
 	<classpathentry kind="var" path="MVN_REPO/org/jboss/spec/javax/transaction/jboss-transaction-api_1.1_spec/1.0.1.Final/jboss-transaction-api_1.1_spec-1.0.1.Final.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/xml_io"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/xml_io_tests"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/xml_io.adligo.org"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/xml_io_tests.adligo.org"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/i_util_tests"/>
 	<classpathentry kind="lib" path="/models_core/src"/>
 	<classpathentry kind="lib" path="/models_core_relations/src"/>
